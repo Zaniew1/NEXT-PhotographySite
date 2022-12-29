@@ -1,12 +1,28 @@
-.wrapper{
+.contact__background{
     background-image: url('../public/img/picture2.jpg');
     background-position: cover;
     background-size: cover;
     width: 100vw;
     height: 50vh;
 }
+.contact__wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: 30px auto
+}
+.contact__header{
+    font-weight: 300;
+    font-size: 38px;
+    margin: 25px auto;
+}
+.contact__contact{
+    display: flex;
+}
+
+
 @media (min-width: 768px){
-    .wrapper{
+    .contact__background{
  
         height: 100vh;
     }
