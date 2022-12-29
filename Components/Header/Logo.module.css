@@ -1,0 +1,36 @@
+.logo__name {
+  font-size: 22px;
+}
+.logo__proffesion {
+  font-size: 14px;
+  text-align: center;
+  text-transform: lowercase;
+}
+
+@media (min-width: 768px) {
+  .logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    color: #fff;
+    padding: 10px 0 15px 0;
+    transition: height ease-in-out 0.2s;
+    transition-delay: 0.3s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .logo__disabled {
+    height: 0;
+    opacity: 0;
+    border: 0;
+  }
+  .logo__name {
+    font-size: 24px;
+    padding-right: 10px;
+  }
+  .logo__proffesion {
+    font-size: 12px;
+    text-align: center;
+    text-transform: lowercase;
+  }
+}

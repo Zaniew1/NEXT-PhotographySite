@@ -1,0 +1,8 @@
+.progress__bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10px;
+    background-color: rebeccapurple;
+    margin-top: 40px 30px;
+}

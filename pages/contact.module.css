@@ -1,0 +1,15 @@
+.wrapper{
+    background-image: url('../public/img/picture2.jpg');
+    background-position: cover;
+    background-size: cover;
+    width: 100vw;
+    height: 50vh;
+}
+@media (min-width: 768px){
+    .wrapper{
+ 
+        height: 100vh;
+    }
+
+
+}

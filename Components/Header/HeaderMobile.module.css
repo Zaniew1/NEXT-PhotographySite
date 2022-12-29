@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Roboto:wght@400;500&display=swap");
+.header {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  position: fixed;
+  background-color: transparent;
+  padding: 20px 0;
+  color: #fff;
+  font-family: "Playfair", serif;
+  text-transform: uppercase;
+  z-index: 200;
+  transition: background-color 0.3s ease-in-out;
+}
+.header__active {
+  top: 0;
+  left: 0;
+  color: #000;
+  transition: color 0.5s ease-in-out;
+}
+.header__scrolled{
+  background-color: #fff;
+  color: #000;
+}
+.header__scrolled .burger{
+  background-color: #000;
+}
+.wrapper__burger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: light;
+  cursor: pointer;
+}
+.burger {
+  position: relative;
+  background-color: #fff;
+  width: 30px;
+  height: 2px;
+  margin: 10px 0 10px 10px;
+}
+
+.burger::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  transition: transform 0.3s ease;
+  background-color: currentColor;
+  transform: translateY(-7px);
+  top: calc(50% - 3px);
+}
+.burger::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  transition: transform 0.3s ease;
+  background-color: currentColor;
+  transform: translateY(12px);
+  top: calc(50% - 3px);
+}
+.burger__active {
+  background-color: #222;
+  height: 0;
+}
+.burger__active.burger::after {
+  transform: rotate(45deg);
+}
+.burger__active.burger::before {
+  transform: rotate(135deg);
+}

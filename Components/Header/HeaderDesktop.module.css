@@ -1,0 +1,27 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  z-index: 99;
+  transition: ease 0.8s;
+}
+.header__scrolled {
+  padding: 10px;
+  background-color: #fff;
+  transition: ease 0.4s;
+}
+.header__wrapper {
+  width: 70vw;
+  margin-left: 5vw;
+  margin-right: 20px;
+}
+.button__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 50px;
+}

@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Raleway:wght@200;300;400&display=swap");
+.footer {
+  display: flex;
+  background-image: url("../../public/img/footerBgc.jpg");
+  background-position: center center;
+  margin-top: 200px;
+  font-family: "Raleway";
+}
+.footer__wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  width: 90vw;
+  padding: 20px 20px;
+  margin:  60px auto;
+}
+.footer__about {
+  width: 50%;
+}
+.footer__contact {
+  width: 50%;
+}
+.footer__link {
+  color: #000;
+}
+.footer__nav {
+  display: flex;
+}
+.footer__description {
+  font-family: "Raleway";
+  font-weight: 100;
+  text-transform: uppercase;
+}
+.footer__check {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 40px auto;
+}
+.footer__copyright {
+  font-size: 14px;
+  opacity: 0.6;
+
+  text-align: center;
+}
+.footer__header {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 20px 0;
+}
+.footer__link {
+  font-weight: 400;
+  word-break: break-all;
+  font-size: 16px;
+  padding: 10px 0;
+}
+.footer__icons__wrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.footer__icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+  background-color: #000;
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+@media (min-width: 1280px){
+  .footer__wrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%
+    
+  }
+  .footer__wrapper :nth-child(4) {
+    order: 1
+    
+  }
+  .footer__description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    flex-grow: 1;
+    font-size: 20px;
+  }
+  .footer__nav {
+    width: 40%;
+    flex-grow: 1;
+    margin: 20px 10px
+  }
+ .footer__about{
+  border-right: 1px rgba(170,170,170, 0.6) solid;
+  border-left: 1px rgba(170,170,170, 0.6) solid;
+  width: 30%;
+  padding: 0 20px
+ }
+ .footer__contact{
+  width: 50%;
+  padding: 0 20px;
+  flex-grow: 1;
+ }
+ .footer__copyright{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+ }
+ .footer__pictures{
+  margin: 20px 10px
+ }
+ .footer__link{
+  padding: 10px 15px
+ }
+ .footer__icons{
+  margin: 20px 0  0 10px
+ }
+}
+@media (min-width: 1440px){
+  .footer__wrapper {
+
+    width: 70%
+    
+  }
+}
