@@ -3,7 +3,7 @@
   display: flex;
   background-image: url("../../public/img/footerBgc.jpg");
   background-position: center center;
-  margin-top: 200px;
+  
   font-family: "Raleway";
 }
 .footer__wrapper {
