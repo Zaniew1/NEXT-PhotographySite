@@ -35,3 +35,9 @@ export type SelectedPictureeToUploadType ={
 }
 export type SetFileType = (param: any) => void
 export type InputRef = string | null
+
+export type BackgroundImageProps = {
+  src: string,
+  alt:string,
+  classContainer:string
+}
