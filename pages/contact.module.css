@@ -1,31 +1,71 @@
 .contact__background{
-    background-image: url('../public/img/picture2.jpg');
-    background-position: cover;
-    background-size: cover;
+    position: relative;
     width: 100vw;
     height: 50vh;
+    margin-bottom: 10px;
 }
+
 .contact__wrapper{
     display: flex;
     flex-direction: column;
     width: 95%;
-    margin: 30px auto
+    margin: 15px auto;
+    position: static
 }
 .contact__header{
     font-weight: 300;
     font-size: 38px;
-    margin: 25px auto;
+    margin: 5px 0 25px 0 ;
+}
+.contact__description{
+    font-family: 'lato', sans-serif;
+    text-align: justify;
 }
 .contact__contact{
     display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 1px solid rgba(0,0,0,0.1)
+
 }
+.contact__wrap{
+    margin: 30px 20px 20px 0;
 
-
+}
+.contact__paragraph{
+    color: rgba(0,0,0,0.4);
+    font-size: 18px;
+    margin: 5px 0
+}
+.contact__content{
+    color: rgba(0,0,0,1);
+    font-weight: bold;
+    letter-spacing: 0.4px;
+}
 @media (min-width: 768px){
     .contact__background{
- 
+        position: relative;
         height: 100vh;
     }
+    .contact__wrapper{
+        padding: 35px;
+        background-color: #fff;
+        position: absolute;
+        top: 15%;
+        right: 0;
+        width: 70%;
+        max-width: 700px
+    }
 
+}
+@media (min-width: 1280px){
+    .contact__background{
+        position: relative;
+        height: 100vh;
+    }
+    .contact__wrapper{
 
+        max-width: 800px
+    }
 }
