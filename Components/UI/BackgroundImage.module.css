@@ -1,0 +1,16 @@
+
+.background__image{
+    background-position: cover;
+    background-size: cover;
+    
+    height: 100%;
+}
+.background__paragraph{
+    position: absolute;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 38px;
+    width: 90%;
+    top: 80%;
+}
