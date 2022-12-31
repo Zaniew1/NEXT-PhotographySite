@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;700&display=swap');
+
 .about__background{
     height: 100vh;
     position: relative;
@@ -7,24 +9,15 @@
     display: flex;
     position: absolute;
     top: 85%;
+    font-family: 'Noto Serif Japanese', serif;
+    font-weight: 200;
     font-size: 38px;
     color: #fff;
     text-align: center;
     text-transform: uppercase;
     margin: 0 40px;
 }
-.about__contact__wrapper{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: #f2f0ec;
-}
-.about__contact__header{
-    font-size: 26px;
-    text-transform: uppercase;
-    margin-top: 45px;
-}
+
 @media(min-width: 768px){
     .about__greet{
         display: none;

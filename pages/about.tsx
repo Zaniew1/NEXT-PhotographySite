@@ -2,8 +2,9 @@ import { BackgroundImage } from "../Components/UI/BackgroundImage";
 import { Header } from './../Components/Header/Header';
 import { Footer} from './../Components/Footer/Footer';
 import classes from './about.module.css'
-import { ContactForm } from "../Components/Form/ContactForm";
+import { ContactFormWithText } from "../Components/Form/ContactFormWithText";
 import { AboutInformations } from "../Components/AboutPage/AboutInformations";
+import { AboutPassion } from "../Components/AboutPage/AboutPassion";
 const About = () => {
     return (
         <main>
@@ -15,10 +16,8 @@ const About = () => {
             />
               <p className={classes.about__greet}>CZEŚĆ! MAM NA IMIĘ Kamila! JESTEM FOTOGRAFEM ŚLUBNYM.</p>
             <AboutInformations/>
-            <div className={classes.about__contact__wrapper}>
-              <h2 className={classes.about__contact__header}>POROZMAWIAJMY O TWOIM WYMARZONYM WESELU!</h2>
-              <ContactForm/>
-            </div>
+            <AboutPassion/>
+           <ContactFormWithText text={'POROZMAWIAJMY O TWOIM WYMARZONYM WESELU!'}/>
           <Footer/>
         </main>
       );
