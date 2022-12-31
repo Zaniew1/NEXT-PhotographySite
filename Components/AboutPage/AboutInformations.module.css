@@ -1,46 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;700&display=swap');
+
+
 .about__wrapper{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     background-color: #fff;
+    height: 100%;
+}
+.about__overlap{
+    height: 100%;
 }
 .about__greetting{
     display: none;
-    
+    font-family: 'Noto Serif Japanese', serif;
+    font-weight: 200;
     font-size: 32px;
     color: #000;
-    text-align: center;
+    text-align: left;
     text-transform: uppercase;
-    margin: 15px 0px;
+    margin: 35px 30px;
 }
 .about__description{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 50px 30px;
+    margin: 20px 30px;
     padding-bottom: 35px;
 }
+.about__upper__paragraph{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 35px 0;
+    padding: 0 0 30px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.3)
+}
 .about__paragraph{
-    padding: 10px 0;
-    text-align: justify;
+    line-height: 1.5;
+
 }
-.about__paragraph:nth-of-type(2){
-    border-bottom: 1px solid rgba(0,0,0,0.2);
-    padding-bottom: 45px;
+.about__paragraph:nth-of-type(1){
+    padding-right: 35px;
 }
-.about__paragraph:nth-of-type(3){
-    padding-top: 25px;
-}
+
 .about__facts{
     display:flex;
     flex-wrap: wrap;
-    margin: 20px;
+    margin: 10px 30px;
     width: 100%;
 }
 .about__fact{
-    padding: 20px 0;
+    padding: 10px 0;
     width: 100%;
     height: 100%;
 }
@@ -70,31 +83,29 @@
         align-items: center;
         flex-direction: row;
         flex-wrap: wrap;
-        margin: 50px 30px;
-        padding-bottom: 35px;
+        margin: 0px 30px;
+        padding-bottom: 15px;
+    }
+    .about__upper__paragraph{
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin: 25px 0;
+        padding: 0 0 30px 0;
+        border-bottom: 1px solid rgba(0,0,0,0.3)
     }
     .about__paragraph{
+        display: flex;
         width: 45%;
+        padding: 0;
         flex-grow: 1;
-    }
-    .about__paragraph{
-        padding: 10px 15px 10px 0;
-
-    }
- 
-    .about__paragraph:nth-of-type(3){
-        border-top: 1px solid rgba(0,0,0,0.2);
     }
     .about__paragraph:nth-of-type(2){
         padding-bottom: 0;
-        border: none
     }
 
-    .about__fact:nth-of-type(odd){
-        border-right: 1px solid rgba(0,0,0,0.2)
-    }
     .about__fact:nth-of-type(2){
-        padding: 20px 25px;
+        padding: 10px 25px;
 
     }
     .about__fact{
@@ -104,9 +115,23 @@
         margin: 0 20px 0 20px
     }
 }
+@media(min-width: 850px){
+    .about__description{
+
+        margin: 60px 30px;
+    } 
+}
+@media(min-width: 1000px){
+   .about__greetting{
+    font-size: 42px;
+   }
+}
 @media(min-width: 1280px){
 .about__overlap{
     max-width: 600px;
     margin: 0 50px 0 50px
 }
+.about__greetting{
+    font-size: 52px;
+   }
 }
