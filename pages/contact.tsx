@@ -9,7 +9,7 @@ import Image from 'next';
 const Contact:React.FC = (props) => { return (
     <main>
       <Header/>
-      <BackgroundImage classContainer={classes.contact__background} src={'/img/3.jpg'} alt={'Zdjęcie przedstawiające zakochaną parę'} text={'asd'}/>
+      <BackgroundImage classContainer={classes.contact__background} src={'/img/3.jpg'} alt={'Zdjęcie przedstawiające zakochaną parę'} />
      <section className={classes.contact__wrapper}>
       <h2 className={classes.contact__header}>
         KONTAKT
