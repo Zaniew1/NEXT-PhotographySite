@@ -20,7 +20,7 @@ const Contact:React.FC = (props) => { return (
         <div  className={classes.contact__contact}>
           <div className={classes.contact__wrap}>
             <p className={classes.contact__paragraph}>Email</p>
-            <p className={classes.contact__content}>ahjbsdiasd@gmail.com</p>
+            <p className={classes.contact__content}>m.zaniewski1995@gmail.com</p>
           </div>
           <div className={classes.contact__wrap}>
             <p className={classes.contact__paragraph}>Telefon</p>
