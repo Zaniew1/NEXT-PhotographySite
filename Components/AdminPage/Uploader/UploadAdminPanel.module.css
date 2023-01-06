@@ -1,0 +1,21 @@
+.uploader{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    background-color: #eee;
+    height: 100vh;
+}
+.uploader__header{
+    margin: 10px 0;
+}
+.uploader__paragraph{
+    margin: 10px  0 50px 0;
+}
+.uploader__wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
