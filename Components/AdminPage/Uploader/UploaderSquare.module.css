@@ -1,0 +1,18 @@
+.uploader__square{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    height: 20vw;
+    text-align: center;
+    border: 1px solid #000;
+    margin: 20px;
+    background-color: #fff;
+    font-size: 12px;
+    padding: 0 20px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+.uploader__square:hover{
+    transform: scale(1.1)
+}
