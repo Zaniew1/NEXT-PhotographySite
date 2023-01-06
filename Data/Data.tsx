@@ -1,4 +1,3 @@
-import classes from "../Components/Nav/NavMobile.module.css";
 export const navigation = [
   {
     text: "Oferta",
@@ -28,3 +27,14 @@ export const navigationPictures = [
     path: "/gallery",
   },
 ];
+export const uploaderEdit=[{
+  text: "Cennik",
+},{
+  text: "Zdjęcia w sliderze na stronie głównej",
+},{
+  text: "Zdjęcia w galerii",
+},{
+  text: "Zdjęcia w portfolio ślubnym",
+},{
+  text: "Opinie",
+}];
