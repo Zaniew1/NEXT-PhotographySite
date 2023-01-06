@@ -46,7 +46,7 @@
 @media (min-width: 768px){
     .contact__background{
         position: relative;
-        height: 100vh;
+        height: 120vh;
     }
     .contact__wrapper{
         padding: 35px;
@@ -55,14 +55,14 @@
         top: 15%;
         right: 0;
         width: 70%;
-        max-width: 700px
+        max-width: 700px;
     }
 
 }
 @media (min-width: 1280px){
     .contact__background{
         position: relative;
-        height: 100vh;
+        height: 120vh;
     }
     .contact__wrapper{
 
