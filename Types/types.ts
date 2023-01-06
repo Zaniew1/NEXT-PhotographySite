@@ -12,7 +12,7 @@ export type UiContextType = {
   desktopResolution: boolean;
   dropDownNav: (dropNav: dropDownNavType) => void;
 };
-export type UIContextPropsType = {
+export type ContextPropsType = {
   children: React.ReactNode
 }
 export type UploadProgressType = number
@@ -40,4 +40,8 @@ export type BackgroundImageProps = {
   src: string,
   alt:string,
   classContainer:string
+}
+export type AuthContextType = {
+  loggedIn: boolean,
+  loggedInFunction: (logged: boolean) => void,
 }
