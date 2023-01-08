@@ -1,5 +1,5 @@
-import classes from './ProceChanger.module.css';
-export const PriceChanger = () => {
+import classes from './MainSliderChanger.module.css';
+export const MainSliderChanger = () => {
     return (
         <div>
             

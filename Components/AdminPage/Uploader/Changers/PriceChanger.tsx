@@ -1,4 +1,4 @@
-import classes from './ProceChanger.module.css';
+import classes from './PriceChanger.module.css';
 export const PriceChanger = () => {
     return (
         <div>
