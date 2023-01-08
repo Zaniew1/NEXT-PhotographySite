@@ -9,13 +9,21 @@
     padding: 10px
 }
 .opinion__input{
-    width: 200px;
+    padding: 0 10px;
+    word-wrap: break-word;
+    width: 250px;
     height: 30px;
     border-radius: 5px;
     border: 1px solid #000;
     background-color: transparent;
 }
-.opinion__input:nth-of-type(1){
+.opinion__input:nth-of-type(2){
+    height: 150px;
+    text-align: justify;
+   
+
+}
+.opinion__input:nth-of-type(3){
     border: none
 }
 .opinion__button{
