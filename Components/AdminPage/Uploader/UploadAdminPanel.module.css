@@ -19,3 +19,11 @@
     align-items: center;
     flex-wrap: wrap;
 }
+.uploader__back{
+    position:fixed;
+    top: 10%;
+    right: 15%;
+    width: 30px;
+    height: 30px;
+    background-color: #000;
+}
