@@ -6,7 +6,7 @@ export const AuthContext = React.createContext<AuthContextType>({
 });
 
 export const AuthContextProvider = (props: ContextPropsType) => {
-  const [loggedIn, setloggedIn] = useState<boolean>(false);
+  const [loggedIn, setloggedIn] = useState<boolean>(true);
   return (
     <AuthContext.Provider
       value={{
