@@ -1,22 +1,21 @@
 import {useState, useEffect} from 'react';
 import {firebaseFirestore} from '../Firebase/firebase-config'
-import { collection, query, getDocs, doc} from "firebase/firestore";
-export type  PicturesFromFirebase = [{}]
-export const useFirestoreDatabase = (pictures: string) => {
-    const [docs, setDocs] = useState<PicturesFromFirebase>([{}]);
+import {  doc, setDoc } from "firebase/firestore"; 
 
-    useEffect( (): any => {
-        const getData = async ()=>{
-            const allPictures = query(collection(firebaseFirestore, pictures))
-            let documents: PicturesFromFirebase = [{}]
-            const snapshot = await getDocs(allPictures);
-            snapshot.forEach((doc)=>{
-                documents.push({...doc.data(), id: doc.id})
-            })
-            setDocs(documents)
+export const useFirestoreDatabase = (dataLocation:string, passedProperties: {}, name:string) => {
+    const [succesfullUpload, setSuccesfullUpload] = useState<boolean>(false)
+    const [error, setError] = useState<boolean>(false)
+   useEffect( ()=>{
+    const sendData = async () => {
+        try{
+                await setDoc(doc(firebaseFirestore, dataLocation, name ), passedProperties);
+                setSuccesfullUpload(true);
+        }catch(err){
+            console.log(err)
+            setError(true)
         }
-        return () => getData();
-        
-    }, [pictures])
-    return {docs}
+    }
+   passedProperties && dataLocation && name && sendData();
+   },[passedProperties, dataLocation,name])
+   return {succesfullUpload, error}
 }
