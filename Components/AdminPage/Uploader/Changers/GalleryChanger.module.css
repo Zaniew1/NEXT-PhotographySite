@@ -1,0 +1,49 @@
+.gallery__wrapper{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.gallery__label{
+    font-size: 16px;
+    padding: 10px
+}
+.gallery__input{
+    padding: 0 10px;
+    word-wrap: break-word;
+    width: 250px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    background-color: transparent;
+}
+.gallery__select{
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.gallery__button{
+    margin: 20px; 
+    width: 120px;
+    outline: none;
+    background-color:#333;
+    border: 1px solid #000;
+    border-radius: 5px;
+    color: #fff;
+    height: 25px;
+    cursor: pointer;
+}
+.gallery__button:hover{
+    background-color:#777;
+}
+.gallery__success{
+    text-align: center;
+    transition: 0.3s ease-in;
+    color:  rgba(24, 168, 24, 0.829)
+}
+.gallery__error{
+    text-align: center;
+    transition: 0.3s ease-in;
+    color:  red
+}

@@ -30,9 +30,23 @@
     margin: 20px; 
     width: 120px;
     outline: none;
-    background-color:#777;
+    background-color:#333;
     border: 1px solid #000;
     border-radius: 5px;
     color: #fff;
     height: 25px;
+    cursor: pointer;
+}
+.opinion__button:hover{
+    background-color:#777;
+}
+.opinion__success{
+    text-align: center;
+    transition: 0.3s ease-in;
+    color:  rgba(24, 168, 24, 0.829)
+}
+.opinion__error{
+    text-align: center;
+    transition: 0.3s ease-in;
+    color:  red
 }

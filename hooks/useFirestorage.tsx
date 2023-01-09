@@ -4,6 +4,7 @@ import {useState, useEffect,} from 'react';
 
 export const useFirestorage = (pictureFile:any) => {
     const [pictureURL, setPictureURL] = useState<string>('');
+    const [succesPictureUpload, setSuccesPictureUpload] = useState<boolean>(false);
     useEffect(()=>{
         const uploadFile = () => {
             const name = new Date().getTime() + String(pictureFile);
@@ -27,11 +28,12 @@ export const useFirestorage = (pictureFile:any) => {
                 getDownloadURL(uploadTask.snapshot.ref).then((downloadURL)=>{
                     setPictureURL(downloadURL);
                     console.log('Upload is Done')
+                    setSuccesPictureUpload(true)
                 });
             });
         }
         pictureFile&& uploadFile();
     },[pictureFile])
-    return pictureURL
+    return {pictureURL, succesPictureUpload}
 }
 

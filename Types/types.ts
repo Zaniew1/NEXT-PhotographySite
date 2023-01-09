@@ -45,3 +45,4 @@ export type AuthContextType = {
   loggedIn: boolean,
   loggedInFunction: (logged: boolean) => void,
 }
+export type OpinionPropertiesToSendType = {name:string, url: string, description:string} | {}
