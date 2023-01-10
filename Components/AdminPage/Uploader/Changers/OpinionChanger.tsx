@@ -42,7 +42,7 @@ export const OpinionChanger = () => {
         fileRef.current.value = '';
 
     }
-    const {succesfullUpload, error} = useFirestoreDatabase(databaseLocation,propertiesToSend, nameOfData)
+    const {succesfullUpload, error} = useFirestoreDatabase(databaseLocation,propertiesToSend)
     return (
         <div className={classes.opinion}>
             {succesfullUpload &&  <p className={classes.opinion__success}>Udało się dodać nową opinię ! </p>}

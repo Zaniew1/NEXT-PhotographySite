@@ -1,5 +1,6 @@
 import classes from './GalleryChanger.module.css';
-import { useFirestoreDatabase } from '../../../../hooks/useFirestoreDatabase';
+import { useFirestoreDatabase} from '../../../../hooks/useFirestoreDatabase';
+import { useFetchFirebaseDatabase } from '../../../../hooks/useFetchFirebaseDatabase'
 import { useState, useRef } from 'react';
 import { MutableRefObject } from 'react';
 import { useFirestorage } from '../../../../hooks/useFirestorage';
@@ -41,10 +42,10 @@ export const GalleryChanger = () => {
         })
         fileRef.current.value = '';
     }
+    const fetchedProperties = useFetchFirebaseDatabase('Gallery');
+    console.log(fetchedProperties)
 
-
-
-    const {succesfullUpload, error} = useFirestoreDatabase(databaseLocation,propertiesToSend, nameOfData)
+    const {succesfullUpload, error} = useFirestoreDatabase(databaseLocation,propertiesToSend)
 
     return (
         <div className={classes.gallery}>
@@ -52,13 +53,13 @@ export const GalleryChanger = () => {
             {error && <p className={classes.gallery__success}>Niestety wystąpił błąd ! </p>}
             <form className={classes.gallery__wrapper} onSubmit={addNewGalleryHandler}>
                 <label className={classes.gallery__label} htmlFor='size'>Rozmiar zdjęcia w galerii</label>
-                <select className={classes.gallery__select} ref={sizeRef} name="size" id="size">
+                <select className={classes.gallery__select} ref={sizeRef} name="size" id="size" required>
                     <option value={0} >Małe</option>
                     <option value={1}>Duże</option>
                     <option value={2}>Bardzo Duże</option>
                 </select>
                 <label className={classes.gallery__label} htmlFor='orientation'>Orientacja Zdjęcia</label>
-                <select className={classes.gallery__select} ref={orientationRef} name="orientation" id="orientation">
+                <select className={classes.gallery__select} ref={orientationRef} name="orientation" id="orientation" required>
                     <option value={0} >Poziome</option>
                     <option value={1}>Pionowe</option>
                 </select>

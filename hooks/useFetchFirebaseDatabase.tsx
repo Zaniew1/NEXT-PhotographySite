@@ -1,17 +1,31 @@
-import { collection, getDocs } from "firebase/firestore";
+import { collection, DocumentData, getDocs, QueryDocumentSnapshot } from "firebase/firestore";
 import {firebaseFirestore} from '../Firebase/firebase-config'
-
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+type FetchedProperties = {}[]
 export const useFetchFirebaseDatabase = (collectionToFetch: string) => {
+    const [fetchedProperties, setFetchedProperties] = useState<any>()
     useEffect(()=>{
-        const arrayOfDocs = [];
         const fetchAllData = async () => {
-            const querySnapshot = await getDocs(collection(firebaseFirestore, collectionToFetch));
-            querySnapshot.forEach((doc) => {
-                console.log(doc.id, " => ", doc.data());
-            });
-        }
-        
+            try{
+                const querySnapshot = await getDocs(collection(firebaseFirestore, collectionToFetch));
+                querySnapshot.forEach((doc) => {
+                    setFetchedProperties(prevData => {
+                        return{
+                            ...prevData,
+                               
+                                id: doc.id,
+                                properties: doc.data()
+                            
 
-    },[collectionToFetch])
+                        }
+                    })
+                });
+            }catch(err){
+                console.log(err)
+            }
+            }
+            fetchAllData();
+
+    },[collectionToFetch ])
+    return fetchedProperties
 }

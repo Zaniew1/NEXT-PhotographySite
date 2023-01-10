@@ -40,7 +40,7 @@ export const MainSliderChanger = () => {
 
 
 
-    const {succesfullUpload, error} = useFirestoreDatabase(databaseLocation,propertiesToSend, nameOfData)
+    const {succesfullUpload, error} = useFirestoreDatabase(databaseLocation,propertiesToSend)
 
     return (
         <div className={classes.main}>
