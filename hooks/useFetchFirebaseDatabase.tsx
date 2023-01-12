@@ -5,26 +5,35 @@ type FetchedProperties = {}[]
 export const useFetchFirebaseDatabase = (collectionToFetch: string) => {
     const [fetchedProperties, setFetchedProperties] = useState<any>()
     useEffect(()=>{
-        const fetchAllData = async () => {
+        collectionToFetch &&  ( async () => {
             try{
                 const querySnapshot = await getDocs(collection(firebaseFirestore, collectionToFetch));
                 querySnapshot.forEach((doc) => {
-                    setFetchedProperties(prevData => {
-                        return{
-                            ...prevData,
-                               
+                    setFetchedProperties((prevState:{}[]) => {
+                        if(prevState == undefined){
+                            return[
+                                {
+                                    id: doc.id,
+                                    properties: doc.data()
+                                
+                                   }
+                            ]
+                        }else{
+                        return[
+                            ...prevState,
+                               {
                                 id: doc.id,
                                 properties: doc.data()
                             
-
-                        }
+                               }
+                        ]
+                    }
                     })
                 });
             }catch(err){
                 console.log(err)
             }
-            }
-            fetchAllData();
+            })
 
     },[collectionToFetch ])
     return fetchedProperties

@@ -1,5 +1,10 @@
 import classes from './OpinionChanger.module.css'; 
 import {  doc, setDoc } from "firebase/firestore"; 
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { useFetchFirebaseDatabase } from '../../../../hooks/useFetchFirebaseDatabase';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import { firebaseFirestore, firebaseStorage } from '../../../../Firebase/firebase-config';
 import {useRef, useState, useEffect, ChangeEvent, InputHTMLAttributes} from 'react';
@@ -11,7 +16,7 @@ import {OpinionPropertiesToSendType} from '../../../../Types/types'
 export const OpinionChanger = () => {
     // DO ZMIANY ANY ////
     const [pictureFile,setPictureFile] = useState<any>(null);
-    const [nameOfData, setNameOfData ] = useState<string>('')
+    const [isPropertiesReady, setIsPropertiesReady ] = useState<boolean>(false)
     const [propertiesToSend, setPropertiesToSend ] = useState<OpinionPropertiesToSendType>({})
     const [databaseLocation, setDatabaseLocation ] = useState<string>("Opinion")
     let namesRef = useRef() as MutableRefObject<HTMLInputElement>
@@ -31,7 +36,7 @@ export const OpinionChanger = () => {
         e.preventDefault();
         const enteredDescriptionRef: InputRef = descriptionRef.current.value.trim()
         const enteredNamesRef: InputRef = namesRef.current.value.trim();
-        setNameOfData(enteredNamesRef);
+        setIsPropertiesReady(true);
         setPropertiesToSend({
             name: enteredNamesRef,
             description: enteredDescriptionRef,
@@ -42,7 +47,12 @@ export const OpinionChanger = () => {
         fileRef.current.value = '';
 
     }
-    const {succesfullUpload, error} = useFirestoreDatabase(databaseLocation,propertiesToSend)
+    const deleteOpinionHandler = (id:string) =>{
+        console.log(id)
+    }
+    const {succesfullUpload, error} = useFirestoreDatabase(databaseLocation,propertiesToSend, isPropertiesReady);
+    const fetchedProperties = useFetchFirebaseDatabase(databaseLocation);
+    console.log(fetchedProperties)
     return (
         <div className={classes.opinion}>
             {succesfullUpload &&  <p className={classes.opinion__success}>Udało się dodać nową opinię ! </p>}
@@ -57,6 +67,17 @@ export const OpinionChanger = () => {
                 {succesPictureUpload && <p className={classes.opinion__success}> Zdjęcie gotowe do dodania !</p>}
                 <button className={classes.opinion__button} type="submit">Dodaj</button>
             </form>
+            {fetchedProperties && fetchedProperties.map((prop:{id:string, properties:{url:string,name:string}}) =>{
+                return (
+                    <div className={classes.fetched__wrapper} key={prop.id}>
+                        <p className={classes.fetched__paragraph}>{prop.properties.name}</p>
+                        <div className={classes.fetched__icons} >
+                            <div className={classes.fetched__icon}><FontAwesomeIcon icon={faTrash} /></div>
+                            <div className={classes.fetched__icon}><FontAwesomeIcon icon={faPenToSquare} /></div>
+                        </div>
+                    </div>
+                )
+            })}
         </div>
     )
 }

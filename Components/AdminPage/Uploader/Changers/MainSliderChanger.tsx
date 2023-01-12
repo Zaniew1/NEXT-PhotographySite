@@ -4,6 +4,7 @@ import { MutableRefObject } from 'react';
 import { useFirestorage } from '../../../../hooks/useFirestorage';
 import { useFirestoreDatabase } from '../../../../hooks/useFirestoreDatabase';
 import { InputRef } from '../../../../Types/types';
+import { useFetchFirebaseDatabase } from '../../../../hooks/useFetchFirebaseDatabase';
 type MainSliderPropertiesToSendType = {
     name:string,
     url: string,
@@ -11,7 +12,7 @@ type MainSliderPropertiesToSendType = {
 export const MainSliderChanger = () => {
 
     const [pictureFile,setPictureFile] = useState<any>(null);
-    const [nameOfData, setNameOfData ] = useState<string>('')
+    const [isPropertiesReady, setIsPropertiesReady ] = useState<boolean>(false)
     const [propertiesToSend, setPropertiesToSend ] = useState<MainSliderPropertiesToSendType>({})
     const [databaseLocation, setDatabaseLocation ] = useState<string>("MainSlider")
     let namesRef = useRef() as MutableRefObject<HTMLInputElement>
@@ -22,14 +23,12 @@ export const MainSliderChanger = () => {
             setPictureFile(e.target?.files[0].name)
         }
     }
-    
     // Uploadowanie zdjęcia
     const {pictureURL, succesPictureUpload} = useFirestorage(pictureFile);
-
     const addNewMainSliderHandler = async (e:React.SyntheticEvent) => {
         e.preventDefault();
         const enteredNamesRef: InputRef = namesRef.current.value.trim();
-        setNameOfData(enteredNamesRef);
+        setIsPropertiesReady(true);
         setPropertiesToSend({
             name: enteredNamesRef,
             url: pictureURL
@@ -38,9 +37,9 @@ export const MainSliderChanger = () => {
         fileRef.current.value = '';
     }
 
+    const {succesfullUpload, error} = useFirestoreDatabase(databaseLocation,propertiesToSend, isPropertiesReady)
+    const fetchedProperties = useFetchFirebaseDatabase(databaseLocation);
 
-
-    const {succesfullUpload, error} = useFirestoreDatabase(databaseLocation,propertiesToSend)
 
     return (
         <div className={classes.main}>
@@ -54,6 +53,11 @@ export const MainSliderChanger = () => {
                 {succesPictureUpload && <p className={classes.main__success}> Zdjęcie gotowe do dodania !</p>}
                 <button className={classes.main__button} type="submit">Dodaj</button>
             </form>
+            {fetchedProperties && fetchedProperties.map((prop:{id:string, properties:{url:string,name:string}}) =>{
+                return (
+                    <div key={prop.id}>{prop.properties.name}</div>
+                )
+            })}
         </div>
     )
 }

@@ -47,3 +47,9 @@
     transition: 0.3s ease-in;
     color:  red
 }
+.gallery__fetch__wrapper{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

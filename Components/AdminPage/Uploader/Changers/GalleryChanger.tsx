@@ -1,9 +1,13 @@
 import classes from './GalleryChanger.module.css';
 import { useFirestoreDatabase} from '../../../../hooks/useFirestoreDatabase';
 import { useFetchFirebaseDatabase } from '../../../../hooks/useFetchFirebaseDatabase'
+import { useContext, useCallback } from 'react';
+import { GalleryContext } from '../../../../Store/Gallery-context';
 import { useState, useRef } from 'react';
 import { MutableRefObject } from 'react';
 import { useFirestorage } from '../../../../hooks/useFirestorage';
+import Image from "next/image";
+
 import { InputRef } from '../../../../Types/types';
 
 export const GalleryChanger = () => {
@@ -14,6 +18,7 @@ export const GalleryChanger = () => {
     }|{}
     const [pictureFile,setPictureFile] = useState<any>(null);
     const [nameOfData, setNameOfData ] = useState<string>('')
+    const [isPropertiesReady, setIsPropertiesReady ] = useState<boolean>(false)
     const [propertiesToSend, setPropertiesToSend ] = useState<GalleryPropertiesToSendType>({})
     const [databaseLocation, setDatabaseLocation ] = useState<string>("Gallery")
     let orientationRef = useRef() as MutableRefObject<HTMLSelectElement>
@@ -29,23 +34,21 @@ export const GalleryChanger = () => {
     // Uploadowanie zdjęcia
     const {pictureURL, succesPictureUpload} = useFirestorage(pictureFile);
 
-    const addNewGalleryHandler = async (e:React.SyntheticEvent) => {
+    const addNewGalleryHandler = useCallback((e:React.SyntheticEvent) => {
         e.preventDefault();
+        setIsPropertiesReady(true)
         const enteredOrientationRef: number = Number(orientationRef.current.value);
         const enteredSizenRef: number = Number(sizeRef.current.value);
-        console.log(enteredOrientationRef, enteredSizenRef)
-        // setNameOfData(enteredNamesRef);
         setPropertiesToSend({
             url: pictureURL,
             size: enteredSizenRef,
             orientation: enteredOrientationRef,
         })
         fileRef.current.value = '';
-    }
-    const fetchedProperties = useFetchFirebaseDatabase('Gallery');
-    console.log(fetchedProperties)
-
-    const {succesfullUpload, error} = useFirestoreDatabase(databaseLocation,propertiesToSend)
+    }, [pictureURL]);
+    const {succesfullUpload, error} = useFirestoreDatabase(databaseLocation,propertiesToSend, isPropertiesReady);
+    const {allPictures} = useContext(GalleryContext);
+    console.log(allPictures)
 
     return (
         <div className={classes.gallery}>
@@ -68,6 +71,22 @@ export const GalleryChanger = () => {
                 {succesPictureUpload && <p className={classes.gallery__success}> Zdjęcie gotowe do dodania !</p>}
                 <button className={classes.gallery__button} type="submit">Dodaj</button>
             </form>
+            {/* {fetchedProperties && fetchedProperties.map((prop:{id:string, properties:{url:string,name:string}}) =>{
+                return (
+                    <div className={classes.gallery__fetch__wrapper} key={prop.id}>
+                        <div></div>
+                        <div></div>
+                        <Image
+                key={prop.id}
+                src={prop.properties.url}
+                alt={''}
+                layout="fill"
+                objectFit="cover"
+                className={classes.image}
+              />
+                    </div>
+                )
+            })} */}
         </div>
     )
 }
