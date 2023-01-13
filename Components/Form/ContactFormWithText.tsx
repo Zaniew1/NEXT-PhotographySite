@@ -6,7 +6,7 @@ type ContactFormWithTextType = {
 export const ContactFormWithText=(props:ContactFormWithTextType)=>{
     return(
         <div className={classes.about__contact__wrapper}>
-            <h2 className={classes.about__contact__header}>POROZMAWIAJMY O TWOIM WYMARZONYM WESELU!</h2>
+            <h2 className={classes.about__contact__header}>{props.text}</h2>
             <ContactForm/>
         </div>
         )

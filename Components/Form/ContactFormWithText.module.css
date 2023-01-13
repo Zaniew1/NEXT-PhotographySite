@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&display=swap');
 .about__contact__wrapper{
     display: flex;
     justify-content: center;
@@ -9,8 +9,8 @@
 .about__contact__header{
     font-size: 26px;
     text-transform: uppercase;
-    margin-top: 45px;
-    font-family: 'Noto Serif Japanese', serif;
+    margin-top: 65px;
+    font-family: 'Cinzel', serif;
     font-weight: 200;
     padding: 30px 30px;
     text-align: center;
