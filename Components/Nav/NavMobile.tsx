@@ -3,7 +3,7 @@ import { navigation, navigationPictures } from "../../Data/Data";
 import { BooleanElementType } from "../../Types/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFaceAngry } from "@fortawesome/free-solid-svg-icons";
-import { Button } from "../UI/Button";
+import { ButtonCalendar } from "../UI/ButtonCalendar";
 import { NavigationLinks } from "../UI/NavigationLinks";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 
@@ -48,7 +48,7 @@ export const NavMobile: React.FC<BooleanElementType> = (props): JSX.Element => {
         </ul>
       </div>
       <div className={classes.nav__date}>
-        <Button text="Sprawdź datę" fontAwesome={faCalendar} path="/contact"/>
+        <ButtonCalendar text="Sprawdź datę" fontAwesome={faCalendar} path="/contact"/>
       </div>
       <div className={classes.nav__socials}>
         <div className={classes.socials__icons}>

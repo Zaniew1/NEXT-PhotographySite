@@ -1,6 +1,6 @@
 import classes from "./Footer.module.css";
 import Link from "next/link";
-import { Button } from "../UI/Button";
+import { ButtonCalendar } from "../UI/ButtonCalendar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFaceAngry } from "@fortawesome/free-solid-svg-icons";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
@@ -53,7 +53,7 @@ export const Footer: React.FC = (props) => {
           </div>
         </div>
         <div className={classes.footer__check}>
-          <Button text="Sprawdź Datę" fontAwesome={faCalendar} path="/contact"/>
+          <ButtonCalendar text="Sprawdź Datę" fontAwesome={faCalendar} path="/contact"/>
         </div>
         <div className={classes.footer__copyright}>
           © 2022. Kamila Koziara - Fotograf ślubny
