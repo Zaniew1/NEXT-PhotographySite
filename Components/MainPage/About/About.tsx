@@ -1,6 +1,6 @@
 import classes from './About.module.css';
 import Image from "next/image";
-import { Button } from '../../UI/Button';
+import { Button } from '../../UI/ButtonCalendar';
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 export const About:React.FC = (props) => {
