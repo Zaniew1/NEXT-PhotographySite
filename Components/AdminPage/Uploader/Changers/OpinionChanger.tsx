@@ -1,13 +1,9 @@
 import classes from './OpinionChanger.module.css'; 
-import {  doc, setDoc } from "firebase/firestore"; 
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { useFetchFirebaseDatabase } from '../../../../hooks/useFetchFirebaseDatabase';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
-import { firebaseFirestore, firebaseStorage } from '../../../../Firebase/firebase-config';
-import {useRef, useState, useEffect, ChangeEvent, InputHTMLAttributes} from 'react';
+import {useRef, useState,  InputHTMLAttributes} from 'react';
 import { MutableRefObject } from "react";
 import { InputRef } from '../../../../Types/types';
 import { useFirestorage } from '../../../../hooks/useFirestorage';

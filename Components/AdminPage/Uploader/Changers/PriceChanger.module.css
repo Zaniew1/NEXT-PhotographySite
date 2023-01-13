@@ -1,0 +1,74 @@
+.price__wrapper{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.price__label{
+    font-size: 16px;
+    padding: 10px
+}
+.price__input{
+    padding: 0 10px;
+    word-wrap: break-word;
+    width: 250px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    background-color: transparent;
+}
+.price__input:nth-of-type(2){
+    height: 150px;
+    text-align: justify;
+   
+
+}
+.price__input:nth-of-type(5){
+    border: none
+}
+.price__input:nth-of-type(6){
+    border: none
+}
+.price__button{
+    margin: 20px; 
+    width: 120px;
+    outline: none;
+    background-color:#333;
+    border: 1px solid #000;
+    border-radius: 5px;
+    color: #fff;
+    height: 25px;
+    cursor: pointer;
+}
+.price__button:hover{
+    background-color:#777;
+}
+.price__success{
+    text-align: center;
+    transition: 0.3s ease-in;
+    color:  rgba(24, 168, 24, 0.829)
+}
+.price__error{
+    text-align: center;
+    transition: 0.3s ease-in;
+    color:  red
+}
+.fetched__wrapper{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #000;
+}
+
+.fetched__icons{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+}
+.fetched__icon{
+    padding: 5px
+}
