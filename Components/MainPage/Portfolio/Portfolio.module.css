@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&display=swap');
+.portfolio{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.portfolio__content{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin: 40px 0;
+    padding: 20px ;
+
+}
+.portfolio__header{
+    text-align: left;
+    font-family: 'Cinzel', serif;
+    font-weight: 500;
+    font-size: 24px;
+    padding: 20px 0 ;
+    text-transform: uppercase;
+}
+.portfolio__slider{
+    margin: auto;
+    overflow: hidden;
+    width: 90%;
+}
+.portfolio__slider__content{
+    display:flex;
+    width: 100%;
+    height: 700px;
+   
+
+}
+.portfolio__element{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/1;
+}
+.portfolio__image{
+    position: absolute;
+}
+.portfolio__navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 12;
+    font-size: 26px;
+    margin: 50px 100px;
+}
+  .portfolio__counter {
+    font-size: 16px;
+    font-weight: 600;
+    color: red;
+  }
+  .portfolio__left {
+    font-size: 2rem;
+    color: red;
+    z-index: 4;
+    cursor: pointer;
+    user-select: none;
+  }
+  .portfolio__right {
+    font-size: 2rem;
+    color: red;
+    z-index: 4;
+    cursor: pointer;
+    user-select: none;
+  }
