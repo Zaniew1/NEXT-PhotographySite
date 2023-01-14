@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&display=swap');
+.questions__wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 15px 50px 15px;
+
+}
+.questions__header{
+    font-family: 'Cinzel', serif;
+    font-weight: 500;
+    margin: 30px 0 ;
+    font-size: 28px;
+}
+.questions__image__wrap{
+    width: 100%;
+    height: 400px
+}
+.questions__paragraph{
+    padding: 10px 0;
+    font-size: 17px;
+    line-height: 1.6;
+}
+.questions__button__wrapper{
+    display:flex;
+    width: 100%;
+    justify-content: flex-start;
+    margin: 40px 0 0 40px
+}
+.questions__picture_wrapper{
+        position: relative;
+        width: 100%;
+        height: 400px;
+        margin: 30px 0 50px 0;
+        max-width: 400px;
+}
+.questions_image{
+    position: absolute;
+}

@@ -3,7 +3,9 @@ import { Footer } from '../Components/Footer/Footer';
 import { Slider } from "../Components/MainPage/Slider/Slider";
 import { About } from '../Components/MainPage/About/About';
 import { Header } from './../Components/Header/Header';
-import { ContactForm } from '../Components/Form/ContactForm';
+import { Questions } from './../Components/MainPage/Questions/Questions';
+import { ContactFormWithText } from '../Components/Form/ContactFormWithText';
+import {Portfolio} from '../Components/MainPage/Portfolio/Portfolio';
 
 
 export default function Home() {
@@ -12,7 +14,8 @@ export default function Home() {
       <Header/>
       <Slider />
       <About />
-      <ContactForm/>
+      <Portfolio/>
+      <Questions/>
       <Footer />
     </main>
   );

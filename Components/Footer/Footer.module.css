@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Raleway:wght@200;300;400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&display=swap');
 .footer {
   display: flex;
   background-image: url("../../public/img/footerBgc.jpg");
@@ -27,8 +28,9 @@
   display: flex;
 }
 .footer__description {
-  font-family: "Raleway";
-  font-weight: 100;
+  font-family: "Cinzel" , serif;
+  font-weight:400;
+  font-size: 26px;
   text-transform: uppercase;
 }
 .footer__check {
@@ -89,7 +91,7 @@
     align-items: center;
     width: 40%;
     flex-grow: 1;
-    font-size: 20px;
+    font-size: 32px;
   }
   .footer__nav {
     width: 40%;

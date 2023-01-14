@@ -10,7 +10,7 @@ export const Footer: React.FC = (props) => {
     <footer className={classes.footer}>
       <div className={classes.footer__wrapper}>
         <div className={classes.footer__description}>
-          <h2>jestem artystką, która tworzy piekne i romantyczne portrety!</h2>
+          <p>jestem artystką, która tworzy piekne i romantyczne portrety!</p>
         </div>
         <div className={classes.footer__pictures}>
           <p className={classes.footer__header}>Portfolio</p>
