@@ -4,7 +4,7 @@ import { Slider } from "../Components/MainPage/Slider/Slider";
 import { About } from '../Components/MainPage/About/About';
 import { Header } from './../Components/Header/Header';
 import { Questions } from './../Components/MainPage/Questions/Questions';
-import { ContactFormWithText } from '../Components/Form/ContactFormWithText';
+import {Opinions} from '../Components/MainPage/Opinions/Opinions'
 import {Portfolio} from '../Components/MainPage/Portfolio/Portfolio';
 
 
@@ -15,6 +15,7 @@ export default function Home() {
       <Slider />
       <About />
       <Portfolio/>
+      <Opinions/>
       <Questions/>
       <Footer />
     </main>
