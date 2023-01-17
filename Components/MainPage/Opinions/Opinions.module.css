@@ -96,12 +96,14 @@
     position: absolute;
     text-align: left;
     top: 70%;
+    width: 50%;
     font-family:'Lato' ,serif;
     letter-spacing: 0.5px;
     line-height: 1.3;
     color: #fff;
     z-index: 20;
     padding: 0 15px;
+    overflow-wrap: break-word;
   }
   .opinions__names{
     position: absolute;
