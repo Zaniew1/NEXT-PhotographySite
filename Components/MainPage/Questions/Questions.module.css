@@ -1,16 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&display=swap');
 .questions__wrapper{
+    width: 100%;
+}
+.questions__width{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0 15px 50px 15px;
-
+    width: 100%;
 }
-.questions__header{
+.questions__header__mobile{
     font-family: 'Cinzel', serif;
     font-weight: 500;
-    margin: 30px 0 ;
+    margin: 20px 0 ;
+    font-size: 22px;
+}
+.questions__header__desktop{
+    display: none;
+    font-family: 'Cinzel', serif;
+    font-weight: 500;
+    margin: 20px 0 ;
     font-size: 28px;
 }
 .questions__image__wrap{
@@ -19,22 +29,68 @@
 }
 .questions__paragraph{
     padding: 10px 0;
-    font-size: 17px;
-    line-height: 1.6;
+    font-size: 13px;
+    font-family: 'Lato', sans-serif;
+    line-height: 1.7;
 }
 .questions__button__wrapper{
     display:flex;
     width: 100%;
     justify-content: flex-start;
-    margin: 40px 0 0 40px
+    margin: 40px 0 0 0;
 }
 .questions__picture_wrapper{
         position: relative;
-        width: 100%;
-        height: 400px;
+        width: 90vw;
+        height: 90vw;
         margin: 30px 0 50px 0;
-        max-width: 400px;
 }
 .questions_image{
     position: absolute;
+}
+
+@media(min-width: 769px){
+    .questions__header__mobile{
+        display:none
+    }
+    .questions__header__desktop{
+        display: flex;
+    }
+    .questions__width{
+        flex-direction: row;
+        justify-content: space-around;
+        margin: 0 15px 50px 15px;
+    }
+    .questions__paragraph{
+        padding:  0;
+        font-size: 13px;
+        font-family: 'Lato', sans-serif;
+        line-height: 1.7;
+    }
+    .questions__content{
+        max-width: 350px;
+        margin: 250px 40px 50px 0;
+    }
+    .questions__picture_wrapper{
+        width: 25vw;
+        height: 25vw;
+        margin: 250px 0 50px 40px;
+    }
+
+@media(min-width: 1280px){
+    .questions__width{
+        margin: 0 auto;
+        max-width: 1000px;
+    }
+    .questions__content{
+        max-width: 350px;
+        margin: 350px 40px 50px 0;
+    }
+    .questions__picture_wrapper{
+        width: 15vw;
+        height: 15vw;
+        margin: 350px 0 50px 40px;
+    }
+
+}
 }
