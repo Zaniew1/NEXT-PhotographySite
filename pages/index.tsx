@@ -13,10 +13,10 @@ export default function Home() {
     <main>
       <Header/>
       <Slider />
-      {/* <About /> */}
-      {/* <Portfolio/> */}
+      <About />
+      <Portfolio/>
       <Opinions/>
-      {/* <Questions/> */}
+      <Questions/>
       <Footer />
     </main>
   );

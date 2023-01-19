@@ -3,6 +3,7 @@ import classes from './Opinions.module.css';
 import Image from 'next/image';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faAngleLeft } from "@fortawesome/free-solid-svg-icons"
+import asd from '../../../public/img/quote-mark.svg'
 const opinionsSlider = [{
     src: '/../public/img/picture2.jpg',
     path: '',
@@ -68,36 +69,46 @@ export const Opinions:React.FC = () => {
                   return(   
                     <>
                     <article className={`${classes.opinions__element} ${position}`} key={el.src}>
-                      <p className={classes.opinions__text}>&quot;{opinionsSlider[indexSlide].comment} &quot;</p>
-                      <p className={classes.opinions__names}>{el.text}</p>
+                      <div className={classes.opinions__feedback}>
+                        <p className={classes.opinions__text}>&quot;{opinionsSlider[indexSlide].comment} &quot;</p>
+                        <p className={classes.opinions__names}>{el.text}</p>
+                      </div>
+                      <div className={classes.opinions__navigation}>
+                        <div className={classes.opinions__title}>opinie</div>
+                        <div className={classes.opinions__nav}>
+                          <FontAwesomeIcon
+                          icon={faAngleLeft}
+                          className={classes.opinions__left}
+                          onClick={() => setIndex(index - 1)}
+                          />
+                          <div className={classes.opinions__counter}>
+                          {index + 1} / {slide.length}
+                          </div>
+                          <FontAwesomeIcon
+                          icon={faAngleRight}
+                          className={classes.opinions__right}
+                          onClick={() => setIndex(index + 1)}
+                          />
+                      </div>
+                      </div>
+                      <a  href={el.path}>
                       <Image
+                      
                           src={el.src}
                           alt='Kamila Koziara'
                           layout="fill"
                           objectFit="cover"
                           className={classes.opinions__image}
+                          quality={80}
                           />
+                          </a>
                         </article>
                         
                         </>
                         )
                         
                 })}
-                <div className={classes.opinions__navigation}>
-                    <FontAwesomeIcon
-                    icon={faAngleLeft}
-                    className={classes.opinions__left}
-                    onClick={() => setIndex(index - 1)}
-                    />
-                    <div className={classes.opinions__counter}>
-                    {index + 1} / {slide.length}
-                    </div>
-                    <FontAwesomeIcon
-                    icon={faAngleRight}
-                    className={classes.opinions__right}
-                    onClick={() => setIndex(index + 1)}
-                    />
-                </div>
+               
                </div>
                
               
