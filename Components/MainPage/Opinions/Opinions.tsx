@@ -93,7 +93,6 @@ export const Opinions:React.FC = () => {
                       </div>
                       <a  href={el.path}>
                       <Image
-                      
                           src={el.src}
                           alt='Kamila Koziara'
                           layout="fill"

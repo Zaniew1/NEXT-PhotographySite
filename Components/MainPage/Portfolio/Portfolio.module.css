@@ -5,6 +5,12 @@
     flex-direction: column;
     width: 90vw;
 }
+.portfolio__wrapper{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 .portfolio__content{
     display: flex;
     justify-content: flex-start;
