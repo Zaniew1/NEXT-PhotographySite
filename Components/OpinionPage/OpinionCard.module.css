@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&display=swap');
+.card{
+    position: relative;
+}
+.card__overlapper{
+    width: 100%;
+    height: 100%
+}
+.card__wrapper{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+    position: relative;
+    height: 100vh;
+    padding: 15px 20px;
+}
+
+.card__header{
+    color: #fff;
+    font-family: 'Cinzel', serif;
+    font-weight: 400;
+    z-index: 3;
+
+
+}
+.card__paragraph{
+    font-family: 'lato', sans-serif;
+    color: #fff;
+    z-index: 3;
+    margin: 30px 0 
+}
+.card__names{
+    margin: 0 0 80px 0 ;
+    color: #fff;
+    z-index: 3;
+    
+}
+.card__image{
+    background-attachment: fixed;
+    overflow:hidden;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+    position: relative;
+    height: 90vh;
+    background-size: cover;
+    background-attachment: fixed;
+}
