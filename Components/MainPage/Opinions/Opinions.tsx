@@ -74,6 +74,7 @@ export const Opinions:React.FC = () => {
                         <p className={classes.opinions__names}>{el.text}</p>
                       </div>
                       <div className={classes.opinions__navigation}>
+                        <div className={classes.opinions__background}></div>
                         <div className={classes.opinions__title}>opinie</div>
                         <div className={classes.opinions__nav}>
                           <FontAwesomeIcon
@@ -91,7 +92,7 @@ export const Opinions:React.FC = () => {
                           />
                       </div>
                       </div>
-                      <a  href={el.path}>
+                      <a className={classes.opinions__link} href={el.path}>
                       <Image
                           src={el.src}
                           alt='Kamila Koziara'

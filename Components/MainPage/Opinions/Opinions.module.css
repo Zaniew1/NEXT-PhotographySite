@@ -11,6 +11,7 @@
     position: relative;
     display: flex;
     overflow: hidden;
+    background-color: rgba(0,0,0,0.4);
   }
   .opinions__element {
     display:flex;
@@ -86,17 +87,7 @@
     cursor: pointer;
     user-select: none;
   }
-  .opinions__dot{
-    width: 10px;
-    height: 10px;
-    background-color: #999;
-    color: #000;
-    border-radius: 5px;
-    margin: 10px
-  }
-  .opinions__dot__active{
-    background-color: #000;
-  }
+ 
   .opinions__name{
     display: none;
     margin: 20px 0;
@@ -141,12 +132,28 @@
     font-weight: bold;
     font-family:'Lato' ,serif;
     font-size: 16px;
+
+    
   }
+.opinions__background{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 3;
+}
+
   @media(min-width: 769px){
     .opinions__text{
       column-count: 2; 
       column-gap: 30px;
      
+    }
+    .opinions__background{
+      background-color: rgba(0,0,0,0);
+      z-index: -1;
     }
   }
   @media(min-width: 1000px){
