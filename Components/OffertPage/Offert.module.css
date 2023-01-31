@@ -1,0 +1,25 @@
+.offert{
+    width: 100vw;
+}
+.offert__content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 180px 20px 50px 20px;
+}
+.offert__header{
+    font-size: 34px;
+    max-width: 350px
+}
+.offert__paragraph{
+    text-align: center;
+    line-height: 1.5;
+    letter-spacing: 1;
+    font-family: 'lato', sans-serif;
+    padding: 10px 0
+}
+.offert__packages{
+    margin: 0 20px;
+}
