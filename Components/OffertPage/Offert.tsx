@@ -29,16 +29,16 @@ export const Offert:React.FC = ()=>{
         <section className={classes.offert}>
             <Header/>
             <div className={classes.offert__content}>
-            <CustomHeader customClass={classes.offert__header} text={"ślubna oferta Fotograficzna"}/>
-            <p className={classes.offert__paragraph}>
-                Szukasz doświadczonego fotografa w rewelacyjnej cenie?
-                Znalazłeś właśnie mnie! Czego możesz się spodziewać? Każdy pakiet rozpoczyna się od osobistej
-                konsultacji przed planowaniem sesji. Od pierwszego dnia jestem w 100% skoncentrowana na Tobie. 
-                Będziemy współpracować tak, aby wszystko było jak najlepiej zaplanowane i wykonane poprawnie </p>
-            <p className={classes.offert__paragraph}>
-                Prawdopodobnie wybierasz fotografa ślubnego po raz pierwszy i 
-                wiem, jak trudna, a jednocześnie ważna jest ta decyzja.
-            </p>
+                <CustomHeader customClass={classes.offert__header} text={"ślubna oferta Fotograficzna"}/>
+                <p className={classes.offert__paragraph}>
+                    Szukasz doświadczonego fotografa w rewelacyjnej cenie?
+                    Znalazłeś właśnie mnie! Czego możesz się spodziewać? Każdy pakiet rozpoczyna się od osobistej
+                    konsultacji przed planowaniem sesji. Od pierwszego dnia jestem w 100% skoncentrowana na Tobie. 
+                    Będziemy współpracować tak, aby wszystko było jak najlepiej zaplanowane i wykonane poprawnie </p>
+                <p className={classes.offert__paragraph}>
+                    Prawdopodobnie wybierasz fotografa ślubnego po raz pierwszy i 
+                    wiem, jak trudna, a jednocześnie ważna jest ta decyzja.
+                </p>
             </div>
             <div className={classes.offert__packages}>
                 {OffertData.map(el=>{

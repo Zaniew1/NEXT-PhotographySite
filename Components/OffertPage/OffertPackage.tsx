@@ -17,7 +17,6 @@ export const OffertPackage = (props:OffertPackage) => {
     return(
     <div className={classes.package__wrapper}>
         <CustomHeader text={props.name} customClass={classes.package__header}/>
-        <p className={classes.package__price}>{`${props.price} PLN`}</p>
             <div className={classes.package__image}>
                 <Image
                     src={props.picture1}
@@ -36,10 +35,14 @@ export const OffertPackage = (props:OffertPackage) => {
                     className={classes.package__img__two}
                 />
             </div>
-        <p className={classes.package__description}>{props.description}</p>
-        <p className={classes.package__line}>Z czego składa się pakiet ?</p>
-        <p className={classes.package__content}>{props.content}</p>
-        <ButtonCalendar text="Sprawdź datę" fontAwesome={faCalendar} path="/contact"/>
+            <div className={classes.package__text}>
+        <p className={classes.package__price}>{`${props.price} PLN`}</p>
+
+                <p className={classes.package__description}>{props.description}</p>
+                <p className={classes.package__line}>Z czego składa się pakiet ?</p>
+                <p className={classes.package__content}>{props.content}</p>
+                <ButtonCalendar text="Sprawdź datę" fontAwesome={faCalendar} path="/contact"/>
+            </div>
     </div>
     )
 }

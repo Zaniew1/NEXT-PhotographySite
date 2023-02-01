@@ -32,8 +32,8 @@ export const About:React.FC  = () => {
                 <div className={classes.about__content}>
                     <p className={classes.about__paragraph}>Podróżowałam po całym świecie fotografując wesela, obecnie jestem fotografką w Warszawie!Jako fotografka ślubnych imprez uważam, że powinnam pracować w różnych stylach. Czerpię inspiracje z fotografii reklamowych i mody oraz ze znanych prac wybitnych artystów, którzy dbają o grę światła w swoich pracach, takich jak Rembrant.</p>
                     <div className={classes.about__button__wrapper}>
-                    <Button text={'O mnie'} path={'/about'} className={classes.about__button}></Button>
-                </div>
+                        <Button text={'O mnie'} path={'/about'} className={classes.about__button}></Button>
+                    </div>
                 </div>
             </div>
         </section>

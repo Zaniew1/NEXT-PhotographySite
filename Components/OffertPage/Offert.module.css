@@ -11,15 +11,17 @@
 }
 .offert__header{
     font-size: 34px;
-    max-width: 350px
+    max-width: 700px
 }
 .offert__paragraph{
     text-align: center;
     line-height: 1.5;
     letter-spacing: 1;
     font-family: 'lato', sans-serif;
-    padding: 10px 0
+    padding: 10px 0;
+    max-width: 800px;
 }
 .offert__packages{
     margin: 0 20px;
 }
+
