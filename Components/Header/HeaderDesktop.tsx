@@ -17,7 +17,7 @@ export const HeaderDesktop: React.FC = (props) => {
       }
     >
       <div className={classes.header__wrapper}>
-        {pageY <= 1 ? <Logo /> : ""}
+        {pageY <= 1 ? <Logo black={props.black} /> : ""}
         <NavDesktop />
       </div>
       <div className={classes.button__wrapper}>
