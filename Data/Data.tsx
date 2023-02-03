@@ -1,7 +1,7 @@
 export const navigation = [
   {
     text: "Oferta",
-    path: "/offert",
+    path: "/Offert",
   },
   {
     text: "O Mnie ",

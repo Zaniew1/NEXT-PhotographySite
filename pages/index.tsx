@@ -7,11 +7,10 @@ import { Questions } from './../Components/MainPage/Questions/Questions';
 import {Opinions} from '../Components/MainPage/Opinions/Opinions'
 import {Portfolio} from '../Components/MainPage/Portfolio/Portfolio';
 
-
 export default function Home() {
   return (
     <main>
-      <Header/>
+      <Header black={false}/>
       <Slider />
       <About />
       <Portfolio/>

@@ -6,8 +6,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { UIContext } from "../../Store/UI-context";
 import { Logo } from "./Logo";
+import { blackNav } from "../../Types/types";
 import { useScrollChecker } from "../../hooks/useScrollChecker";
-export const HeaderMobile: React.FC = (props): JSX.Element => {
+export const HeaderMobile = (props:{black:blackNav}): JSX.Element => {
   const pageY = useScrollChecker();
   const { drop, dropDownNav } = useContext(UIContext);
   const burgerClickHandler = (event: React.MouseEvent) => {
@@ -20,7 +21,7 @@ export const HeaderMobile: React.FC = (props): JSX.Element => {
           drop ? (pageY <= 1 ? classes.header : `${classes.header} ${classes.header__scrolled}`) : `${classes.header} ${classes.header__active}`
         }
       >
-        <Logo />
+        <Logo black={props.black} />
         <div className={classes.wrapper__burger} onClick={burgerClickHandler}>
           <span
             className={
@@ -31,7 +32,7 @@ export const HeaderMobile: React.FC = (props): JSX.Element => {
           ></span>
         </div>
       </header>
-      {<NavMobile drops={drop} />}
+      {<NavMobile black={props.black} drops={drop} />}
     </Fragment>
   );
 };

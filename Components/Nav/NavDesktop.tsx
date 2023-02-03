@@ -3,12 +3,13 @@ import classes from "./NavDesktop.module.css";
 import { navigation, navigationPictures } from "../../Data/Data";
 import { NavigationLinks } from "../UI/NavigationLinks";
 import { useScrollChecker } from "../../hooks/useScrollChecker";
-export const NavDesktop: React.FC = (props) => {
+import { blackNav } from "../../Types/types";
+export const NavDesktop = (props:{black:blackNav}) => {
   const pageY = useScrollChecker();
   return (
     <nav
       className={
-        pageY <= 1 ? classes.nav : `${classes.nav} ${classes.nav__scrolled}`
+        pageY <= 1 ? `${props.black ? classes.nav__black : classes.nav}` : `${classes.nav} ${classes.nav__scrolled}`
       }
     >
       <div

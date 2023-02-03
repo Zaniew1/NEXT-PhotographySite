@@ -1,8 +1,10 @@
-import { Offert } from "../Components/OffertPage/Offert";
-const offert = () => {
+import { OffertPage } from "../Components/OffertPage/OffertPage"
+
+const Offert = () => {
+
     return (
         <main>
-          <Offert/>
+          <OffertPage/>
         </main>
       );
 };

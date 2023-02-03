@@ -8,7 +8,7 @@ import { AboutPassion } from "../Components/AboutPage/AboutPassion";
 const About = () => {
     return (
         <main>
-          <Header/>
+          <Header black={true}/>
           <BackgroundImage
             classContainer={classes.about__background}
             src={'/img/3.jpg'} 

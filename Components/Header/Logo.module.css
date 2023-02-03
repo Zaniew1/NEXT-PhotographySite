@@ -2,8 +2,9 @@
   font-size: 22px;
   color: #fff;
 }
-.logo__name--black{
-  color: #000;
+.logo__name__black{
+  
+  color:#000;
 }
 .logo__proffesion {
   color: #fff;
@@ -11,8 +12,9 @@
   text-align: center;
   text-transform: lowercase;
 }
-.logo__proffesion--black{
-  color: #000;
+.logo__proffesion__black{
+  
+  color:#000;
 }
 
 @media (min-width: 768px) {
@@ -21,15 +23,23 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-end;
-    color: #000;
+    color: red;
     padding: 10px 0 15px 0;
     transition: height ease-in-out 0.2s;
     transition-delay: 0.3s;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
-  .logo--black{
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  }
+ .logo__black{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  color: red;
+  padding: 10px 0 15px 0;
+  transition: height ease-in-out 0.2s;
+  transition-delay: 0.3s;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+ }
   .logo__disabled {
     height: 0;
     opacity: 0;

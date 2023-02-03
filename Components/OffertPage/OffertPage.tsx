@@ -3,7 +3,8 @@ import { CustomHeader } from '../UI/CustomHeader';
 import { ContactFormWithText } from '../Form/ContactFormWithText';
 import { OffertPackage } from './OffertPackage';
 import { Footer } from '../Footer/Footer';
-import classes from './Offert.module.css'
+import { blackNav } from '../../Types/types';
+import classes from './OffertPage.module.css'
 
 const OffertData = [
     {
@@ -24,10 +25,10 @@ const OffertData = [
     }
 ]
 
-export const Offert:React.FC = ()=>{
+export const OffertPage:React.FC = (props)=>{
     return(
         <section className={classes.offert}>
-            <Header/>
+            <Header black={true}/>
             <div className={classes.offert__content}>
                 <CustomHeader customClass={classes.offert__header} text={"ślubna oferta Fotograficzna"}/>
                 <p className={classes.offert__paragraph}>

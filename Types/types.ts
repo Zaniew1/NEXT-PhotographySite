@@ -1,4 +1,4 @@
-export type BooleanElementType = { drops: boolean };
+export type BooleanElementType = { drops: boolean, black:boolean };
 export type NavigationLinkType = {
   text: string;
   classLi: string;
@@ -46,3 +46,4 @@ export type AuthContextType = {
   loggedInFunction: (logged: boolean) => void,
 }
 export type OpinionPropertiesToSendType = {name:string, url: string, description:string} | {}
+export type blackNav = boolean;

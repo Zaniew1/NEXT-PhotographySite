@@ -13,6 +13,21 @@
   font-size: 12px;
   transition: ease-in-out .2s
 }
+.nav__callendar__black{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  border-radius: 20px;
+  color: #c6ac85;
+  border: 1px #c6ac85 solid;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 12px;
+  transition: ease-in-out .2s
+}
 .nav__callendar:hover{
   opacity: 0.8
 }
@@ -25,6 +40,10 @@
   .nav__callendar {
     color: #fff;
     border-color: #fff;
+  }
+  .nav__callendar__black{
+    color: #c6ac85;
+    border-color: #c6ac85;
   }
   .nav__callendar__scrolled {
     border: 1px #c6ac85 solid;
