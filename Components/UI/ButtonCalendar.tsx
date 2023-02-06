@@ -7,6 +7,7 @@ import { FontawesomeObject, IconDefinition } from "@fortawesome/fontawesome-svg-
 
 export const ButtonCalendar = (props: {text: string, fontAwesome: IconDefinition | null, path: string, black:boolean}): JSX.Element => {
   const pageY = useScrollChecker();
+  console.log(pageY);
   return (
     <Link className={pageY <= 1 ? `${props.black ? classes.nav__callendar__black : classes.nav__callendar}` : `${classes.nav__callendar} ${classes.nav__callendar__scrolled}`} href={props.path}>
       {props.fontAwesome && <FontAwesomeIcon className={classes.callendar__icon} icon={props.fontAwesome} />}
@@ -14,3 +15,4 @@ export const ButtonCalendar = (props: {text: string, fontAwesome: IconDefinition
     </Link>
   );
 };
+ 
