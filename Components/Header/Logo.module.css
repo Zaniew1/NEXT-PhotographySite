@@ -1,3 +1,15 @@
+.logo__disabled .logo__name {
+  color:#000;
+}
+.logo__dropped .logo__name {
+  color:#000;
+}
+.logo__dropped .logo__proffesion {
+  color:#000;
+}
+.logo__disabled .logo__proffesion {
+  color:#000;
+}
 .logo__name {
   font-size: 22px;
   color: #fff;
@@ -23,7 +35,6 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-end;
-    color: red;
     padding: 10px 0 15px 0;
     transition: height ease-in-out 0.2s;
     transition-delay: 0.3s;

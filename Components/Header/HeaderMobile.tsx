@@ -22,7 +22,7 @@ export const HeaderMobile = (props:{black:blackNav}): JSX.Element => {
         }
       >
         <Logo black={props.black} />
-        <div className={classes.wrapper__burger} onClick={burgerClickHandler}>
+        <div className={!props.black ? classes.wrapper__burger : `${classes.wrapper__burger} ${classes.wrapper__burger__black}`} onClick={burgerClickHandler}>
           <span
             className={
               drop

@@ -5,12 +5,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFaceAngry } from "@fortawesome/free-solid-svg-icons";
 import { ButtonCalendar } from "../UI/ButtonCalendar";
 import { NavigationLinks } from "../UI/NavigationLinks";
+import { Logo } from "../Header/Logo";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 
 
 export const NavMobile: React.FC<BooleanElementType> = (props): JSX.Element => {
   return (
     <nav
+    
       className={
         props.drops ? classes.nav : `${classes.nav} ${classes.nav__active}`
       }
@@ -48,7 +50,7 @@ export const NavMobile: React.FC<BooleanElementType> = (props): JSX.Element => {
         </ul>
       </div>
       <div className={classes.nav__date}>
-        <ButtonCalendar text="Sprawdź datę" fontAwesome={faCalendar} path="/contact"/>
+        <ButtonCalendar black={true} text="Sprawdź datę" fontAwesome={faCalendar} path="/contact"/>
       </div>
       <div className={classes.nav__socials}>
         <div className={classes.socials__icons}>
