@@ -6,6 +6,7 @@ import { ButtonCalendar } from "../UI/ButtonCalendar";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 
 type OffertPackage = {
+    index:number,
     name: string,
     price: number,
     description: string,
@@ -14,8 +15,9 @@ type OffertPackage = {
     picture2: string
 }
 export const OffertPackage = (props:OffertPackage) => {
+    
     return(
-    <div className={classes.package__wrapper}>
+    <div className={`${classes.package__wrapper} ${props.index%2==0 ? ""  : classes.package__wrapper__left}`}>
         <CustomHeader text={props.name} customClass={classes.package__header}/>
             <div className={classes.package__image}>
                 <Image
@@ -41,7 +43,7 @@ export const OffertPackage = (props:OffertPackage) => {
                 <p className={classes.package__description}>{props.description}</p>
                 <p className={classes.package__line}>Z czego składa się pakiet ?</p>
                 <p className={classes.package__content}>{props.content}</p>
-                <ButtonCalendar text="Sprawdź datę" fontAwesome={faCalendar} path="/contact"/>
+                <ButtonCalendar black={false} text="Sprawdź datę" fontAwesome={faCalendar} path="/contact"/>
             </div>
     </div>
     )

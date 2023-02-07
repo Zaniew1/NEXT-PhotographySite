@@ -22,6 +22,22 @@ const OffertData = [
         content: "-planowanie przed fotografowaniem; -planowanie przed fotografowaniem, " ,
         picture1: '/../public/img/picture3.jpg',
         picture2: '/../public/img/picture4.jpg',
+    },
+    {
+        name: 'Pakiet - 22 godzin',
+        price: 10000,
+        description: "Pakiet ten jest przeznaczony dla małych wesel, które odbywają się na nieco zmniejszoną skalę niż tradycyjne wesela. Przedsięwzięcie takie może zaczynać się ceremonią, a kończyć obiadem weselnym. Może również zaczynać się od ubierania się panny młodej oraz pana młodego, a kończyć się ceremonią! Wybór należy do Państwa!" ,
+        content: "-planowanie przed fotografowaniem; -planowanie przed fotografowaniem, " ,
+        picture1: '/../public/img/picture3.jpg',
+        picture2: '/../public/img/picture4.jpg',
+    },
+    {
+        name: 'Pakiet - 32 godzin',
+        price: 15000,
+        description: "Pakiet ten jest przeznaczony dla małych wesel, które odbywają się na nieco zmniejszoną skalę niż tradycyjne wesela. Przedsięwzięcie takie może zaczynać się ceremonią, a kończyć obiadem weselnym. Może również zaczynać się od ubierania się panny młodej oraz pana młodego, a kończyć się ceremonią! Wybór należy do Państwa!" ,
+        content: "-planowanie przed fotografowaniem; -planowanie przed fotografowaniem, " ,
+        picture1: '/../public/img/picture3.jpg',
+        picture2: '/../public/img/picture4.jpg',
     }
 ]
 
@@ -42,9 +58,9 @@ export const OffertPage:React.FC = (props)=>{
                 </p>
             </div>
             <div className={classes.offert__packages}>
-                {OffertData.map(el=>{
+                {OffertData.map((el,index)=>{
                     return(
-                        <OffertPackage key={el.name} name={el.name} description={el.description} content={el.content} price={el.price} picture1={el.picture1} picture2={el.picture2}/>
+                        <OffertPackage index={index} key={el.name} name={el.name} description={el.description} content={el.content} price={el.price} picture1={el.picture1} picture2={el.picture2}/>
                     )
                 })}
             </div>
