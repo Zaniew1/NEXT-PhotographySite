@@ -1,0 +1,15 @@
+.gallery__header{
+    padding-top: 120px;
+    font-size: 36px;
+    width: 300px;
+    margin: 0 auto
+}
+.gallery__paragraph{
+    font-family: 'Lato', sans-serif;
+    width: 80%;
+    padding: 25px 0 ;
+    text-align: center;
+    letter-spacing: 0.8px;
+    line-height: 1.5;
+    margin: 0 auto
+}

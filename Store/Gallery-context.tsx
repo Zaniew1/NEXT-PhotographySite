@@ -10,7 +10,6 @@ export const GalleryContextProvider = (props: ContextPropsType) => {
   const [allPictures, setAllPictures] = useState<any>();
   const fetchedProperties = useFetchFirebaseDatabase("Gallery");
 //   setAllPictures(fetchedProperties);
-  console.log(fetchedProperties)
   
   return (
     <GalleryContext.Provider

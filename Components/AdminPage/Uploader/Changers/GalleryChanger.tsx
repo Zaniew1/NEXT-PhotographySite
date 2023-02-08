@@ -48,7 +48,8 @@ export const GalleryChanger = () => {
     }, [pictureURL]);
     const {succesfullUpload, error} = useFirestoreDatabase(databaseLocation,propertiesToSend, isPropertiesReady);
     const {allPictures} = useContext(GalleryContext);
-    console.log(allPictures)
+    const fetchedProperties = useFetchFirebaseDatabase("Opinion");
+    console.log(fetchedProperties);
 
     return (
         <div className={classes.gallery}>

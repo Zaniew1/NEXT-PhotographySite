@@ -54,7 +54,6 @@ export const PriceChanger = () => {
 
     }
     const deletePriceHandler = (id:string) =>{
-        console.log(id)
     }
     const {succesfullUpload, error} = useFirestoreDatabase(databaseLocation,propertiesToSend, isPropertiesReady);
     const fetchedProperties = useFetchFirebaseDatabase(databaseLocation);

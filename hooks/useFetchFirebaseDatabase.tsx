@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 type FetchedProperties = {}[]
 export const useFetchFirebaseDatabase = (collectionToFetch: string) => {
     const [fetchedProperties, setFetchedProperties] = useState<any>()
+    console.log(fetchedProperties);
+
     useEffect(()=>{
         collectionToFetch &&  ( async () => {
             try{
