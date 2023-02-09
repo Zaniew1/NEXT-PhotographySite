@@ -5,15 +5,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 
 type Numeric = number;
+type sliderType = {img: string; alt: string}[] | null
 
-
-const slider: { img: string; alt: string }[] = [
+const slider: sliderType = [
   { img: "/../public/img/1.jpg", alt: "1" },
   { img: "/../public/img/2.jpg", alt: "2" },
   { img: "/../public/img/3.jpg", alt: "3" },
   { img: "/../public/img/picture1.jpg", alt: "4" },
 ];
-export const Slider: React.FC = (props) => {
+export const Slider = (props:{data:{}[]}):JSX.Element => {
+  console.log(props.data)
   const [current, setCurrent] = useState<Numeric>(0);
   const length: number = slider.length;
   const previousSlideHandler = () => {
@@ -22,10 +23,6 @@ export const Slider: React.FC = (props) => {
   const nextSlideHandler = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);
   };
-  if (!Array.isArray(slider) || slider.length <= 0) {
-    return null;
-  }
-
   return (
     <section className={classes.slider}>
       <div className={classes.slider__wrap}>

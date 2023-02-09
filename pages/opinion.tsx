@@ -6,7 +6,7 @@ import { OpinionCard } from '../Components/OpinionPage/OpinionCard';
 const Opinion = () => {
     return (
         <main>
-          <Header/>
+          <Header black={false}/>
           <OpinionCard/>
           <Questions/>
           <Footer />
