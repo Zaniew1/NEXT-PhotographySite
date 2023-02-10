@@ -12,6 +12,19 @@ export type UiContextType = {
   desktopResolution: boolean;
   dropDownNav: (dropNav: dropDownNavType) => void;
 };
+export type DataContextType ={
+  dataSlider: {},
+  dataOffer: {},
+  dataOpinion: {},
+  dataGallery: {},
+  setDataSlider: (data: string) => void,
+  setDataOffer: (data: string) => void,
+  setDataOpinion: (data: string) => void,
+  setDataGallery: (data: string) => void,
+  setDataPortfolio: (data: string) => void,
+}
+
+
 export type ContextPropsType = {
   children: React.ReactNode
 }
