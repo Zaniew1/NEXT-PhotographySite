@@ -12,6 +12,5 @@ export const useFetchFireStore = (place:string) => {
         }
         getData();
     },[place])
-    console.log(fireStoreData);
     return fireStoreData;
 }
