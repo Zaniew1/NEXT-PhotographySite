@@ -1,10 +1,11 @@
-import { Footer } from '../Components/Footer/Footer';
-import { Slider } from "../Components/MainPage/Slider/Slider";
-import { About } from '../Components/MainPage/About/About';
 import { Header } from './../Components/Header/Header';
 import { CustomHeader } from './../Components/UI/CustomHeader';
 import classes from './gallery.module.css';
+import {useContext} from 'react';
+import { DataContext } from '../Store/Data-context';
  const Gallery = () => { 
+  const {dataGallery} = useContext(DataContext);
+  console.log(dataGallery);
   return (
     <main>
       <Header black={true}/>
