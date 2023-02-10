@@ -7,11 +7,12 @@ export const DataContext = React.createContext<DataContextType>({
     dataOffer: {},
     dataOpinion: {},
     dataGallery: {},
-    setDataSlider: (data: string) => {},
-    setDataOffer: (data: string) => {},
-    setDataOpinion: (data: string) => {},
-    setDataGallery: (data: string) => {},
-    setDataPortfolio: (data: string) => {},
+    dataPortfolio: {},
+    setDataSlider: (data: {}[]) => {},
+    setDataOffer: (data: {}[]) => {},
+    setDataOpinion: (data: {}[]) => {},
+    setDataGallery: (data: {}[]) => {},
+    setDataPortfolio: (data: {}[]) => {},
 
 });
 
@@ -29,6 +30,7 @@ export const DataContextProvider = (props: any) => {
         dataOffer: dataOffer,
         dataOpinion: dataOpinion,
         dataGallery: dataGallery,
+        dataPortfolio: dataPortfolio,
         setDataSlider: setDataSlider,
         setDataOffer: setDataOffer,
         setDataOpinion: setDataOpinion,

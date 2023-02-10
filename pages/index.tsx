@@ -17,15 +17,15 @@ export default function Home() {
   setDataGallery(galleryData);
   const offertData = useFetchFireStore('Offert');
   setDataOffer(offertData);
-  // const opinionData = useFetchFireStore('Opinion');
-  // setDataOpinion(opinionData);
-  // const portfolioData = useFetchFireStore('Portfolio');
-  // setDataPortfolio(portfolioData);
+  const opinionData = useFetchFireStore('Opinion');
+  setDataOpinion(opinionData);
+  const portfolioData = useFetchFireStore('Portfolio');
+  setDataPortfolio(portfolioData);
 console.log(dataSlider);
 console.log(dataGallery);
-// console.log(dataOffer);
-// console.log(dataOpinion);
-// console.log(dataPortfolio);
+console.log(dataOffer);
+console.log(dataOpinion);
+console.log(dataPortfolio);
   return (
     <main>
       <Header black={false}/>
