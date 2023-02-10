@@ -13,8 +13,7 @@ const slider: sliderType = [
   { img: "/../public/img/3.jpg", alt: "3" },
   { img: "/../public/img/picture1.jpg", alt: "4" },
 ];
-export const Slider = (props:{data:{}[]}):JSX.Element => {
-  console.log(props.data)
+export const Slider:React.FC = (props):JSX.Element => {
   const [current, setCurrent] = useState<Numeric>(0);
   const length: number = slider.length;
   const previousSlideHandler = () => {

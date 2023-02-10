@@ -57,7 +57,7 @@ export const OpinionCard:React.FC = ()=>{
             {opinionsSlider.map(el=>{
                 return(
                     <div className={classes.card__overlapper} key={el.src}>
-                        <div className={classes.card__wrapper} key={el.src}>
+                        <div className={classes.card__wrapper} >
                             <p className={classes.card__paragraph}>{el.comment}</p>
                             <div className={classes.card__names}>{el.text}</div>
                             <Image

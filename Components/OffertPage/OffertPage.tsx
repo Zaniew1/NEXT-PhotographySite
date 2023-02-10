@@ -4,7 +4,6 @@ import { ContactFormWithText } from '../Form/ContactFormWithText';
 import { OffertPackage } from './OffertPackage';
 import { Footer } from '../Footer/Footer';
 import { blackNav } from '../../Types/types';
-import { useFetchFireStore } from '../../hooks/useFetchFirestore';
 
 import classes from './OffertPage.module.css'
 
@@ -44,8 +43,6 @@ const OffertData = [
 ]
 
 export const OffertPage:React.FC = (props)=>{
-    const offertData = useFetchFireStore('Offert');
-    console.log(offertData);
     return(
         <section className={classes.offert}>
             <Header black={true}/>

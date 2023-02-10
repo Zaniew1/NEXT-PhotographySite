@@ -4,10 +4,7 @@ import { About } from '../Components/MainPage/About/About';
 import { Header } from './../Components/Header/Header';
 import { CustomHeader } from './../Components/UI/CustomHeader';
 import classes from './gallery.module.css';
-import { useFetchFireStore } from '../hooks/useFetchFirestore';
  const Gallery = () => { 
-  const galleryData = useFetchFireStore('Gallery');
-  console.log(galleryData);
   return (
     <main>
       <Header black={true}/>
