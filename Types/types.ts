@@ -17,11 +17,12 @@ export type DataContextType ={
   dataOffer: {},
   dataOpinion: {},
   dataGallery: {},
-  setDataSlider: (data: string) => void,
-  setDataOffer: (data: string) => void,
-  setDataOpinion: (data: string) => void,
-  setDataGallery: (data: string) => void,
-  setDataPortfolio: (data: string) => void,
+  dataPortfolio: {},
+  setDataSlider: (data: {}[]) => void,
+  setDataOffer: (data: {}[]) => void,
+  setDataOpinion: (data: {}[]) => void,
+  setDataGallery: (data: {}[]) => void,
+  setDataPortfolio: (data: {}[]) => void,
 }
 
 
