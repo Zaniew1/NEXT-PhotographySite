@@ -4,13 +4,12 @@ import { MutableRefObject } from 'react';
 import { useFirestorage } from '../../../../hooks/useFirestorage';
 import { useFirestoreDatabase } from '../../../../hooks/useFirestoreDatabase';
 import { InputRef } from '../../../../Types/types';
-import { useFetchFirebaseDatabase } from '../../../../hooks/useFetchFirebaseDatabase';
 type MainSliderPropertiesToSendType = {
     name:string,
     url: string,
 } | {}
-export const MainSliderChanger = () => {
-
+export const MainSliderChanger = (props: {data:{}}) => {
+    console.log(props.data);
     const [pictureFile,setPictureFile] = useState<any>(null);
     const [isPropertiesReady, setIsPropertiesReady ] = useState<boolean>(false)
     const [propertiesToSend, setPropertiesToSend ] = useState<MainSliderPropertiesToSendType>({})
@@ -38,7 +37,6 @@ export const MainSliderChanger = () => {
     }
 
     const {succesfullUpload, error} = useFirestoreDatabase(databaseLocation,propertiesToSend, isPropertiesReady)
-    const fetchedProperties = useFetchFirebaseDatabase(databaseLocation);
 
 
     return (
@@ -53,11 +51,11 @@ export const MainSliderChanger = () => {
                 {succesPictureUpload && <p className={classes.main__success}> Zdjęcie gotowe do dodania !</p>}
                 <button className={classes.main__button} type="submit">Dodaj</button>
             </form>
-            {fetchedProperties && fetchedProperties.map((prop:{id:string, properties:{url:string,name:string}}) =>{
+            {/* {fetchedData.map((prop:{id:string, properties:{url:string,name:string}}) =>{
                 return (
                     <div key={prop.id}>{prop.properties.name}</div>
                 )
-            })}
+            })} */}
         </div>
     )
 }

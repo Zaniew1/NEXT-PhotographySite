@@ -1,8 +1,6 @@
 import classes from './GalleryChanger.module.css';
 import { useFirestoreDatabase} from '../../../../hooks/useFirestoreDatabase';
-import { useFetchFirebaseDatabase } from '../../../../hooks/useFetchFirebaseDatabase'
 import { useContext, useCallback } from 'react';
-import { GalleryContext } from '../../../../Store/Gallery-context';
 import { useState, useRef } from 'react';
 import { MutableRefObject } from 'react';
 import { useFirestorage } from '../../../../hooks/useFirestorage';
@@ -10,7 +8,7 @@ import Image from "next/image";
 
 import { InputRef } from '../../../../Types/types';
 
-export const GalleryChanger = () => {
+export const GalleryChanger = (props: {data:{}}) => {
     type GalleryPropertiesToSendType = {
         url: string,
         size: number,

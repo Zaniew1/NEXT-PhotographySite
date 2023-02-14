@@ -7,7 +7,16 @@ import {PortfolioChanger} from './Changers/PortfolioChanger'
 import classes from './UploadAdminPanel.module.css';
 import { UploaderSquare } from './UploaderSquare';
 import {uploaderEdit} from '../../../Data/Data';
+import {useContext} from 'react';
+import { DataContext } from '../../../Store/Data-context';
 export  const UploadAdminPanel: React.FC = (props) =>{
+    const {dataGallery, dataOffer, dataOpinion, dataSlider, dataPortfolio} = useContext(DataContext);
+
+    console.log(dataSlider)
+    console.log(dataGallery)
+    console.log(dataOffer)
+    console.log(dataOpinion)
+
     const [divAction, setDivAction] = useState(0);
     const goBackHandler = () => {
         setDivAction(0);
@@ -31,11 +40,11 @@ export  const UploadAdminPanel: React.FC = (props) =>{
                 );
             })}
         </div>}
-        {divAction == 1 && <PriceChanger/>}
-        {divAction == 2 && <MainSliderChanger/>}
-        {divAction == 3 && <GalleryChanger/>}
-        {divAction == 4 && <PortfolioChanger/>}
-        {divAction == 5 && <OpinionChanger/>}
+        {divAction == 1 && <PriceChanger data={dataOffer}/>}
+        {divAction == 2 && <MainSliderChanger data={dataSlider}/>}
+        {divAction == 3 && <GalleryChanger data={dataGallery}/>}
+        {divAction == 4 && <PortfolioChanger data={dataPortfolio}/>}
+        {divAction == 5 && <OpinionChanger data={dataOpinion}/>}
         { divAction != 0 && <div className={classes.uploader__back} onClick={goBackHandler}></div>}
     </div>)
 }

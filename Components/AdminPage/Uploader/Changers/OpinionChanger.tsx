@@ -1,7 +1,6 @@
 import classes from './OpinionChanger.module.css'; 
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
-import { useFetchFirebaseDatabase } from '../../../../hooks/useFetchFirebaseDatabase';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {useRef, useState,  InputHTMLAttributes} from 'react';
 import { MutableRefObject } from "react";
@@ -9,7 +8,7 @@ import { InputRef } from '../../../../Types/types';
 import { useFirestorage } from '../../../../hooks/useFirestorage';
 import { useFirestoreDatabase } from '../../../../hooks/useFirestoreDatabase';
 import {OpinionPropertiesToSendType} from '../../../../Types/types'
-export const OpinionChanger = () => {
+export const OpinionChanger = (props: {data:{}}) => {
     // DO ZMIANY ANY ////
     const [pictureFile,setPictureFile] = useState<any>(null);
     const [isPropertiesReady, setIsPropertiesReady ] = useState<boolean>(false)

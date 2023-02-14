@@ -10,7 +10,7 @@ import { useFetchFireStore } from './../hooks/useFetchFirestore';
 import {useContext} from 'react';
 import { DataContext } from '../Store/Data-context';
 export default function Home() {
-  const {setDataGallery, setDataOffer, setDataOpinion, setDataSlider, setDataPortfolio, dataGallery, dataOffer, dataOpinion, dataPortfolio, dataSlider} = useContext(DataContext);
+  const {setDataGallery, setDataOffer, setDataOpinion, setDataSlider, setDataPortfolio, dataSlider} = useContext(DataContext);
   const mainSliderData = useFetchFireStore('MainSlider');
   setDataSlider(mainSliderData);
   const galleryData = useFetchFireStore('Gallery');
@@ -21,11 +21,7 @@ export default function Home() {
   setDataOpinion(opinionData);
   const portfolioData = useFetchFireStore('Portfolio');
   setDataPortfolio(portfolioData);
-console.log(dataSlider);
-console.log(dataGallery);
-console.log(dataOffer);
-console.log(dataOpinion);
-console.log(dataPortfolio);
+  console.log(dataSlider);
   return (
     <main>
       <Header black={false}/>
