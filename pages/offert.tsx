@@ -1,6 +1,6 @@
 import { OffertPage } from "../Components/OffertPage/OffertPage"
 
-const Offert = () => {
+const offert = () => {
 
     return (
         <main>
@@ -8,4 +8,4 @@ const Offert = () => {
         </main>
       );
 };
-export default Offert
+export default offert
