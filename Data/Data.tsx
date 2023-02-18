@@ -1,7 +1,7 @@
 export const navigation = [
   {
     text: "Oferta",
-    path: "/Offert",
+    path: "/offert",
   },
   {
     text: "O Mnie ",
@@ -192,4 +192,39 @@ export const portfolioData = [
     thumbnail: '/../public/img/2.jpg',
     orientation: 2,
   },
+]
+
+export const OffertData = [
+  {
+      name: 'Pakiet - 8 godzin',
+      price: 4000,
+      description: "Pakiet ten jest przeznaczony dla małych wesel, które odbywają się na nieco zmniejszoną skalę niż tradycyjne wesela. Przedsięwzięcie takie może zaczynać się ceremonią, a kończyć obiadem weselnym. Może również zaczynać się od ubierania się panny młodej oraz pana młodego, a kończyć się ceremonią! Wybór należy do Państwa!" ,
+      content: "- planowanie przed fotografowaniem" ,
+      picture1: '/../public/img/picture1.jpg',
+      picture2: '/../public/img/picture2.jpg',
+  },
+  {
+      name: 'Pakiet - 12 godzin',
+      price: 5000,
+      description: "Pakiet ten jest przeznaczony dla małych wesel, które odbywają się na nieco zmniejszoną skalę niż tradycyjne wesela. Przedsięwzięcie takie może zaczynać się ceremonią, a kończyć obiadem weselnym. Może również zaczynać się od ubierania się panny młodej oraz pana młodego, a kończyć się ceremonią! Wybór należy do Państwa!" ,
+      content: "-planowanie przed fotografowaniem; -planowanie przed fotografowaniem, " ,
+      picture1: '/../public/img/picture3.jpg',
+      picture2: '/../public/img/picture4.jpg',
+  },
+  {
+      name: 'Pakiet - 22 godzin',
+      price: 10000,
+      description: "Pakiet ten jest przeznaczony dla małych wesel, które odbywają się na nieco zmniejszoną skalę niż tradycyjne wesela. Przedsięwzięcie takie może zaczynać się ceremonią, a kończyć obiadem weselnym. Może również zaczynać się od ubierania się panny młodej oraz pana młodego, a kończyć się ceremonią! Wybór należy do Państwa!" ,
+      content: "-planowanie przed fotografowaniem; -planowanie przed fotografowaniem, " ,
+      picture1: '/../public/img/picture3.jpg',
+      picture2: '/../public/img/picture4.jpg',
+  },
+  {
+      name: 'Pakiet - 32 godzin',
+      price: 15000,
+      description: "Pakiet ten jest przeznaczony dla małych wesel, które odbywają się na nieco zmniejszoną skalę niż tradycyjne wesela. Przedsięwzięcie takie może zaczynać się ceremonią, a kończyć obiadem weselnym. Może również zaczynać się od ubierania się panny młodej oraz pana młodego, a kończyć się ceremonią! Wybór należy do Państwa!" ,
+      content: "-planowanie przed fotografowaniem; -planowanie przed fotografowaniem, " ,
+      picture1: '/../public/img/picture3.jpg',
+      picture2: '/../public/img/picture4.jpg',
+  }
 ]
