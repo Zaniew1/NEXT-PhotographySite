@@ -1,0 +1,8 @@
+.weeding{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+.weeding__image{
+    position:absolute;
+}
