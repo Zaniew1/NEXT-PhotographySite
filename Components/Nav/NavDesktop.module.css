@@ -10,6 +10,9 @@
     font-size: 12px;
     transition: ease 0.4s;
 }
+.nav__black .nav__li::after {
+  border-bottom: solid 1px #000;
+}
 .nav__scrolled {
   color: #000;
 }
