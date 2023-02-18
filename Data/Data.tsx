@@ -38,3 +38,91 @@ export const uploaderEdit=[{
 },{
   text: "Opinie",
 }];
+export const galleryData= [{
+  url: '/../public/img/picture1.jpg',
+  orientation: 1,
+  size: 1,
+  name: "asd",
+}, 
+{
+  url: '/../public/img/picture2.jpg',
+  orientation: 1,
+  size: 1,
+  name: "asd",
+}, 
+{
+  url: '/../public/img/picture3.jpg',
+  orientation: 1,
+  size: 1,
+  name: "asd",
+}, 
+{
+  url: '/../public/img/picture4.jpg',
+  orientation: 2,
+  size: 2,
+  name: "asd",
+},
+{
+  url: '/../public/img/picture1.jpg',
+  orientation: 2,
+  size: 2,
+  name: "asd",
+}, {
+  url: '/../public/img/1.jpg',
+  orientation: 1,
+  size: 3,
+  name: "asd",
+}, {
+   url: '/../public/img/picture3.jpg',
+  orientation: 2,
+  size: 1,
+  name: "asd",
+},
+, {
+  url: '/../public/img/picture3.jpg',
+ orientation: 2,
+ size: 1,
+ name: "asd",
+},
+{
+  url: '/../public/img/3.jpg',
+ orientation: 2,
+ size: 1,
+ name: "asd",
+},
+{
+  url: '/../public/img/3.jpg',
+ orientation: 2,
+ size: 2,
+ name: "asd",
+},
+{
+  url: '/../public/img/3.jpg',
+ orientation: 2,
+ size: 2,
+ name: "asd",
+},
+{
+  url: '/../public/img/3.jpg',
+ orientation: 2,
+ size: 2,
+ name: "asd",
+},
+{
+  url: '/../public/img/3.jpg',
+ orientation: 2,
+ size: 2,
+ name: "asd",
+}, {
+   url: '/../public/img/1.jpg',
+  orientation: 1,
+  size: 2,
+  name: "asd",
+},
+{
+  url: '/../public/img/2.jpg',
+ orientation: 1,
+ size: 2,
+ name: "asd",
+}
+]
