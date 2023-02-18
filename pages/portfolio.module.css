@@ -1,0 +1,40 @@
+.portfolio__header{
+    padding-top: 120px;
+    font-size: 36px;
+    width: 300px;
+    margin: 0 auto
+}
+.portfolio__paragraph{
+    font-family: 'Lato', sans-serif;
+    width: 80%;
+    max-width: 550px;
+    padding: 25px 0 ;
+    text-align: center;
+    letter-spacing: 0.8px;
+    line-height: 1.5;
+    margin: 0 auto
+}
+.portfolio__portfolios{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 500px;
+    width: 90vw;
+    margin: 30px auto;
+}
+.portfolio__button__wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 20px auto 50px auto;
+}
+@media(min-width: 1000px){
+    .portfolio__portfolios{
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 95vw;
+        max-width: 1400px;
+    }
+}
