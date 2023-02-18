@@ -15,7 +15,7 @@
     margin: 0 auto
 }
 .gallery__wrapper{
-    max-width: 1200px;
+    max-width: 1000px;
     width: 90vw;
     display: flex;
     justify-content: center;

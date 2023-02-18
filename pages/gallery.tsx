@@ -4,7 +4,9 @@ import classes from './gallery.module.css';
 import {useContext, useState} from 'react';
 import { DataContext } from '../Store/Data-context';
 import { galleryData } from '../Data/Data';
+import { ContactFormWithText } from '../Components/Form/ContactFormWithText';
 import { Footer } from '../Components/Footer/Footer';
+import { Portfolio } from '../Components/MainPage/Portfolio/Portfolio';
 import Image from 'next/image';
  const Gallery = () => { 
   let galleryClass = '';
@@ -42,6 +44,8 @@ import Image from 'next/image';
               })}
             </div>
         </section>
+        <ContactFormWithText text={'POROZMAWIAJMY O TWOIM WYMARZONYM WESELU!'}/>
+        <Portfolio/>
         <Footer/>
     </main>
   );};
