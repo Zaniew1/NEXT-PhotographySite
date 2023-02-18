@@ -118,9 +118,14 @@
     } 
 }
 @media(min-width: 1000px){
-   .about__greetting{
-    font-size: 42px;
-   }
+
+   .about__wrapper{
+    position: absolute;
+    top: 15%;
+    right: 0;
+    width: 40vw;
+    height: 100%;
+}
 }
 @media(min-width: 1280px){
 .about__overlap{
@@ -128,6 +133,6 @@
     margin: 0 50px 0 50px
 }
 .about__greetting{
-    font-size: 52px;
+    font-size: 42px;
    }
 }
