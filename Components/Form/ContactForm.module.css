@@ -13,7 +13,7 @@
 .form__control{
     display: flex;
     flex-grow: 1;
-    justify-content: start;
+    justify-content: flex-start;
     flex-direction: column;
     width: 45%;
     margin: 20px 10px

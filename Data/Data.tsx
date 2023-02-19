@@ -128,14 +128,17 @@ export const galleryData= [{
   size: 2,
   name: "asd",
 },
+
 ]
 
 
 export const portfolioData = [
   {
     name: "Agata & Mateusz", 
+    place: 'Weeding at sait paul de vence',
     thumbnail: '/../public/img/3.jpg',
     orientation: 1,
+
   },
   {
     name: "Sylwia & Mateusz", 

@@ -1,32 +1,21 @@
-.portfolio__carousel{
-  cursor: grab;
-  overflow-x: hidden ;
-  height: 500px;
-  width: 95vw;
-  margin: auto 0;
-}
-.portfolio__inner{
+.slider__carousel{
   display: flex;
-  width: 90%;
-  margin: 0 auto;
-  margin: 20px;
-}
-.portfolio__item{
-  position: relative;
-
-  min-height: 400px;
-  min-width: 400px;
-  width: 500px;
-  padding: 20px;
-  margin: 0 50px 0 0;
-  background-color: #fff;
-}
-.portfolio__link{
-  width: 100%;
   height: 100%;
+  overflow: hidden;
+
 }
-.portfolio__image{
-  position: absolute;
-  top:0;
-  left: 0;
+.slider__container:nth-of-type(1){
+  width: 100%;
+}
+.slider__container:nth-of-type(2){
+    width: 60%;
+    overflow: auto;
+}
+.slider__image__wrap{
+  position: relative;  
+  width: 100%;
+  aspect-ratio: 1/1.4;
+}
+.slider__names{
+  margin: 30px 0;
 }
