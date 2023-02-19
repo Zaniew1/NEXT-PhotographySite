@@ -1,8 +1,45 @@
-.weeding{
+
+.weeding__image{
+    position:absolute;
+}
+.weeding__image__wrap{
     position: relative;
     width: 100vw;
     height: 100vh;
 }
-.weeding__image{
-    position:absolute;
+.weeding__header{
+    position: absolute;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    color: #fff;
+    font-size: 38px;
+}
+.weeding__names{
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%);
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: "Lato", sans-serif;
+}
+.weeding__description{
+    color: #000;
+    font-size: 16px;
+    font-family: "Lato", sans-serif;
+    text-align: center;
+    padding: 50px 30px 10px 30px;
+    line-height: 1.8;
+}
+.weeding__wrapper{
+    max-width: 1000px;
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
 }
