@@ -130,6 +130,35 @@ export const galleryData= [{
 },
 
 ]
+export const opinionsSlider = [{
+  src: '/../public/img/picture2.jpg',
+  path: '',
+  text: 'Mateusz & Wiktoria',
+  comment: "Kiedy dostałem zdjęcia, od razu spojrzałem i zapomniałem odpowiedzieć. Jesteśmy bardzo zadowoleni ze wszystkich zdjęć! tak piękne !!  bardzo dziękuję."
+},
+{
+  src: '/../public/img/picture3.jpg',
+  path: '',
+  text: 'Patryk & Agata',
+  comment: " razu spojrzałem i zapomniałem odpowiedzieć. Jesteśmy bardzo zadowoleni ze wszystkich zdjęć! tak piękne !!  bardzo dziękuję."
+},
+{
+  src: '/../public/img/picture4.jpg',
+  path: '',
+  text: 'Christina & Emil',
+  comment: " dostałem zdjęcia, od razu spojrzałem i zapomniałem odpowiedzieć. Jesteśmy bardzo zadowoleni ze wszystkich zdjęć! tak piękne !!  bardzo dziękuję."
+
+
+},{
+  src: '/../public/img/picture1.jpg',
+  path: '',
+  text: 'Christina & Pedał',
+  comment: "Kiedy od razu spojrzałem i zapomniałem odpowiedzieć. Jesteśmy bardzo zadowoleni ze wszystkich zdjęć! tak piękne !!  bardzo dziękuję."
+
+
+}
+]
+
 
 
 export const portfolioData = [

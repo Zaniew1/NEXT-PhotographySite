@@ -3,35 +3,8 @@ import classes from './Opinions.module.css';
 import Image from 'next/image';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faAngleLeft } from "@fortawesome/free-solid-svg-icons"
-import asd from '../../../public/img/quote-mark.svg'
-const opinionsSlider = [{
-    src: '/../public/img/picture2.jpg',
-    path: '',
-    text: 'Mateusz & Wiktoria',
-    comment: "Kiedy dostałem zdjęcia, od razu spojrzałem i zapomniałem odpowiedzieć. Jesteśmy bardzo zadowoleni ze wszystkich zdjęć! tak piękne !!  bardzo dziękuję."
-},
-{
-    src: '/../public/img/picture3.jpg',
-    path: '',
-    text: 'Patryk & Agata',
-    comment: " razu spojrzałem i zapomniałem odpowiedzieć. Jesteśmy bardzo zadowoleni ze wszystkich zdjęć! tak piękne !!  bardzo dziękuję."
-},
-{
-    src: '/../public/img/picture4.jpg',
-    path: '',
-    text: 'Christina & Emil',
-    comment: " dostałem zdjęcia, od razu spojrzałem i zapomniałem odpowiedzieć. Jesteśmy bardzo zadowoleni ze wszystkich zdjęć! tak piękne !!  bardzo dziękuję."
-
-
-},{
-    src: '/../public/img/picture1.jpg',
-    path: '',
-    text: 'Christina & Pedał',
-    comment: "Kiedy od razu spojrzałem i zapomniałem odpowiedzieć. Jesteśmy bardzo zadowoleni ze wszystkich zdjęć! tak piękne !!  bardzo dziękuję."
-
-
-}
-]
+import { CustomImage } from '../../UI/CustomImage';
+import { opinionsSlider } from '../../../Data/Data';
 export const Opinions:React.FC = () => {
     const [slide] = useState<{src: string, path: string, text:string, comment:string}[]>(opinionsSlider)
     const [index, setIndex] = useState<number>(0);
@@ -75,7 +48,7 @@ export const Opinions:React.FC = () => {
                       </div>
                       <div className={classes.opinions__navigation}>
                         <div className={classes.opinions__background}></div>
-                        <div className={classes.opinions__title}>opinie</div>
+                        <div className={classes.opinions__title}>Opinie</div>
                         <div className={classes.opinions__nav}>
                           <FontAwesomeIcon
                           icon={faAngleLeft}
@@ -93,22 +66,12 @@ export const Opinions:React.FC = () => {
                       </div>
                       </div>
                       <a className={classes.opinions__link} href={el.path}>
-                      <Image
-                          src={el.src}
-                          alt='Kamila Koziara'
-                          layout="fill"
-                          objectFit="cover"
-                          className={classes.opinions__image}
-                          quality={80}
-                          />
-                          </a>
-                        </article>
-                        
-                        </>
-                        )
-                        
+                        <CustomImage customClass={classes.opinions__image__wrapper}src={el.src} alt={'Kamila Koziara'}/>
+                      </a>
+                    </article>
+                  </>
+                )
                 })}
-               
                </div>
                
               

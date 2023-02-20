@@ -3,8 +3,8 @@ import { useState } from "react";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+import { CustomImage } from "../../UI/CustomImage";
 
-type Numeric = number;
 type sliderType = {img: string; alt: string}[] | null
 
 const slider: sliderType = [
@@ -13,8 +13,8 @@ const slider: sliderType = [
   { img: "/../public/img/3.jpg", alt: "3" },
   { img: "/../public/img/picture1.jpg", alt: "4" },
 ];
-export const Slider:React.FC = (props):JSX.Element => {
-  const [current, setCurrent] = useState<Numeric>(0);
+export const Slider:React.FC = ():JSX.Element => {
+  const [current, setCurrent] = useState<number>(0);
   const length: number = slider.length;
   const previousSlideHandler = () => {
     setCurrent(current === 0 ? length - 1 : current - 1);
@@ -43,23 +43,7 @@ export const Slider:React.FC = (props):JSX.Element => {
 
         {slider.map((slider, index) => {
           return (
-            <div
-              key={index}
-              className={
-                index === current
-                  ? `${classes.slider__slide} ${classes.slider__active}`
-                  : classes.slider__slide
-              }
-            >
-              <Image
-                key={index}
-                src={slider.img}
-                alt={slider.alt}
-                layout="fill"
-                objectFit="cover"
-                className={classes.image}
-              />
-            </div>
+            <CustomImage key={slider.img+index} src={slider.img} alt={slider.alt} customClass={index === current?`${classes.slider__slide} ${classes.slider__active}`: classes.slider__slide}/>
           );
         })}
       </div>
@@ -67,7 +51,7 @@ export const Slider:React.FC = (props):JSX.Element => {
         <p
           className={`${classes.slider__paragraph} ${classes.slider__paragraph__one}`}
         >
-          Jestem przekonana, że Twoje zdjęcia – to Twoja spuścizna i że każdy,
+          Jestem przekonana, że Twoje zdjęcia to Twoja spuścizna i że każdy,
           kogo fotografuję pozostawia dla siebie niezapomnianą pamiątkę.
         </p>
         <p

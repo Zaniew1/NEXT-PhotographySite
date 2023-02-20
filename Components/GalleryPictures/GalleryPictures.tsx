@@ -1,14 +1,7 @@
 import classes from './GalleryPictures.module.css';
-import Image from 'next/image';
-type GalleryPicturesType = {
-    data: {
-        size:number, 
-        orientation: number,
-        url:string,
-        name:string
-       }[];
-}
-export const GalleryPictures = (props:GalleryPicturesType) => {
+import { CustomImage } from '../UI/CustomImage';
+import { GalleryPicturesType } from '../../Types/types';
+export const GalleryPictures:React.FC<GalleryPicturesType> = (props:GalleryPicturesType): JSX.Element => {
     let galleryClass:string = '';
     return (
     <div className={classes.gallery__wrapper}>
@@ -25,16 +18,7 @@ export const GalleryPictures = (props:GalleryPicturesType) => {
        }else  {
         galleryClass = classes.gallery__image__vertical__medium;
        }
-      return (   
-        <div className={galleryClass} key={el.url+index}>
-      <Image
-      src={el.url}
-      alt={el.name}
-      layout="fill"
-      objectFit="cover"
-      className={classes.gallery__image}
-    />
-    </div>)
+      return (<CustomImage customClass={galleryClass} key={el.url+index} alt={el.name} src={el.url}/>)
     })}
   </div>
     );

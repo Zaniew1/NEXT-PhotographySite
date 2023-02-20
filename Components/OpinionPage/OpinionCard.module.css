@@ -11,12 +11,11 @@
     justify-content: flex-end;
     align-items: flex-start;
     flex-direction: column;
-    position: relative;
     height: 100vh;
-    padding: 15px 20px;
 }
 
 .card__header{
+    position: absolute;
     color: #fff;
     font-family: 'Cinzel', serif;
     font-weight: 400;
@@ -36,15 +35,13 @@
     z-index: 3;
     
 }
-.card__image{
-    background-attachment: fixed;
-    overflow:hidden;
+
+.card__image__wrapper{
+    width: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
     flex-direction: column;
     position: relative;
     height: 90vh;
-    background-size: cover;
-    background-attachment: fixed;
 }

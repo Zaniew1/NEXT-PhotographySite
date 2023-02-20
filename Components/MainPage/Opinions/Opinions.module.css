@@ -135,6 +135,16 @@
 
     
   }
+  .opinions__link{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  .opinions__image__wrapper{
+    width: 100%;
+    height: 100%;
+  }
 .opinions__background{
   position: absolute;
   top: 0;

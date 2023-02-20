@@ -38,7 +38,7 @@
   overflow: hidden;
 }
 .slider__active {
-  width: 100%;
+  width: 100vw;
   height: 100%;
   opacity: 1;
   transition: 1s ease-in-out;

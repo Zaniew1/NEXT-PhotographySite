@@ -38,9 +38,7 @@
     aspect-ratio: 1/1.4;
     position: relative;
 }
-.gallery__image{
-    position: absolute;
-}
+
 @media (min-width: 768px){
     .gallery__wrapper{
         flex-direction: row;

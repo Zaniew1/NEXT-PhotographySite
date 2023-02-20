@@ -61,3 +61,29 @@ export type AuthContextType = {
 }
 export type OpinionPropertiesToSendType = {name:string, url: string, description:string} | {}
 export type blackNav = boolean;
+export type GalleryPicturesType = {
+  data: {
+      size:number, 
+      orientation: number,
+      url:string,
+      name:string
+     }[];
+}
+export type CustomImageType = {
+  src: string,
+  alt: string,
+  customClass?: string,
+  key?: string,
+  layout?:"fill",
+  objectFit?:"cover",
+  className?: string,
+}
+export type OffertPackageType = {
+  index:number,
+  name: string,
+  price: number,
+  description: string,
+  content: string,
+  picture1: string,
+  picture2: string
+}
