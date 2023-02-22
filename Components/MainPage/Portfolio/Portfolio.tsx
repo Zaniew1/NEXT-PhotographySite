@@ -4,8 +4,6 @@ import { PortfolioSlider } from './PortfolioSlider';
 
 export const Portfolio =()=>{
 
-  
-  
     return (
         <div className={classes.portfolio__wrapper}>
               <div className={classes.portfolio__content}>
@@ -13,7 +11,7 @@ export const Portfolio =()=>{
                   <Button text={'Portfolio'} path={'/portfolio'} className={classes.portfolio__button}/>
               </div> 
             <PortfolioSlider/>
-            
+           
         </div>
             
             

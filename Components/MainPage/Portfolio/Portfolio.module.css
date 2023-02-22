@@ -27,3 +27,9 @@
     padding: 20px 0 ;
     text-transform: uppercase;
 }
+    @media(min-width: 769px){
+        .portfolio__wrapper{
+            flex-direction: row;
+        }
+ 
+    }
