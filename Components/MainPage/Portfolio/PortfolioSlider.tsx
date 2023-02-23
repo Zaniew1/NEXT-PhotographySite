@@ -15,19 +15,15 @@ export const PortfolioSlider:React.FC = () => {
     const previousSlideHandler = () => {
         const containerWidth:number = containerRef.current.offsetWidth;
         setCurrent((prevState) => prevState - containerWidth);
-        console.log(current)
-
-            carouselRef.current.style.transform="translate("+current+"px, -50%)";
-
     };
     const nextSlideHandler = () => {
         const containerWidth:number = containerRef.current.offsetWidth;
         setCurrent((prevState) => prevState + containerWidth);
-        console.log(current)
-        carouselRef.current.style.transform="translate("+current+"px, -50%)";
-
     };
-  
+      useEffect(()=>{
+      carouselRef.current.style.transform="translate("+current+"px, -50%)";
+        return ()=>carouselRef.current.style.transform=""
+      },[current, carouselRef])
   
     const {thumbnail, name} = portfolioData[0];
  return(
