@@ -2,16 +2,13 @@
 .card{
     position: relative;
 }
-.card__overlapper{
-    width: 100%;
-    height: 100%
-}
+
 .card__wrapper{
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    flex-direction: column;
+   
+
     height: 100vh;
+    position: sticky;
+    top: 0;
 }
 
 .card__header{
@@ -36,12 +33,12 @@
     
 }
 
-.card__image__wrapper{
-    width: 100%;
+.card__image__wrapper{ 
+   width: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
     flex-direction: column;
     position: relative;
-    height: 90vh;
-}
+    height: 90vh; 
+ }
