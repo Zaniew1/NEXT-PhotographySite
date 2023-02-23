@@ -30,6 +30,13 @@
     @media(min-width: 769px){
         .portfolio__wrapper{
             flex-direction: row;
+            flex-grow:1;
+            margin: 100px auto;
+        }
+        .portfolio__content{
+            min-width: 300px;
+            width: 30%;
+        
         }
  
     }
