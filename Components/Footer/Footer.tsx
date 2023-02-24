@@ -53,7 +53,7 @@ export const Footer: React.FC = (props) => {
           </div>
         </div>
         <div className={classes.footer__check}>
-          <ButtonCalendar black={false} text="Sprawdź Datę" fontAwesome={faCalendar} path="/contact"/>
+          <ButtonCalendar black={true} text="Sprawdź Datę" fontAwesome={faCalendar} path="/contact"/>
         </div>
         <div className={classes.footer__copyright}>
           © 2022. Kamila Koziara - Fotograf ślubny
