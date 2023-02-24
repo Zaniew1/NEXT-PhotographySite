@@ -66,7 +66,7 @@ export const Opinions:React.FC = () => {
                       </div>
                       </div>
                       <a className={classes.opinions__link} href={el.path}>
-                        <CustomImage customClass={classes.opinions__image__wrapper}src={el.src} alt={'Kamila Koziara'}/>
+                        <CustomImage className={classes.opinions__image} customClass={classes.opinions__image__wrapper}src={el.src} alt={'Kamila Koziara'}/>
                       </a>
                     </article>
                   </>

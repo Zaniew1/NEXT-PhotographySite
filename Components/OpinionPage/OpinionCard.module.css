@@ -1,44 +1,67 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&display=swap');
 .card{
-    position: relative;
+    margin: 0 auto;
+    max-width: 100vw;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+
 }
-
-.card__wrapper{
-   
-
+.card__element{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
     height: 100vh;
+    min-height: 100vh;
+    min-width: 100vw;
     position: sticky;
     top: 0;
+    left: 0;
+    background-color: #fff;
 }
-
-.card__header{
-    position: absolute;
-    color: #fff;
-    font-family: 'Cinzel', serif;
-    font-weight: 400;
-    z-index: 3;
-
-
+.card__element__footer{
+    min-height: 115vh;
+    padding: 50px 0 ;
 }
-.card__paragraph{
-    font-family: 'lato', sans-serif;
-    color: #fff;
-    z-index: 3;
-    margin: 30px 0 
-}
-.card__names{
-    margin: 0 0 80px 0 ;
-    color: #fff;
-    z-index: 3;
-    
-}
-
-.card__image__wrapper{ 
-   width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    flex-direction: column;
+.card__image{
+    width: 100%;
+    height: 100%;
     position: relative;
-    height: 90vh; 
- }
+}
+.card__paragraph__wrapper{
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 600px;
+    width: 90%;
+    font-size: 18px;
+    color: #fff;
+}
+
+.card__paragraph{
+    font-size: 14px;
+    padding: 10px 0;
+}
+.card__icon{
+    padding-top: 25px;
+    font-size: 26px;
+}
+.card__feedback{
+    font-family: 'Cinzel',sans-serif;
+    font-size:30px;
+    padding-bottom: 20px
+}
+@media(min-width: 769px){
+    .card__element__footer{
+        min-height: 100vh;
+        padding: 50px 0 ;
+    }
+}
+@media(min-width: 1280px){
+    .card__paragraph__wrapper{
+        left: 25%;
+    }
+   
+}
