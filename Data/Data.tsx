@@ -131,26 +131,26 @@ export const galleryData= [{
 
 ]
 export const opinionsSlider = [{
-  src: '/../public/img/picture2.jpg',
+  src: '/../public/img/21.jpg',
   path: '',
   text: 'Mateusz & Wiktoria',
-  comment: "Kiedy dostałem zdjęcia, od razu spojrzałem i zapomniałem odpowiedzieć. Jesteśmy bardzo zadowoleni ze wszystkich zdjęć! tak piękne !!  bardzo dziękuję."
+  comment: "Kiedy dostałem zdjęcia, od razu spojrzałem iKiedy dostałem zdjęcia, od razu spojrzałem i zapomniałem oKiedy dostałem zdjęcia, od razu spojrzałem i zapomniałem oKiedy dostałem zdjęcia, od razu spojrzałem i zapomniałem oKiedy dostałem zdjęcia, od razu spojrzałem i zapomniałem oKiedy dostałem zdjęcia, od razu spojrzałem i zapomniałem oKiedy dostałem zdjęcia, od razu spojrzałem i zapomniałem o zapomniałem odpowiedzieć. Jesteśmy bardzo zadowoleni ze wszystkich zdjęć! tak piękne !!  bardzo dziękuję."
 },
 {
-  src: '/../public/img/picture3.jpg',
+  src: '/../public/img/11.jpg',
   path: '',
   text: 'Patryk & Agata',
   comment: " razu spojrzałem i zapomniałem odpowiedzieć. Jesteśmy bardzo zadowoleni ze wszystkich zdjęć! tak piękne !!  bardzo dziękuję."
 },
 {
-  src: '/../public/img/picture4.jpg',
+  src: '/../public/img/13.jpg',
   path: '',
   text: 'Christina & Emil',
   comment: " dostałem zdjęcia, od razu spojrzałem i zapomniałem odpowiedzieć. Jesteśmy bardzo zadowoleni ze wszystkich zdjęć! tak piękne !!  bardzo dziękuję."
 
 
 },{
-  src: '/../public/img/picture1.jpg',
+  src: '/../public/img/14.jpg',
   path: '',
   text: 'Christina & Pedał',
   comment: "Kiedy od razu spojrzałem i zapomniałem odpowiedzieć. Jesteśmy bardzo zadowoleni ze wszystkich zdjęć! tak piękne !!  bardzo dziękuję."
