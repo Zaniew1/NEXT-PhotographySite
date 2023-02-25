@@ -4,7 +4,7 @@ import { PortfolioSliderDesktop } from './PortfolioSliderDesktop';
 import {PortfolioSliderMobile} from './PortfolioSliderMobile';
 import { UIContext } from '../../../Store/UI-context';
 import { useContext} from "react";
-export const Portfolio =()=>{
+export const Portfolio:React.FC = () :JSX.Element=>{
     const { desktopResolution } = useContext(UIContext);
     return (
         <div className={classes.portfolio__wrapper}>
@@ -15,9 +15,6 @@ export const Portfolio =()=>{
             {!desktopResolution && <PortfolioSliderMobile  />}
             {desktopResolution && <PortfolioSliderDesktop />}
         </div>
-            
-            
             )
-            
         }
     

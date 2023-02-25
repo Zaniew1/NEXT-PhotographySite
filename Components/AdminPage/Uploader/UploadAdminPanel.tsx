@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import { useState } from 'react';
 import {PriceChanger} from './Changers/PriceChanger';
 import {MainSliderChanger} from './Changers/MainSliderChanger';
 import {OpinionChanger} from './Changers/OpinionChanger'
@@ -9,7 +9,7 @@ import { UploaderSquare } from './UploaderSquare';
 import {uploaderEdit} from '../../../Data/Data';
 import {useContext} from 'react';
 import { DataContext } from '../../../Store/Data-context';
-export  const UploadAdminPanel: React.FC = (props) =>{
+export  const UploadAdminPanel: React.FC = (props):JSX.Element =>{
     const {dataGallery, dataOffer, dataOpinion, dataSlider, dataPortfolio} = useContext(DataContext);
 
     console.log(dataSlider)

@@ -5,10 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFaceAngry } from "@fortawesome/free-solid-svg-icons";
 import { ButtonCalendar } from "../UI/ButtonCalendar";
 import { NavigationLinks } from "../UI/NavigationLinks";
-import { Logo } from "../Header/Logo";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
-
-
 export const NavMobile: React.FC<BooleanElementType> = (props): JSX.Element => {
   return (
     <nav

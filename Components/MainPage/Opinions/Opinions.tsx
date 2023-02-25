@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import classes from './Opinions.module.css';
-import Image from 'next/image';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faAngleLeft } from "@fortawesome/free-solid-svg-icons"
 import { CustomImage } from '../../UI/CustomImage';
 import { opinionsSlider } from '../../../Data/Data';
-export const Opinions:React.FC = () => {
+export const Opinions:React.FC = ():JSX.Element => {
     const [slide] = useState<{src: string, path: string, text:string, comment:string}[]>(opinionsSlider)
     const [index, setIndex] = useState<number>(0);
     useEffect(() => {
@@ -38,7 +37,6 @@ export const Opinions:React.FC = () => {
                   {
                     position = `${classes.opinions__element__last }`
                   }
-                  
                   return(   
                     <>
                     <article className={`${classes.opinions__element} ${position}`} key={el.src}>
@@ -63,7 +61,7 @@ export const Opinions:React.FC = () => {
                           className={classes.opinions__right}
                           onClick={() => setIndex(index + 1)}
                           />
-                      </div>
+                        </div>
                       </div>
                       <a className={classes.opinions__link} href={el.path}>
                         <CustomImage className={classes.opinions__image} customClass={classes.opinions__image__wrapper}src={el.src} alt={'Kamila Koziara'}/>
@@ -72,11 +70,7 @@ export const Opinions:React.FC = () => {
                   </>
                 )
                 })}
-               </div>
-               
-              
-            
+            </div>
         </div>
-           
     )
 }

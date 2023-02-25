@@ -1,12 +1,11 @@
 import classes from './GalleryPictures.module.css';
 import { CustomImage } from '../UI/CustomImage';
 import { GalleryPicturesType } from '../../Types/types';
-export const GalleryPictures:React.FC<GalleryPicturesType> = (props:GalleryPicturesType): JSX.Element => {
+export const GalleryPictures:React.FC<GalleryPicturesType> = (props): JSX.Element => {
     let galleryClass:string = '';
     return (
     <div className={classes.gallery__wrapper}>
     {props.data.map((el, index)=>{
-      
       if(el?.orientation == 1 && el?.size == 1){
         galleryClass = classes.gallery__image__horizontal__small;
        }else if(el?.orientation == 1 && el?.size == 2){

@@ -1,5 +1,5 @@
 import classes from './AboutInformations.module.css'
-export const AboutInformations = () =>{
+export const AboutInformations:React.FC = (): JSX.Element =>{
     return(
         <div className={classes.about__wrapper}>
             <div className={classes.about__overlap}>

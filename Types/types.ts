@@ -44,12 +44,16 @@ export type SelectedFileToUploadType = {
   type: string
 } | null
 
-export type SelectedPictureeToUploadType ={
+export type ButtonType = {text: string, className:string, path: string};
 
-}
+import {  IconDefinition } from "@fortawesome/fontawesome-svg-core";
+export type ButtonCallendarType = {text: string, fontAwesome: IconDefinition | null, path: string, black:boolean};
 export type SetFileType = (param: any) => void
 export type InputRef = string | null
-
+export type CustomHeaderType = {
+  customClass:string | null,
+  text: string
+}
 export type BackgroundImageProps = {
   src: string,
   alt:string,

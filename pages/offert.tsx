@@ -1,6 +1,5 @@
 import { OffertPage } from "../Components/OffertPage/OffertPage"
-
-const offert = () => {
+const Offert:React.FC = ():JSX.Element => {
 
     return (
         <main>
@@ -8,4 +7,4 @@ const offert = () => {
         </main>
       );
 };
-export default offert
+export default Offert

@@ -1,11 +1,9 @@
 import classes from "./ButtonCalendar.module.css";
 import Link from "next/link";
-import { FontAwesomeIcon, FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
-import { faCalendar } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { useScrollChecker } from "../../hooks/useScrollChecker";
-import { FontawesomeObject, IconDefinition } from "@fortawesome/fontawesome-svg-core";
-
-export const ButtonCalendar = (props: {text: string, fontAwesome: IconDefinition | null, path: string, black:boolean}): JSX.Element => {
+import { ButtonCallendarType } from "../../Types/types";
+export const ButtonCalendar:React.FC<ButtonCallendarType> = (props ): JSX.Element => {
   const pageY = useScrollChecker();
   return (
     <Link className={pageY <= 1 ? `${props.black ? classes.nav__callendar__black : classes.nav__callendar}` : `${classes.nav__callendar} ${classes.nav__callendar__scrolled}`} href={props.path}>

@@ -26,6 +26,7 @@ export const navigationPictures = [
     text: "Galeria zdjęć",
     path: "/gallery",
   },
+  
 ];
 export const uploaderEdit=[{
   text: "Cennik",
@@ -38,6 +39,14 @@ export const uploaderEdit=[{
 },{
   text: "Opinie",
 }];
+
+export const mainPageData=[
+  { src: "/../public/img/1.jpg", alt: "1" },
+  { src: "/../public/img/2.jpg", alt: "2" },
+  { src: "/../public/img/3.jpg", alt: "3" },
+  { src: "/../public/img/picture1.jpg", alt: "4" },
+]
+
 export const galleryData= [{
   url: '/../public/img/picture1.jpg',
   orientation: 1,
@@ -152,7 +161,7 @@ export const opinionsSlider = [{
 },{
   src: '/../public/img/14.jpg',
   path: '',
-  text: 'Christina & Pedał',
+  text: 'Christina & Patryk',
   comment: "Kiedy od razu spojrzałem i zapomniałem odpowiedzieć. Jesteśmy bardzo zadowoleni ze wszystkich zdjęć! tak piękne !!  bardzo dziękuję."
 
 
@@ -176,49 +185,49 @@ export const portfolioData = [
     orientation: 2,
   },
   {
-    name: "Paulina & Mateusz", 
+    name: "Paulina & Paweł", 
     place: 'Weeding at sait paul de vence',
     thumbnail: '/../public/img/1.jpg',
     orientation: 2,
   },
   {
-    name: "Roksana & Mateusz", 
+    name: "Roksana & Paweł", 
     place: 'Weeding at sait paul de vence',
     thumbnail: '/../public/img/2.jpg',
     orientation: 1,
   },
   {
-    name: "Aleksandra & Mateusz", 
+    name: "Aleksandra & Paweł", 
     place: 'Weeding at sait paul de vence',
     thumbnail: '/../public/img/1.jpg',
     orientation: 1,
   },
   {
-    name: "Wiktoria & Mateusz", 
+    name: "Wiktoria & Paweł", 
     place: 'Weeding at sait paul de vence',
     thumbnail: '/../public/img/2.jpg',
     orientation: 2,
   },
   {
-    name: "Agata & Mateusz", 
+    name: "Agata & Paweł", 
     place: 'Weeding at sait paul de vence',
     thumbnail: '/../public/img/3.jpg',
     orientation: 1,
   },
   {
-    name: "Sylwia & Mateusz", 
+    name: "Sylwia & Paweł", 
     place: 'Weeding at sait paul de vence',
     thumbnail: '/../public/img/2.jpg',
     orientation: 2,
   },
   {
-    name: "Paulina & Mateusz", 
+    name: "Paulina & Paweł", 
     place: 'Weeding at sait paul de vence',
     thumbnail: '/../public/img/1.jpg',
     orientation: 2,
   },
   {
-    name: "Roksana & Mateusz", 
+    name: "Roksana & Paweł", 
     place: 'Weeding at sait paul de vence',
     thumbnail: '/../public/img/2.jpg',
     orientation: 1,

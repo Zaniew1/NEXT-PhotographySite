@@ -1,132 +1,168 @@
 .slider {
+  width: 100vw;
+  margin: 0 auto 4rem auto;
   position: relative;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 }
-.slider__wrap {
+.slider__slider__content {
+  margin: 0 auto;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
   position: relative;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  height: 50vh;
+  overflow: hidden;
+}
+.slider__element {
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  background-color: #aaa;
+  height: 50%;
+  cursor: pointer;
+}
+.slider__description {
+  background-color: #fff;
+  padding: 35px 20px;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  
+}
+.slider__element{
+  transition: all 0.3s ease-in-out;
+}
+.slider__element__active {
+  opacity: 1;
+  transform: translateX(0);
+}
+.slider__element__last {
+  transform: translateX(-100%);
+}
+.slider__element__next {
+  transform: translateX(100%);
 }
 
-.slider__left {
-  font-size: 2rem;
+.slider__navigation {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  position:absolute;
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 12;
+  font-size: 26px;
+  width: 100%;
+  margin: 25px auto;
+  max-width: 300px;
+  z-index: 5;
   color: #fff;
+}
+.slider__title{
+display: none;
+z-index: 20;
+font-family: 'Cinzel', serif;
+margin: 35px;
+font-size: 40px;
+
+}
+.slider__nav{
+display: flex;
+justify-content: space-around;
+align-items: center;
+width: 100%;
+
+
+}
+.slider__counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+
+  font-size: 14px;
+}
+.slider__left {
+  font-size: 3rem;
+  color: #fff;
+
   z-index: 4;
   cursor: pointer;
   user-select: none;
 }
 .slider__right {
-  font-size: 2rem;
+  font-size: 3rem;
   color: #fff;
   z-index: 4;
   cursor: pointer;
   user-select: none;
 }
-.slider__slide {
-  opacity: 0;
-  transform: scale(0.9);
-  transition: all 0.3s ease-in-out;
-  overflow: hidden;
-}
-.slider__active {
-  width: 100vw;
-  height: 100%;
-  opacity: 1;
-  transition: 1s ease-in-out;
-  transform: scale(1);
-  overflow: hidden;
-}
-.slider__navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #fff;
-  z-index: 12;
-  font-size: 26px;
-  position: absolute;
-  top: 90%;
-  width: 200px;
-  font-size: 12px;
-}
-.slider__counter {
+
+
+
+.slider__names{
+  z-index: 20;
+  padding: 0 15px 15px 15px;
+  color: #000;
+  background-color: transparent;
+  font-family:'Lato' ,serif;
   font-size: 16px;
-  font-weight: 600;
-}
-.slider__description {
-  background-color: #fff;
-  padding: 35px 20px;
-  height: 50vh;
-  width: 100%;
+  margin-top: 25px;
+  text-align: left;
+
   
 }
-.slider__paragraph {
-  max-width: 400px;
-  padding: 20px 0;
-  margin: 20px auto;
+.slider__link{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
 }
-.image {
+.slider__image__wrapper{
   width: 100%;
   height: 100%;
 }
-@media (min-width: 500px) {
-  .slider__paragraph{
-    font-size: 18px;
-    margin-top: 30px
-  }
+.slider__background{
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0,0,0,0.4);
+z-index: 3;
 }
 
-
-@media (min-width: 768px) {
-  .slider__wrap {
-    height: 100vh;
-  }
-  .slider__description {
-    display: flex;
-    position: absolute;
-    background-color: transparent;
-    color: #fff;
+@media(min-width: 769px){
+  .slider__element {
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
+    cursor: pointer;
   }
-  .slider__paragraph {
+  .slider__description {
+    padding: 35px 20px;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: transparent;
     position: absolute;
-    top: 70%;
-    font-size: 14px;
-    width: 300px;
-    padding: 0;
-  }
-  .slider__paragraph__one {
-    left: 5%;
-  }
-  .slider__paragraph__two {
-    right: 5%;
-  }
-  .image {
-    height: 100%;
-  }
-}
-@media (min-width: 1280px) {
-  .slider__paragraph {
-
-    font-size: 16px;
-
-  }
-  .slider__counter{
-    font-size: 24px;
-  }
-  .slider__left{
-    font-size: 34px;
-  }
-  .slider__right{
-    font-size: 34px;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    
   }
 }

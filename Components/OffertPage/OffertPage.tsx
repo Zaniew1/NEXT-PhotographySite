@@ -3,13 +3,9 @@ import { CustomHeader } from '../UI/CustomHeader';
 import { ContactFormWithText } from '../Form/ContactFormWithText';
 import { OffertPackage } from './OffertPackage';
 import { Footer } from '../Footer/Footer';
-import { blackNav } from '../../Types/types';
 import { OffertData } from '../../Data/Data';
 import classes from './OffertPage.module.css'
-
-
-
-export const OffertPage:React.FC = (props)=>{
+export const OffertPage : React.FC = () : JSX.Element =>{
     return(
         <section className={classes.offert}>
             <Header black={true}/>

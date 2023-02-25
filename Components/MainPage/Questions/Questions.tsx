@@ -1,10 +1,9 @@
 import classes from './Questions.module.css';
-import Image from "next/image";
 import { ButtonCalendar } from '../../UI/ButtonCalendar';
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { CustomImage } from '../../UI/CustomImage';
 
-export const Questions:React.FC  = () => {
+export const Questions:React.FC  = ():JSX.Element => {
     return(
         <section className={classes.questions__wrapper}>
             <div className={classes.questions__width}>

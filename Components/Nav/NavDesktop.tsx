@@ -1,10 +1,9 @@
-import Link from "next/link";
 import classes from "./NavDesktop.module.css";
 import { navigation, navigationPictures } from "../../Data/Data";
 import { NavigationLinks } from "../UI/NavigationLinks";
 import { useScrollChecker } from "../../hooks/useScrollChecker";
 import { blackNav } from "../../Types/types";
-export const NavDesktop = (props:{black:blackNav}) => {
+export const NavDesktop:React.FC<{black:blackNav}> = (props):JSX.Element => {
   const pageY = useScrollChecker();
   return (
     <nav

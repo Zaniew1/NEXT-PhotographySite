@@ -5,7 +5,7 @@ import classes from './about.module.css'
 import { ContactFormWithText } from "../Components/Form/ContactFormWithText";
 import { AboutInformations } from "../Components/AboutPage/AboutInformations";
 import { AboutPassion } from "../Components/AboutPage/AboutPassion";
-const About = () => {
+const About:React.FC = ():JSX.Element => {
     return (
         <main>
           <Header black={true}/>

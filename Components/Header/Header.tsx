@@ -3,9 +3,8 @@ import { HeaderMobile } from "./HeaderMobile";
 import { HeaderDesktop } from "./HeaderDesktop";
 import { useContext, Fragment} from "react";
 import { blackNav } from "../../Types/types";
-export const Header = (props: {black: blackNav}) =>{
+export const Header:React.FC<{black: blackNav}> = (props):JSX.Element =>{
   const { desktopResolution } = useContext(UIContext);
-
 return (
     <Fragment>
     {!desktopResolution && <HeaderMobile black={props.black} />}

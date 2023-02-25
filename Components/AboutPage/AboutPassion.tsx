@@ -1,10 +1,7 @@
 import classes from './AboutPassion.module.css';
-import Image from 'next/image'
 import { Button } from '../UI/Button';
-import { BackgroundImage } from '../UI/BackgroundImage';
 import { CustomImage } from '../UI/CustomImage';
-
-export const AboutPassion = () => {
+export const AboutPassion:React.FC = (): JSX.Element => {
     return(
         <div className={classes.passion__wrapper}>
             <h2 className={classes.passion__header}>HISTORIA DZIEWCZYNY Z PASJĄ I WIELOMA PODRÓŻAMI</h2>

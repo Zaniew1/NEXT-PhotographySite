@@ -21,7 +21,7 @@
     background-color: #fff;
 }
 .card__element__footer{
-    min-height: 115vh;
+    min-height: 230vh;
     padding: 50px 0 ;
 }
 .card__image{
@@ -53,9 +53,21 @@
     font-size:30px;
     padding-bottom: 20px
 }
+@media(min-height: 769px) and (orientation: portrait){
+    .card__element__footer{
+        min-height: 190vh;
+        padding: 50px 0 ;
+    }
+}
 @media(min-width: 769px){
     .card__element__footer{
-        min-height: 100vh;
+        min-height: 190vh;
+        padding: 50px 0 ;
+    }
+}
+@media(min-width: 1000px){
+    .card__element__footer{
+        min-height: 175vh;
         padding: 50px 0 ;
     }
 }
@@ -63,5 +75,8 @@
     .card__paragraph__wrapper{
         left: 25%;
     }
-   
+    .card__element__footer{
+        min-height: 150vh;
+        padding: 50px 0 ;
+    }
 }

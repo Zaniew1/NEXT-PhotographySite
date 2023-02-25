@@ -6,8 +6,7 @@ import { ContactFormWithText } from '../Components/Form/ContactFormWithText';
 import { Footer } from '../Components/Footer/Footer';
 import { Portfolio } from '../Components/MainPage/Portfolio/Portfolio';
 import { GalleryPictures } from '../Components/GalleryPictures/GalleryPictures';
- const Gallery = () => { 
-  let galleryClass:string = '';
+ const Gallery:React.FC = ():JSX.Element => { 
   return (
     <main>
       <Header black={true}/>
@@ -20,5 +19,6 @@ import { GalleryPictures } from '../Components/GalleryPictures/GalleryPictures';
         <Portfolio/>
         <Footer/>
     </main>
-  );};
+  );
+};
 export default Gallery;

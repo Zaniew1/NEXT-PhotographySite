@@ -2,11 +2,8 @@ import { ContactForm } from "../Components/Form/ContactForm";
 import { Header } from './../Components/Header/Header';
 import { Footer} from './../Components/Footer/Footer';
 import { BackgroundImage } from "../Components/UI/BackgroundImage";
-
 import classes from './contact.module.css';
-import Image from 'next';
-
-const Contact:React.FC = (props) => { return (
+const Contact:React.FC = ():JSX.Element => { return (
     <main>
       <Header black={true}/>
       <BackgroundImage classContainer={classes.contact__background} src={'/img/3.jpg'} alt={'Zdjęcie przedstawiające zakochaną parę'} />
@@ -27,12 +24,9 @@ const Contact:React.FC = (props) => { return (
             <p className={classes.contact__content}>+ 48 124 141 981</p>
           </div>
         </div>
-    
      <ContactForm/>
      </section>
      <Footer/>
     </main>
   );};
-
-
   export default Contact

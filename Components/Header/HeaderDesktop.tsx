@@ -4,9 +4,8 @@ import { Logo } from "./Logo";
 import { useScrollChecker } from "../../hooks/useScrollChecker";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { blackNav } from "../../Types/types";
-
 import classes from "./HeaderDesktop.module.css";
-export const HeaderDesktop = (props: {black: blackNav}) => {
+export const HeaderDesktop:React.FC<{black: blackNav}> = (props):JSX.Element => {
   const pageY = useScrollChecker();
   return (
     <header

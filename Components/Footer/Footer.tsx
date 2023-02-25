@@ -4,8 +4,7 @@ import { ButtonCalendar } from "../UI/ButtonCalendar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFaceAngry } from "@fortawesome/free-solid-svg-icons";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
-
-export const Footer: React.FC = (props) => {
+export const Footer: React.FC = (): JSX.Element => {
   return (
     <footer className={classes.footer}>
       <div className={classes.footer__wrapper}>

@@ -1,19 +1,14 @@
 import classes from "./HeaderMobile.module.css";
-import { Fragment, useEffect, useState, useContext } from "react";
+import { Fragment, useContext } from "react";
 import { NavMobile } from "../Nav/NavMobile";
-import { NavDesktop } from "../Nav/NavDesktop";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { UIContext } from "../../Store/UI-context";
 import { Logo } from "./Logo";
 import { blackNav } from "../../Types/types";
 import { useScrollChecker } from "../../hooks/useScrollChecker";
-export const HeaderMobile = (props:{black:blackNav}): JSX.Element => {
+export const HeaderMobile:React.FC<{black:blackNav}> = (props): JSX.Element => {
   const pageY = useScrollChecker();
   const { drop, dropDownNav } = useContext(UIContext);
-  const burgerClickHandler = (event: React.MouseEvent) => {
-    drop ? dropDownNav(false) : dropDownNav(true);
-  };
+  const burgerClickHandler = () => {drop ? dropDownNav(false) : dropDownNav(true);};
   return (
     <Fragment>
       <header
@@ -24,11 +19,7 @@ export const HeaderMobile = (props:{black:blackNav}): JSX.Element => {
         <Logo black={props.black} />
         <div className={!props.black ? classes.wrapper__burger : `${classes.wrapper__burger} ${classes.wrapper__burger__black}`} onClick={burgerClickHandler}>
           <span
-            className={
-              drop
-                ? classes.burger
-                : `${classes.burger} ${classes.burger__active}`
-            }
+            className={drop ? classes.burger: `${classes.burger} ${`${props.black ? `${classes.burger__active} ${classes.burger__active__black}` :classes.burger__active} `}`}
           ></span>
         </div>
       </header>

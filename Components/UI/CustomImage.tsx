@@ -1,4 +1,3 @@
-
 import classes from './CustomImage.module.css';
 import Image from 'next/image'
 import { CustomImageType } from '../../Types/types';

@@ -5,8 +5,8 @@
   width: 200px;
   height: 40px;
   border-radius: 20px;
-  color: #fff;
-  border: 1px #ffff solid;
+  color: #000;
+  border: 1px #000 solid;
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -42,7 +42,7 @@
     border-color: #fff;
   }
   .nav__callendar__black{
-    color: #c6ac85;
+    color: #000;
     border-color: #000;
   }
   .nav__callendar__scrolled {

@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import classes from './PortfolioSliderMobile.module.css';
-import Image from 'next/image';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faAngleLeft } from "@fortawesome/free-solid-svg-icons"
 import { CustomImage } from '../../UI/CustomImage';
 import { portfolioData } from '../../../Data/Data';
-export const PortfolioSliderMobile:React.FC = () => {
+export const PortfolioSliderMobile:React.FC = ():JSX.Element => {
     const [slide] = useState<{thumbnail: string,name:string, place:string, orientation: number}[]>(portfolioData)
     const [index, setIndex] = useState<number>(0);
     useEffect(() => {
@@ -17,7 +16,6 @@ export const PortfolioSliderMobile:React.FC = () => {
           setIndex(0);
         }
       }, [index, slide]);
-    
     return(
         <div className={classes.slider}>
                <div className={classes.portfolio__slider__content}>
@@ -30,7 +28,6 @@ export const PortfolioSliderMobile:React.FC = () => {
                   {
                     position = `${classes.portfolio__element__last }`
                   }
-                  
                   return(   
                     <>
                     <article className={`${classes.portfolio__element} ${position}`} key={el.thumbnail}>
@@ -44,7 +41,6 @@ export const PortfolioSliderMobile:React.FC = () => {
                 )
                 })}
                </div>
-               
                <div className={classes.portfolio__navigation}>
                         <div className={classes.portfolio__nav}>
                           <FontAwesomeIcon

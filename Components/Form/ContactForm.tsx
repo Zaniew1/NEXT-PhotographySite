@@ -1,25 +1,25 @@
 import classes from './ContactForm.module.css'
 import { MutableRefObject } from "react"
-import {useRef, useState} from 'react';
+import {useRef} from 'react';
 import { InputRef } from '../../Types/types';
-export const ContactForm: React.FC= (props) =>{
+export const ContactForm: React.FC= (): JSX.Element =>{
     const nameInputRef = useRef() as MutableRefObject<HTMLInputElement>;
     const emailInputRef = useRef() as MutableRefObject<HTMLInputElement>;
     const dateInputRef = useRef() as MutableRefObject<HTMLInputElement>;
     const placeInputRef = useRef() as MutableRefObject<HTMLInputElement>;
     const messageInputRef = useRef() as MutableRefObject<HTMLInputElement>;
-    const formSubmitionHandler = (e:any) =>{
-        e.preventDefault();
+    const formSubmitionHandler = (event:React.FormEvent) =>{
+        event.preventDefault();
         const enteredName:InputRef = nameInputRef.current.value;
         const enteredEmail:InputRef = emailInputRef.current.value;
         const enteredDate:InputRef = dateInputRef.current.value;
         const enteredPlace:InputRef = placeInputRef.current.value;
         const enteredMessage:InputRef = messageInputRef.current.value;
-        console.log(enteredName, enteredEmail, enteredDate, enteredPlace)
+        console.log(enteredName, enteredEmail, enteredDate, enteredPlace, enteredMessage)
     }
     
     return (
-    <form className={classes.form__wrapper}onSubmit={formSubmitionHandler}>
+    <form className={classes.form__wrapper} onSubmit={formSubmitionHandler}>
     <div className={classes.form__control}>
         <label className={classes.form__label} htmlFor='name'> Twoje Imię</label>
         <input className={classes.form__input} ref={nameInputRef} type='text' id='name' required/>

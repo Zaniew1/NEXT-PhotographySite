@@ -40,9 +40,13 @@
   height: 2px;
   margin: 10px 0 10px 10px;
 }
-.burger__active .wrapper__burger__black.burger {
+
+
+.burger__active__black {
+  background-color: #000;
+}
+.burger__active__black.burger {
   background-color: #fff;
-  height: 0;
 }
 .wrapper__burger__black .burger::after{
   background-color: #000;

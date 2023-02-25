@@ -4,11 +4,8 @@ import classes from './OpinionCard.module.css';
 import Image from 'next/image'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons"
-// import { useFetchFireStore } from '../../hooks/useFetchFirestore';
 import { opinionsSlider } from '../../Data/Data';
-
 export const OpinionCard:React.FC = (): JSX.Element =>{
-    // const opinionData = useFetchFireStore('Opinion');
     return(
         <div className={classes.card}>
              <div className={classes.card__element} >
@@ -40,7 +37,6 @@ export const OpinionCard:React.FC = (): JSX.Element =>{
                 </div>
                 )
                 })}
-                 
                  <div className={`${classes.card__element} ${classes.card__element__footer}`}  >
                    <Questions/>
                     <Footer />
