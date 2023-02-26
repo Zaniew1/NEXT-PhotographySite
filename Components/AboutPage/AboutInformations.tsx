@@ -1,9 +1,10 @@
-import classes from './AboutInformations.module.css'
+import classes from './AboutInformations.module.css';
+import { CustomHeader } from '../UI/Texts/CustomHeader';
 export const AboutInformations:React.FC = (): JSX.Element =>{
     return(
         <div className={classes.about__wrapper}>
             <div className={classes.about__overlap}>
-                <p className={classes.about__greetting}>CZEŚĆ! MAM NA IMIĘ Kamila! JESTEM FOTOGRAFEM ŚLUBNYM.</p>
+                <CustomHeader customClass={classes.about__greetting} text={'CZEŚĆ! MAM NA IMIĘ Kamila! JESTEM FOTOGRAFEM ŚLUBNYM.'}/>
                 <div className={classes.about__description}>
                     <div className={classes.about__upper__paragraph}>
                         <p className={classes.about__paragraph}>Bardzo często chodzę na wystawy i ciągle kształcę się w zdobywaniu nowych praktyk. Lubię oglądać filmy fabularne, pozwalają one mi odkrywać perspektywy snajlepszych fachowców. Ponadto, aby moje zdjęcia były profesjonalne i różnorodne, obserwuję wielu znanych fotografów mody.</p>
