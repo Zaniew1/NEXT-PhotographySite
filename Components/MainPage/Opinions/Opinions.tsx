@@ -1,10 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import classes from './Opinions.module.css';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleRight, faAngleLeft } from "@fortawesome/free-solid-svg-icons"
 import { CustomImage } from '../../UI/Images/CustomImage';
 import { opinionsSlider } from '../../../Data/Data';
-import { Arrow } from '../../UI/SliderNav/Arrow';
 import { SliderNav } from '../../UI/SliderNav/SliderNav';
 export const Opinions:React.FC = ():JSX.Element => {
     const [slide] = useState<{src: string, path: string, text:string, comment:string}[]>(opinionsSlider)
@@ -63,18 +60,3 @@ export const Opinions:React.FC = ():JSX.Element => {
         </div>
     )
 }
-           {/* <div className={classes.opinions__nav}>
-                          <FontAwesomeIcon
-                          icon={faAngleLeft}
-                          className={classes.opinions__left}
-                          onClick={() => setIndex(index - 1)}
-                          />
-                          <div className={classes.opinions__counter}>
-                          {index + 1} / {slide.length}
-                          </div>
-                          <FontAwesomeIcon
-                          icon={faAngleRight}
-                          className={classes.opinions__right}
-                          onClick={() => setIndex(index + 1)}
-                          />
-                        </div> */}

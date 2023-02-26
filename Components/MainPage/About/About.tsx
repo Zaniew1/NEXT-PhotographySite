@@ -1,11 +1,12 @@
 import classes from './About.module.css';
 import { Button } from '../../UI/Buttons/Button';
 import { CustomImage } from '../../UI/Images/CustomImage';
+import { CustomHeader } from '../../UI/Texts/CustomHeader';
 export const About:React.FC =():JSX.Element => {
     return(
         <section className={classes.about__wrapper}>
             <div className={classes.about__margin}>
-                <h2 className={classes.about__header}>CZEŚĆ! MAM NA IMIĘ DINA. JESTEM FOTOGRAFEM ŚLUBNYM W WARSZAWIE.</h2>
+                <CustomHeader customClass={classes.about__header} text={'CZEŚĆ! MAM NA IMIĘ DINA. JESTEM FOTOGRAFEM ŚLUBNYM W WARSZAWIE.'}/>
                 <CustomImage customClass={classes.about__picture__wrapper} src={'/../public/img/1.jpg'} alt={"Zdjęcie pary"}/>
                 <CustomImage customClass={classes.about__picture__wrapper__two} src={'/../public/img/2.jpg'} alt={"Zdjęcie pary"}/>
                 <div className={classes.about__content}>

@@ -1,7 +1,8 @@
 .slider__nav__wrapper{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    margin: 0 auto;
     height: 80px;
     width: 170px;
     z-index: 4;

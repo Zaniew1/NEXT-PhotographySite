@@ -1,7 +1,7 @@
 import { ContactForm } from "../Components/Form/ContactForm";
 import { Header } from './../Components/Header/Header';
 import { Footer} from './../Components/Footer/Footer';
-import { BackgroundImage } from "../Components/UI/BackgroundImage";
+import { BackgroundImage } from "../Components/UI/Images/BackgroundImage";
 import classes from './contact.module.css';
 const Contact:React.FC = ():JSX.Element => { return (
     <main>

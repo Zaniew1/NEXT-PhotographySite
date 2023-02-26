@@ -1,4 +1,4 @@
-import { BackgroundImage } from "../Components/UI/BackgroundImage";
+import { BackgroundImage } from "../Components/UI/Images/BackgroundImage";
 import { Header } from './../Components/Header/Header';
 import { Footer} from './../Components/Footer/Footer';
 import classes from './about.module.css'

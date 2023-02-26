@@ -3,6 +3,7 @@ import classes from './PortfolioSliderMobile.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faAngleLeft } from "@fortawesome/free-solid-svg-icons"
 import { CustomImage } from '../../UI/Images/CustomImage';
+import { SliderNav } from '../../UI/SliderNav/SliderNav';
 import { portfolioData } from '../../../Data/Data';
 export const PortfolioSliderMobile:React.FC = ():JSX.Element => {
     const [slide] = useState<{thumbnail: string,name:string, place:string, orientation: number}[]>(portfolioData)
@@ -41,25 +42,7 @@ export const PortfolioSliderMobile:React.FC = ():JSX.Element => {
                 )
                 })}
                </div>
-               <div className={classes.portfolio__navigation}>
-                        <div className={classes.portfolio__nav}>
-                          <FontAwesomeIcon
-                          icon={faAngleLeft}
-                          className={classes.portfolio__left}
-                          onClick={() => setIndex(index - 1)}
-                          />
-                          <div className={classes.portfolio__counter}>
-                          {index + 1} / {slide.length}
-                          </div>
-                          <FontAwesomeIcon
-                          icon={faAngleRight}
-                          className={classes.portfolio__right}
-                          onClick={() => setIndex(index + 1)}
-                          />
-                      </div>
-                      </div>
-              
-            
+          <SliderNav black={true} index={index}  length={slide.length} customClass={classes.portfolio__navigation} moveLeft={() => setIndex(index - 1)} moveRight={() => setIndex(index + 1)} />
         </div>
            
     )
