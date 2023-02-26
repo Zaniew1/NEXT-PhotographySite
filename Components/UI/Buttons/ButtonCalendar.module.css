@@ -36,7 +36,7 @@
   padding-right: 10px;
   font-weight: 400;
 }
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   .nav__callendar {
     color: #fff;
     border-color: #fff;
