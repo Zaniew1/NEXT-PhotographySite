@@ -1,0 +1,39 @@
+.arrow__wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+    cursor: pointer;
+    user-select: none;
+    height: 100%;
+}
+.arrow__line{
+    height: 1px;
+    width: 70px;
+    border-bottom: 3px solid #fff;
+    transform:translate(5%)
+}
+.arrow__triangle{
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #fff;
+    transform: rotate(90deg);
+}
+.arrow__up.arrow__wrapper{
+    transform:rotate(-90deg) scale(0.6);
+}
+.arrow__down.arrow__wrapper{
+    transform:rotate(90deg) scale(0.6);
+}
+.arrow__left.arrow__wrapper{
+    transform:rotate(180deg) scale(0.6);
+}
+.arrow__right.arrow__wrapper{
+    transform:rotate(0deg) scale(0.6);
+}
+.arrow__black__line{
+    border-color: #000;
+}
+.arrow__black__triangle{
+    border-bottom: 8px solid #000;
+}
