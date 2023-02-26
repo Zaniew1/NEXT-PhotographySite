@@ -35,7 +35,6 @@ export const Slider:React.FC = ():JSX.Element => {
                   position = `${classes.slider__element__last }`
                 }
                 return(   
-                  <>
                   <article className={`${classes.slider__element} ${position}`} key={el.src}>
                     <div className={classes.slider__feedback}>
                     </div>
@@ -46,7 +45,6 @@ export const Slider:React.FC = ():JSX.Element => {
                     </div>
                       <CustomImage className={classes.slider__image} customClass={classes.slider__image__wrapper}src={el.src} alt={'Kamila Koziara'}/>
                   </article>
-                </>
               )
               })}
           </div>

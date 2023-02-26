@@ -41,6 +41,8 @@
   position: absolute;
   top: 90%;
   left: 50%;
+  width: 300px;
+  height: 100px;
   transform: translate(-50%, -50%);
   z-index: 12;
 
@@ -54,8 +56,8 @@
 }
 .slider__paragraph{
   font-family: 'Lato', sans-serif;
-  padding: 20px;
-  line-height: 1.5;
+  padding: 40px 20px;
+  line-height: 1.7;
 }
 
 

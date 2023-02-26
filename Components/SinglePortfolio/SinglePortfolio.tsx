@@ -1,21 +1,27 @@
 import classes from './SinglePortfolio.module.css';
-import Image from "next/image";
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+
+
 import { CustomImage } from '../UI/Images/CustomImage';
 type SinglePortfolioType = {
+    id: string,
     key: string,
     thumbnail: string,
     name: string,
     orientation: number,
-    index: number
+    index: number,
 }
 export const SinglePortfolio:React.FC<SinglePortfolioType> = (props):JSX.Element  =>{
+    const router = useRouter();
+    const navigateProgrammaticlyHandler = () =>{
+        router.push(props.id);
+    }
     return(
-        <div className={`${props.index%3==0 || props.index%2==0  ?(`${classes.single} ${classes.single__one}`) : (`${classes.single} ${classes.single__two}`)}`}>
-            <Link className={classes.single__link} href={`http://localhost:3000/portfolio/${props.name.replace(/ /g,'')}`}>
-                <CustomImage customClass={`${props.orientation == 1 ? classes.single__image__horizontal : classes.single__image__vertical}`} src={props.thumbnail} alt={"Zdjęcie pary"+props.name}/>
+        <div onClick={navigateProgrammaticlyHandler} className={`${props.index%3==0 || props.index%2==0  ?(`${classes.single} ${classes.single__one}`) : (`${classes.single} ${classes.single__two}`)}`}>
+            <CustomImage customClass={`${props.orientation == 1 ? classes.single__image__horizontal : classes.single__image__vertical}`} src={props.thumbnail} alt={"Zdjęcie pary"+props.name}/>
             <p className={classes.single__paragraph}>{props.name}</p>
-        </Link>
+
         </div>
     )
 }

@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons"
 import { opinionsSlider } from '../../Data/Data';
+import { Arrow } from '../UI/SliderNav/Arrow';
 export const OpinionCard:React.FC = (): JSX.Element =>{
     return(
         <div className={classes.card}>
@@ -18,7 +19,7 @@ export const OpinionCard:React.FC = (): JSX.Element =>{
                     <div className={classes.card__paragraph__wrapper}>
                         <p className={classes.card__feedback}>KIND WORDS FROM MY BRIDES & GROOMS</p>
                         <p className={classes.card__paragraph}>&quot; Thanks to everyone for your feedback about my wedding or pre-wedding photography. It means a lot to me that you love the images and having a great time with me as your photographer. &quot;</p>
-                        <FontAwesomeIcon className={classes.card__icon} icon={faArrowDown}/>
+                        <Arrow customClass={classes.card__icon} direction={'down'} black={false}/>
                     </div>
                 </div>
             {opinionsSlider.map((el,index)=>{

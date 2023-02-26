@@ -2,6 +2,9 @@
     width: 100%;
     margin: 40px auto;
 }
+.single:hover{
+    cursor:pointer
+}
 .single__image{
     cursor: pointer;
     transition: 0.3s ease-in-out;

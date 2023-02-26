@@ -32,10 +32,7 @@ export const PortfolioSliderMobile:React.FC = ():JSX.Element => {
                   return(   
                     <>
                     <article className={`${classes.portfolio__element} ${position}`} key={el.thumbnail}>
-                     
-                      {/* <a className={classes.portfolio__link} href={el.path}> */}
                         <CustomImage customClass={classes.portfolio__image__wrapper}src={el.thumbnail} alt={'Kamila Koziara'}/>
-                      {/* </a> */}
                       <p className={classes.portfolio__names}>{el.name}</p>
                     </article>
                   </>

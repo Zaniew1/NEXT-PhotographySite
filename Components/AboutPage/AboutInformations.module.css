@@ -137,9 +137,7 @@
    }
 }
 @media(min-width: 1460px){
-    .about__wrapper{
-        width: 40vw;
-    }
+
     }
     @media(min-width: 2000px){
         .about__wrapper{

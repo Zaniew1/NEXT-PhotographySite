@@ -7,6 +7,9 @@ import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { portfolioData } from '../../Data/Data';
 import { SinglePortfolio } from '../../Components/SinglePortfolio/SinglePortfolio';
 const Portfolio = () => {
+ 
+
+
     return (
         <main>
           <Header black={true}/>
@@ -18,7 +21,7 @@ const Portfolio = () => {
 
             {portfolioData.map((el,index)=>{
               return(
-                <SinglePortfolio key={el.name.replace(" ", "")+index} thumbnail={el.thumbnail} orientation={el.orientation} name={el.name} index={index}/>
+                <SinglePortfolio id={'/portfolio/'+el.name.replace(/ /g,'')} key={el.name.replace(" ", "")+index} thumbnail={el.thumbnail} orientation={el.orientation} name={el.name} index={index} />
                 )
               })}
               </div>

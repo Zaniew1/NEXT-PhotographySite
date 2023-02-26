@@ -1,12 +1,12 @@
-import { Footer } from '../../Components/Footer/Footer';
-import { Header } from '../../Components/Header/Header';
-import classes from './Agata&Mateusz.module.css';
-import { CustomHeader } from '../../Components/UI/Texts/CustomHeader';
+import { Footer } from '../../../Components/Footer/Footer';
+import { Header } from '../../../Components/Header/Header';
+import classes from './index.module.css';
+import { CustomHeader } from '../../../Components/UI/Texts/CustomHeader';
 import Image from 'next/image';
-import { galleryData } from '../../Data/Data';
-import { GalleryPictures } from '../../Components/GalleryPictures/GalleryPictures';
-import {Portfolio} from '../../Components/MainPage/Portfolio/Portfolio';
-import { ContactFormWithText } from '../../Components/Form/ContactFormWithText';
+import { galleryData } from '../../../Data/Data';
+import { GalleryPictures } from '../../../Components/GalleryPictures/GalleryPictures';
+import {Portfolio} from '../../../Components/MainPage/Portfolio/Portfolio';
+import { ContactFormWithText } from '../../../Components/Form/ContactFormWithText';
 const Weeding = () => {
     let galleryClass:string = '';
     return (

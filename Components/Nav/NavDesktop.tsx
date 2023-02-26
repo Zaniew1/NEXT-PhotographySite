@@ -3,6 +3,7 @@ import { navigation, navigationPictures } from "../../Data/Data";
 import { NavigationLinks } from "../UI/Navigation/NavigationLinks";
 import { useScrollChecker } from "../../hooks/useScrollChecker";
 import { blackNav } from "../../Types/types";
+import Link from "next/link";
 export const NavDesktop:React.FC<{black:blackNav}> = (props):JSX.Element => {
   const pageY = useScrollChecker();
   return (
@@ -18,7 +19,9 @@ export const NavDesktop:React.FC<{black:blackNav}> = (props):JSX.Element => {
             : `${classes.nav__initials} ${classes.nav__initials__scrolled}`
         }
       >
+        <Link href="/">
         K&K
+        </Link>
       </div>
       <div className={classes.nav__navigation}>
         <div className={classes.nav__wrapper}>
