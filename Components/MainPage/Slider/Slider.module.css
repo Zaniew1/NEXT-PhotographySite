@@ -1,12 +1,12 @@
 .slider {
   width: 100vw;
-  margin: 0 auto 4rem auto;
+  height: 100vh;
   position: relative;
 }
 .slider__slider__content {
   margin: 0 auto;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   text-align: center;
   position: relative;
   display: flex;
@@ -22,23 +22,9 @@
   width: 100%;
   height: 50%;
   cursor: pointer;
-}
-.slider__description {
-  background-color: #fff;
-  padding: 35px 20px;
-  display:flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 50%;
-  
-}
-.slider__element{
   transition: all 0.3s ease-in-out;
 }
+
 .slider__element__active {
   opacity: 1;
   transform: translateX(0);
@@ -50,119 +36,7 @@
   transform: translateX(100%);
 }
 
-.slider__navigation {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: column;
-  position:absolute;
-  top: 70%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 12;
-  font-size: 26px;
-  width: 100%;
-  margin: 25px auto;
-  max-width: 300px;
-  z-index: 5;
-  color: #fff;
-}
-.slider__title{
-display: none;
-z-index: 20;
-font-family: 'Cinzel', serif;
-margin: 35px;
-font-size: 40px;
-
-}
-.slider__nav{
-display: flex;
-justify-content: space-around;
-align-items: center;
-width: 100%;
-
-
-}
-.slider__counter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-
-  font-size: 14px;
-}
-.slider__left {
-  font-size: 3rem;
-  color: #fff;
-
-  z-index: 4;
-  cursor: pointer;
-  user-select: none;
-}
-.slider__right {
-  font-size: 3rem;
-  color: #fff;
-  z-index: 4;
-  cursor: pointer;
-  user-select: none;
-}
-
-
-
-.slider__names{
-  z-index: 20;
-  padding: 0 15px 15px 15px;
-  color: #000;
-  background-color: transparent;
-  font-family:'Lato' ,serif;
-  font-size: 16px;
-  margin-top: 25px;
-  text-align: left;
-
-  
-}
-.slider__link{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-}
 .slider__image__wrapper{
   width: 100%;
   height: 100%;
-}
-.slider__background{
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background-color: rgba(0,0,0,0.4);
-z-index: 3;
-}
-
-@media(min-width: 769px){
-  .slider__element {
-    display:flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-  }
-  .slider__description {
-    padding: 35px 20px;
-    display:flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    background-color: transparent;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 50%;
-    
-  }
 }
