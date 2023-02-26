@@ -1,0 +1,25 @@
+.slider__nav__wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    width: 170px;
+    z-index: 4;
+}
+.slider__nav__counter{
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    color: #fff;
+    font-size: 12px;
+
+}
+.slider__nav__slash{
+    padding: 0 5px
+}
+.invisible__counter{
+    display: none;
+}
+.black__counter{
+    color: #000;
+}
