@@ -1,7 +1,7 @@
 import classes from './Questions.module.css';
-import { ButtonCalendar } from '../../UI/ButtonCalendar';
+import { ButtonCalendar } from '../../UI/Buttons/ButtonCalendar';
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
-import { CustomImage } from '../../UI/CustomImage';
+import { CustomImage } from '../../UI/Images/CustomImage';
 
 export const Questions:React.FC  = ():JSX.Element => {
     return(

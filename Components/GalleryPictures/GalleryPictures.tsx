@@ -1,5 +1,5 @@
 import classes from './GalleryPictures.module.css';
-import { CustomImage } from '../UI/CustomImage';
+import { CustomImage } from '../UI/Images/CustomImage';
 import { GalleryPicturesType } from '../../Types/types';
 export const GalleryPictures:React.FC<GalleryPicturesType> = (props): JSX.Element => {
     let galleryClass:string = '';

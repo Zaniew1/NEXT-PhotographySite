@@ -1,5 +1,5 @@
 import { Header } from './../Components/Header/Header';
-import { CustomHeader } from './../Components/UI/CustomHeader';
+import { CustomHeader } from '../Components/UI/Texts/CustomHeader';
 import classes from './gallery.module.css';
 import { galleryData } from '../Data/Data';
 import { ContactFormWithText } from '../Components/Form/ContactFormWithText';

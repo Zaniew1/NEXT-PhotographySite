@@ -1,8 +1,8 @@
 import classes from "./ButtonCalendar.module.css";
 import Link from "next/link";
 import { FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { useScrollChecker } from "../../hooks/useScrollChecker";
-import { ButtonCallendarType } from "../../Types/types";
+import { useScrollChecker } from "../../../hooks/useScrollChecker";
+import { ButtonCallendarType } from "../../../Types/types";
 export const ButtonCalendar:React.FC<ButtonCallendarType> = (props ): JSX.Element => {
   const pageY = useScrollChecker();
   return (

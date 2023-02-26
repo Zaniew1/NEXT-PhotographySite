@@ -1,6 +1,6 @@
 import classes from './BackgroundImage.module.css';
 import Image from 'next/image'
-import {BackgroundImageProps} from '../../Types/types'
+import {BackgroundImageProps} from '../../../Types/types'
 export const BackgroundImage:React.FC<BackgroundImageProps> = (props):JSX.Element => {
     return (
         <div className={props.classContainer}>

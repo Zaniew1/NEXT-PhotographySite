@@ -1,9 +1,8 @@
 import classes from './PortfolioSliderDesktop.module.css';
 import { portfolioData } from '../../../Data/Data';
-import { CustomImage } from '../../UI/CustomImage';
+import { CustomImage } from '../../UI/Images/CustomImage';
 import { useState, useRef, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleRight, faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+import { SliderNav } from '../../UI/SliderNav/SliderNav';
 import { MutableRefObject } from 'react';
 export const PortfolioSliderDesktop:React.FC = () => {
     const [current, setCurrent] = useState<number>(0);
@@ -42,18 +41,7 @@ export const PortfolioSliderDesktop:React.FC = () => {
           )
           })}
           </div>
-        <div className={classes.slider__navigation}>
-          <FontAwesomeIcon
-            icon={faAngleLeft}
-            className={classes.slider__left}
-            onClick={previousSlideHandler}
-            />
-          <FontAwesomeIcon
-              icon={faAngleRight}
-              className={classes.slider__right}
-              onClick={nextSlideHandler}
-              />
-        </div> 
+          <SliderNav black={true} index={current} customClass={classes.slider__navigation} length={portfolioData.length} moveLeft={previousSlideHandler} moveRight={nextSlideHandler} counterInvisible={true}/>
     </div>
    );
 

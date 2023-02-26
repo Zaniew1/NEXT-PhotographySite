@@ -1,5 +1,5 @@
 import { NavDesktop } from "../Nav/NavDesktop";
-import { ButtonCalendar } from "../UI/ButtonCalendar";
+import { ButtonCalendar } from "../UI/Buttons/ButtonCalendar";
 import { Logo } from "./Logo";
 import { useScrollChecker } from "../../hooks/useScrollChecker";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";

@@ -1,6 +1,6 @@
 import classes from './AboutPassion.module.css';
-import { Button } from '../UI/Button';
-import { CustomImage } from '../UI/CustomImage';
+import { Button } from '../UI/Buttons/Button';
+import { CustomImage } from '../UI/Images/CustomImage';
 export const AboutPassion:React.FC = (): JSX.Element => {
     return(
         <div className={classes.passion__wrapper}>

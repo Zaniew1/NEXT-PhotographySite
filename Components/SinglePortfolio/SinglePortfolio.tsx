@@ -1,7 +1,7 @@
 import classes from './SinglePortfolio.module.css';
 import Image from "next/image";
 import Link from 'next/link';
-import { CustomImage } from '../UI/CustomImage';
+import { CustomImage } from '../UI/Images/CustomImage';
 type SinglePortfolioType = {
     key: string,
     thumbnail: string,

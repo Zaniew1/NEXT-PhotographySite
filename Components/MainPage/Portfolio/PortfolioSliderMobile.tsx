@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import classes from './PortfolioSliderMobile.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faAngleLeft } from "@fortawesome/free-solid-svg-icons"
-import { CustomImage } from '../../UI/CustomImage';
+import { CustomImage } from '../../UI/Images/CustomImage';
 import { portfolioData } from '../../../Data/Data';
 export const PortfolioSliderMobile:React.FC = ():JSX.Element => {
     const [slide] = useState<{thumbnail: string,name:string, place:string, orientation: number}[]>(portfolioData)

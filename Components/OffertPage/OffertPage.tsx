@@ -1,5 +1,5 @@
 import { Header } from '../Header/Header'
-import { CustomHeader } from '../UI/CustomHeader';
+import { CustomHeader } from '../UI/Texts/CustomHeader';
 import { ContactFormWithText } from '../Form/ContactFormWithText';
 import { OffertPackage } from './OffertPackage';
 import { Footer } from '../Footer/Footer';

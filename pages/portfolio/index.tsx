@@ -1,7 +1,7 @@
 import { Footer } from '../../Components/Footer/Footer';
 import { Header } from '../../Components/Header/Header';
 import classes from './portfolio.module.css';
-import { CustomHeader } from '../../Components/UI/CustomHeader';
+import { CustomHeader } from '../../Components/UI/Texts/CustomHeader';
 import { ButtonCalendar } from '../../Components/UI/ButtonCalendar';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";

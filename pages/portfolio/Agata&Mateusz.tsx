@@ -1,7 +1,7 @@
 import { Footer } from '../../Components/Footer/Footer';
 import { Header } from '../../Components/Header/Header';
 import classes from './Agata&Mateusz.module.css';
-import { CustomHeader } from '../../Components/UI/CustomHeader';
+import { CustomHeader } from '../../Components/UI/Texts/CustomHeader';
 import Image from 'next/image';
 import { portfolioData } from '../../Data/Data';
 import { galleryData } from '../../Data/Data';

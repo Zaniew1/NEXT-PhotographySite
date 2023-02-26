@@ -2,8 +2,10 @@ import React, {useState, useEffect} from 'react';
 import classes from './Opinions.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faAngleLeft } from "@fortawesome/free-solid-svg-icons"
-import { CustomImage } from '../../UI/CustomImage';
+import { CustomImage } from '../../UI/Images/CustomImage';
 import { opinionsSlider } from '../../../Data/Data';
+import { Arrow } from '../../UI/SliderNav/Arrow';
+import { SliderNav } from '../../UI/SliderNav/SliderNav';
 export const Opinions:React.FC = ():JSX.Element => {
     const [slide] = useState<{src: string, path: string, text:string, comment:string}[]>(opinionsSlider)
     const [index, setIndex] = useState<number>(0);
@@ -47,7 +49,21 @@ export const Opinions:React.FC = ():JSX.Element => {
                       <div className={classes.opinions__navigation}>
                         <div className={classes.opinions__background}></div>
                         <div className={classes.opinions__title}>Opinie</div>
-                        <div className={classes.opinions__nav}>
+                          <SliderNav black={false} index={index} length={slide.length} moveLeft={() => setIndex(index - 1)} moveRight={() => setIndex(index + 1)} />
+             
+                      </div>
+                      <a className={classes.opinions__link} href={el.path}>
+                        <CustomImage className={classes.opinions__image} customClass={classes.opinions__image__wrapper}src={el.src} alt={'Kamila Koziara'}/>
+                      </a>
+                    </article>
+                  </>
+                )
+                })}
+            </div>
+        </div>
+    )
+}
+           {/* <div className={classes.opinions__nav}>
                           <FontAwesomeIcon
                           icon={faAngleLeft}
                           className={classes.opinions__left}
@@ -61,16 +77,4 @@ export const Opinions:React.FC = ():JSX.Element => {
                           className={classes.opinions__right}
                           onClick={() => setIndex(index + 1)}
                           />
-                        </div>
-                      </div>
-                      <a className={classes.opinions__link} href={el.path}>
-                        <CustomImage className={classes.opinions__image} customClass={classes.opinions__image__wrapper}src={el.src} alt={'Kamila Koziara'}/>
-                      </a>
-                    </article>
-                  </>
-                )
-                })}
-            </div>
-        </div>
-    )
-}
+                        </div> */}

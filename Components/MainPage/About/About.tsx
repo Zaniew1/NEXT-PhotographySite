@@ -1,6 +1,6 @@
 import classes from './About.module.css';
-import { Button } from '../../UI/Button';
-import { CustomImage } from '../../UI/CustomImage';
+import { Button } from '../../UI/Buttons/Button';
+import { CustomImage } from '../../UI/Images/CustomImage';
 export const About:React.FC =():JSX.Element => {
     return(
         <section className={classes.about__wrapper}>

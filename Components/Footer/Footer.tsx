@@ -1,6 +1,6 @@
 import classes from "./Footer.module.css";
 import Link from "next/link";
-import { ButtonCalendar } from "../UI/ButtonCalendar";
+import { ButtonCalendar } from "../UI/Buttons/ButtonCalendar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFaceAngry } from "@fortawesome/free-solid-svg-icons";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";

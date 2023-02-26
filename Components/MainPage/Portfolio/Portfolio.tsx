@@ -1,5 +1,5 @@
 import classes from './Portfolio.module.css'
-import {Button} from '../../UI/Button';
+import {Button} from '../../UI/Buttons/Button';
 import { PortfolioSliderDesktop } from './PortfolioSliderDesktop';
 import {PortfolioSliderMobile} from './PortfolioSliderMobile';
 import { UIContext } from '../../../Store/UI-context';
