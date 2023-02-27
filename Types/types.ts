@@ -63,7 +63,7 @@ export type AuthContextType = {
   loggedIn: boolean,
   loggedInFunction: (logged: boolean) => void,
 }
-export type OpinionPropertiesToSendType = {name:string, url: string, description:string} | {}
+export type OpinionPropertiesToSendType = {name:string, url: string, description:string, id:string, date: number} | {}
 export type blackNav = boolean;
 export type GalleryPicturesType = {
   data: {
