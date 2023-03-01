@@ -1,10 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: false,
+  reactStrictMode: true,
   swcMinify: true,
+  webp: {
+    preset: "default",
+    quality: 100,
+  },
   images: {
       formats: ['image/avif', 'image/webp'],
-       domains: ["firebasestorage.googleapis.com"],
+       domains: ["localhost","firebasestorage.googleapis.com"],
   },
 }
 

@@ -2,11 +2,11 @@ import { Footer } from '../Footer/Footer';
 import { Questions } from '../MainPage/Questions/Questions';
 import classes from './OpinionCard.module.css';
 import Image from 'next/image'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowDown } from "@fortawesome/free-solid-svg-icons"
+import { useFetchFirestore } from '../../hooks/useFetchFirestore';
 import { opinionsSlider } from '../../Data/Data';
 import { Arrow } from '../UI/SliderNav/Arrow';
 export const OpinionCard:React.FC = (): JSX.Element =>{
+    const fetchedProperties:{id:string, url:string, name:string, description:string, date:number}[] | {}[] = useFetchFirestore('Opinion');
     return(
         <div className={classes.card}>
              <div className={classes.card__element} >
@@ -22,18 +22,18 @@ export const OpinionCard:React.FC = (): JSX.Element =>{
                         <Arrow customClass={classes.card__icon} direction={'down'} black={false}/>
                     </div>
                 </div>
-            {opinionsSlider.map((el,index)=>{
+            {fetchedProperties.map((el:any,index)=>{
                 return(
                 <div className={classes.card__element} key={Math.random()*index} >
                     <Image
-                        src={el.src}
-                        alt={'asd'}
+                        src={'https://firebasestorage.googleapis.com/v0/b/react-…=media&token=99d35f80-d2c1-47bc-9886-502c9f17885a'}
+                        alt={el.name}
                         layout="fill"
                         objectFit="cover"
                     />
                     <div className={classes.card__paragraph__wrapper}>
-                        <p className={classes.card__paragraph}>&quot; {el.comment} &quot;</p>
-                        <p className={classes.card__names}>{el.text}</p>
+                        <p className={classes.card__paragraph}>&quot; {el.description} &quot;</p>
+                        <p className={classes.card__names}>{el.name}</p>
                     </div>
                 </div>
                 )

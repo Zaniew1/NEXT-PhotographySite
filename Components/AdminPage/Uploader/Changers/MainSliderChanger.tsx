@@ -8,12 +8,11 @@ type MainSliderPropertiesToSendType = {
     name:string,
     url: string,
 } | {}
-export const MainSliderChanger = (props: {data:{}}) => {
-    console.log(props.data);
+export const MainSliderChanger = () => {
     const [pictureFile,setPictureFile] = useState<any>(null);
     const [isPropertiesReady, setIsPropertiesReady ] = useState<boolean>(false)
     const [propertiesToSend, setPropertiesToSend ] = useState<MainSliderPropertiesToSendType>({})
-    const [databaseLocation, setDatabaseLocation ] = useState<string>("MainSlider")
+    const [databaseLocation] = useState<string>("MainSlider")
     let namesRef = useRef() as MutableRefObject<HTMLInputElement>
     let fileRef = useRef() as MutableRefObject<HTMLInputElement>
     // Przypisywanie pliku do state
@@ -30,7 +29,8 @@ export const MainSliderChanger = (props: {data:{}}) => {
         setIsPropertiesReady(true);
         setPropertiesToSend({
             name: enteredNamesRef,
-            url: pictureURL
+            url: pictureURL,
+            date: new Date().getTime()
         })
         namesRef.current.value = '';
         fileRef.current.value = '';

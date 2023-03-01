@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import {firebaseFirestore} from './../Firebase/firebase-config';
 import {collection, getDocs} from 'firebase/firestore';
-export const useFetchFirestore = (place:string) => {
+export const useFetchFirestore = (place:string,updateFetchedData?:number) => {
 
     const [fireStoreData, setFireStoreData] = useState<{}[]>([{}]);
     useEffect(()=>{
@@ -11,6 +11,6 @@ export const useFetchFirestore = (place:string) => {
             setFireStoreData(data.docs.map(doc=>({...doc.data(), id:doc.id})));
         }
         getData();
-    },[place])
+    },[place,updateFetchedData])
     return fireStoreData;
 }

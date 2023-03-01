@@ -8,8 +8,7 @@ import {useRef, useState,  InputHTMLAttributes} from 'react';
 import { MutableRefObject } from "react";
 import { InputRef } from '../../../../Types/types';
 import {OpinionPropertiesToSendType} from '../../../../Types/types'
-export const PriceChanger = (props: {data:{}}) => {
-    console.log(props.data);
+export const PriceChanger = () => {
     const [pictureFile,setPictureFile] = useState<any>(null);
     const [isPropertiesReady, setIsPropertiesReady ] = useState<boolean>(false)
     const [propertiesToSend, setPropertiesToSend ] = useState<OpinionPropertiesToSendType>({})

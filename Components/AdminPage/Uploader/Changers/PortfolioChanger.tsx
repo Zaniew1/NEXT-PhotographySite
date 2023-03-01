@@ -1,5 +1,5 @@
 import classes from './PortfolioChanger.module.css';
-export const PortfolioChanger = (props: {data:{}}) => {
+export const PortfolioChanger = () => {
     return (
         <div>
             

@@ -8,7 +8,7 @@ import Image from "next/image";
 
 import { InputRef } from '../../../../Types/types';
 
-export const GalleryChanger = (props: {data:{}}) => {
+export const GalleryChanger = () => {
     type GalleryPropertiesToSendType = {
         url: string,
         size: number,
@@ -45,9 +45,9 @@ export const GalleryChanger = (props: {data:{}}) => {
         fileRef.current.value = '';
     }, [pictureURL]);
     const {succesfullUpload, error} = useFirestoreDatabase(databaseLocation,propertiesToSend, isPropertiesReady);
-    const {allPictures} = useContext(GalleryContext);
-    const fetchedProperties = useFetchFirebaseDatabase("Opinion");
-    console.log(fetchedProperties);
+    // const {allPictures} = useContext(GalleryContext);
+    // const fetchedProperties = useFetchFirebaseDatabase("Opinion");
+    // console.log(fetchedProperties);
 
     return (
         <div className={classes.gallery}>

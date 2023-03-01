@@ -2,7 +2,6 @@ import classes from './OpinionChanger.module.css';
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {useEffect} from 'react'
 import {useRef, useState, } from 'react';
 import { MutableRefObject } from "react";
 import { InputRef } from '../../../../Types/types';
@@ -12,8 +11,9 @@ import {OpinionPropertiesToSendType} from '../../../../Types/types'
 import { useFirestoreDatabase } from '../../../../hooks/useFirestoreDatabase';
 import {firebaseFirestore} from '../../../../Firebase/firebase-config';
 import {deleteDoc, doc} from 'firebase/firestore'
-export const OpinionChanger = (props: {data:{}}) => {
+export const OpinionChanger = () => {
     // DO ZMIANY ANY ////
+    const [updateFetchedData,setFetchedData] = useState<number>(0);
     const [pictureFile,setPictureFile] = useState<any>(null);
     const [isPropertiesReady, setIsPropertiesReady ] = useState<boolean>(false)
     const [propertiesToSend, setPropertiesToSend ] = useState<OpinionPropertiesToSendType>({})
@@ -27,12 +27,9 @@ export const OpinionChanger = (props: {data:{}}) => {
             setPictureFile(e.target?.files[0].name)
         }
     }
-    const fetchedProperties = useFetchFirestore(databaseLocation);
-    console.log(fetchedProperties)
-
+    
     // Uploadowanie zdjęcia
     const {pictureURL, succesPictureUpload} = useFirestorage(pictureFile);
-    
     const addNewOpinionHandler = async (e:React.SyntheticEvent) => {
         e.preventDefault();
         const enteredDescriptionRef: InputRef = descriptionRef.current.value.trim()
@@ -48,23 +45,26 @@ export const OpinionChanger = (props: {data:{}}) => {
         descriptionRef.current.value = '';
         namesRef.current.value = '';
         fileRef.current.value = '';
-
+        setFetchedData(updateFetchedData+1);
     }
-    const deleteOpinionHandler = async (id:string) =>{
-        await deleteDoc(doc(firebaseFirestore, databaseLocation, id))
+    const deleteOpinionHandler = async (id:string | undefined) =>{
+        if(id !== undefined){
+            setFetchedData(updateFetchedData+1);
+            await deleteDoc(doc(firebaseFirestore, databaseLocation, id))
+        }
     }
-    const editOpinionHandler = (element:any)=>{
-        namesRef.current.value = element.name;
-        descriptionRef.current.value = element.description;
+    const editOpinionHandler = (element:OpinionElementType)=>{
+        if(element.name !== undefined && element.description !== undefined){
+            namesRef.current.value = element.name;
+            descriptionRef.current.value = element.description;
+        }
         // fileRef.current.value = element.url;
-        console.log(element)
     }
-
-
+    
+    type OpinionElementType = {name?:string, description?: string, id?:string, date?:number, url?:string};
+    const fetchedProperties = useFetchFirestore(databaseLocation, updateFetchedData);
+    console.log(fetchedProperties)
     const {succesfullUpload, error} = useFirestoreDatabase(databaseLocation,propertiesToSend, isPropertiesReady);
-    useEffect(()=>{
-
-    },[fetchedProperties,succesfullUpload])
     return (
         <div className={classes.opinion}>
             {succesfullUpload &&  <p className={classes.opinion__success}>Udało się dodać nową opinię ! </p>}
@@ -79,14 +79,14 @@ export const OpinionChanger = (props: {data:{}}) => {
                 {succesPictureUpload && <p className={classes.opinion__success}> Zdjęcie gotowe do dodania !</p>}
                 <button className={classes.opinion__button} type="submit">Dodaj</button>
             </form>
-            {fetchedProperties && fetchedProperties.map((el:any) =>{
-                
+            {(Array.isArray(fetchedProperties)) && fetchedProperties.length !== 0 && (Object.keys(fetchedProperties[0]).length !== 0 ) && fetchedProperties.map((element:OpinionElementType) =>{
+                const {name, id, url, date, description} = element;
                 return (
-                    <div className={classes.fetched__wrapper} key={Math.random()}>
-                        <p className={classes.fetched__paragraph}>{el.name}</p>
+                    <div className={classes.fetched__wrapper} key={id}>
+                        <p className={classes.fetched__paragraph}>{name}</p>
                         <div className={classes.fetched__icons} >
-                            <div onClick={()=>{deleteOpinionHandler(el.id)}} className={classes.fetched__icon}><FontAwesomeIcon icon={faTrash} /></div>
-                            <div onClick={()=>{editOpinionHandler(el)}} className={classes.fetched__icon}><FontAwesomeIcon icon={faPenToSquare} /></div>
+                            <div onClick={()=>{deleteOpinionHandler(id)}} className={classes.fetched__icon}><FontAwesomeIcon icon={faTrash} /></div>
+                            <div onClick={()=>{editOpinionHandler(element)}} className={classes.fetched__icon}><FontAwesomeIcon icon={faPenToSquare} /></div>
                         </div>
                     </div>
                  ) 
