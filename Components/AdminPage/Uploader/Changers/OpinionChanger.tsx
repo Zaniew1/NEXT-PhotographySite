@@ -80,7 +80,7 @@ export const OpinionChanger = () => {
                 <button className={classes.opinion__button} type="submit">Dodaj</button>
             </form>
             {(Array.isArray(fetchedProperties)) && fetchedProperties.length !== 0 && (Object.keys(fetchedProperties[0]).length !== 0 ) && fetchedProperties.map((element:OpinionElementType) =>{
-                const {name, id, url, date, description} = element;
+                const {name, id, url, date, description} = element as OpinionElementType;
                 return (
                     <div className={classes.fetched__wrapper} key={id}>
                         <p className={classes.fetched__paragraph}>{name}</p>
