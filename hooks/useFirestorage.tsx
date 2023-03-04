@@ -1,39 +1,44 @@
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import { firebaseStorage } from '../Firebase/firebase-config';
 import {useState, useEffect,} from 'react';
-
-export const useFirestorage = (pictureFile:any) => {
-    const [pictureURL, setPictureURL] = useState<string>('');
+    ///////////////////DO ZMIANY ANYYY !!!!!!!!!!!!!! ///////////////////
+export const useFirestorage = (pictureFiles:any) => {
+    const [pictureURL, setPictureURL] = useState<string[]>([]);
     const [succesPictureUpload, setSuccesPictureUpload] = useState<boolean>(false);
     useEffect(()=>{
-        const uploadFile = () => {
-            const name = new Date().getTime() + String(pictureFile);
-            const storage  =  ref(firebaseStorage, name );
-            const uploadTask = uploadBytesResumable(storage, pictureFile);
-            uploadTask.on('state_changed', (snapshot)=> {
-
-                switch(snapshot.state){
-                    case 'paused':
-                        console.log('Upload is paused');
+        setPictureURL([]); 
+    ///////////////////DO ZMIANY ANYYY !!!!!!!!!!!!!! ///////////////////
+        const uploadFile = (element:any) => {
+            const name = new Date().getTime() + String(element);
+        const storage  =  ref(firebaseStorage, name );
+        const uploadTask = uploadBytesResumable(storage, element);
+        uploadTask.on('state_changed', (snapshot)=> {
+            
+            switch(snapshot.state){
+                case 'paused':
+                    console.log('Upload is paused');
+                break;
+                case 'running':
+                    console.log('Upload is running');
                     break;
-                    case 'running':
-                        console.log('Upload is running');
-                    break;
-                    default:
+                default:
                     break;
                 }
             }, (error)=>{
                 console.log(error);
             },()=>{
                 getDownloadURL(uploadTask.snapshot.ref).then((downloadURL)=>{
-                    setPictureURL(downloadURL);
+                    setPictureURL((prevState)=>[...prevState, downloadURL]);
                     console.log('Upload is Done')
                     setSuccesPictureUpload(true)
                 });
             });
         }
-        pictureFile&& uploadFile();
-    },[pictureFile])
+    ///////////////////DO ZMIANY ANYYY !!!!!!!!!!!!!! ///////////////////
+        pictureFiles?.forEach((el:any)=>{
+            pictureFiles && uploadFile(el);
+        })
+    },[pictureFiles ])
     return {pictureURL, succesPictureUpload}
 }
 

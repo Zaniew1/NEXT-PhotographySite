@@ -39,7 +39,7 @@ export const OpinionChanger = () => {
         setPropertiesToSend({
             name: enteredNamesRef,
             description: enteredDescriptionRef,
-            url: pictureURL,
+            url: pictureURL[0],
             date: date
         })
         descriptionRef.current.value = '';
@@ -47,13 +47,13 @@ export const OpinionChanger = () => {
         fileRef.current.value = '';
         setFetchedData(updateFetchedData+1);
     }
-    const deleteOpinionHandler = async (id:string | undefined) =>{
+    const deleteElementHandler = async (id:string | undefined) =>{
         if(id !== undefined){
             setFetchedData(updateFetchedData+1);
             await deleteDoc(doc(firebaseFirestore, databaseLocation, id))
         }
     }
-    const editOpinionHandler = (element:OpinionElementType)=>{
+    const editElementHandler = (element:OpinionElementType)=>{
         if(element.name !== undefined && element.description !== undefined){
             namesRef.current.value = element.name;
             descriptionRef.current.value = element.description;
@@ -79,14 +79,14 @@ export const OpinionChanger = () => {
                 {succesPictureUpload && <p className={classes.opinion__success}> Zdjęcie gotowe do dodania !</p>}
                 <button className={classes.opinion__button} type="submit">Dodaj</button>
             </form>
-            {(Array.isArray(fetchedProperties)) && fetchedProperties.length !== 0 && (Object.keys(fetchedProperties[0]).length !== 0 ) && fetchedProperties.map((element:OpinionElementType) =>{
-                const {name, id, url, date, description} = element;
+            {(Array.isArray(fetchedProperties)) && fetchedProperties.length !== 0 && fetchedProperties.map((element:OpinionElementType) =>{
+                const {name, id} = element as OpinionElementType;
                 return (
                     <div className={classes.fetched__wrapper} key={id}>
                         <p className={classes.fetched__paragraph}>{name}</p>
                         <div className={classes.fetched__icons} >
-                            <div onClick={()=>{deleteOpinionHandler(id)}} className={classes.fetched__icon}><FontAwesomeIcon icon={faTrash} /></div>
-                            <div onClick={()=>{editOpinionHandler(element)}} className={classes.fetched__icon}><FontAwesomeIcon icon={faPenToSquare} /></div>
+                            <div onClick={()=>{deleteElementHandler(id)}} className={classes.fetched__icon}><FontAwesomeIcon icon={faTrash} /></div>
+                            <div onClick={()=>{editElementHandler(element)}} className={classes.fetched__icon}><FontAwesomeIcon icon={faPenToSquare} /></div>
                         </div>
                     </div>
                  ) 

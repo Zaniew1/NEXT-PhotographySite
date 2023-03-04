@@ -23,6 +23,9 @@
     flex-direction: column;
     margin: 0 auto;
 }
+.gallery__pictures__wrapper{
+    width: 90vw;
+}
 .gallery__image__horizontal__small{
     margin: 10px 10px;
     width: 100%;

@@ -13,7 +13,9 @@ import { GalleryPictures } from '../Components/GalleryPictures/GalleryPictures';
         <section className={classes.gallery}>
             <CustomHeader customClass={classes.gallery__header} text={'inspiracje fotografii ślubnej'}/>
             <p className={classes.gallery__paragraph}>Wyróżnić się jako fotograf ślubny może być bardzo trudne. Staram się, aby styl fotografii ślubnej był wyjątkowy i kreatywny dla każdej pary. Lubię robić reportaży o dniu ślubu, a także urzeczywistniać styl w mojej pracy.</p>
-            <GalleryPictures data={galleryData}/>
+            <div className={classes.gallery__pictures__wrapper}>
+              <GalleryPictures data={galleryData}/>
+            </div>
         </section>
         <ContactFormWithText text={'POROZMAWIAJMY O TWOIM WYMARZONYM WESELU!'}/>
         <Portfolio/>

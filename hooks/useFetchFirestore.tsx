@@ -3,7 +3,7 @@ import {firebaseFirestore} from './../Firebase/firebase-config';
 import {collection, getDocs} from 'firebase/firestore';
 export const useFetchFirestore = (place:string,updateFetchedData?:number) => {
 
-    const [fireStoreData, setFireStoreData] = useState<{}[]>([{}]);
+    const [fireStoreData, setFireStoreData] = useState<{}[]>([]);
     useEffect(()=>{
         const allCollection = collection(firebaseFirestore, place);
         const getData = async ()=>{
@@ -12,5 +12,7 @@ export const useFetchFirestore = (place:string,updateFetchedData?:number) => {
         }
         getData();
     },[place,updateFetchedData])
-    return fireStoreData;
+    ///////////////////DO ZMIANY ANYYY !!!!!!!!!!!!!! ///////////////////
+    let sortedStoreData = fireStoreData.sort((a:any, b:any) => a.date - b.date)
+    return sortedStoreData;
 }

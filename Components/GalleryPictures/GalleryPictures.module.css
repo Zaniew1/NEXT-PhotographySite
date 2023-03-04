@@ -1,6 +1,6 @@
 .gallery__wrapper{
     max-width: 1000px;
-    width: 90vw;
+    width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;

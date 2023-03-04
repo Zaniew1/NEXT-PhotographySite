@@ -44,3 +44,22 @@
     transition: 0.3s ease-in;
     color:  red
 }
+.fetched__wrapper{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #000;
+}
+
+.fetched__icons{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+}
+.fetched__icon{
+    padding: 5px
+}
