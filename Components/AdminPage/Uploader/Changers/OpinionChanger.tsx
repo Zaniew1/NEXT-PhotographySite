@@ -14,7 +14,7 @@ import {deleteDoc, doc} from 'firebase/firestore'
 export const OpinionChanger = () => {
     // DO ZMIANY ANY ////
     const [updateFetchedData,setFetchedData] = useState<number>(0);
-    const [pictureFile,setPictureFile] = useState<any>(null);
+    const [pictureFiles,setPictureFiles] = useState<string[]>([]);
     const [isPropertiesReady, setIsPropertiesReady ] = useState<boolean>(false)
     const [propertiesToSend, setPropertiesToSend ] = useState<OpinionPropertiesToSendType>({})
     const [databaseLocation] = useState<string>("Opinion")
@@ -24,23 +24,23 @@ export const OpinionChanger = () => {
     // Przypisywanie pliku do state
     const fileUploadHandler = (e:React.ChangeEvent<HTMLInputElement>) => {
         if(e.target.files != null){
-            setPictureFile(e.target?.files[0].name)
+            let file = e.target?.files[0].name
+            setPictureFiles((prevState)=>[...prevState, file])
         }
     }
     
     // Uploadowanie zdjęcia
-    const {pictureURL, succesPictureUpload} = useFirestorage(pictureFile);
+    const {pictureURL, succesPictureUpload} = useFirestorage(pictureFiles);
     const addNewOpinionHandler = async (e:React.SyntheticEvent) => {
         e.preventDefault();
         const enteredDescriptionRef: InputRef = descriptionRef.current.value.trim()
         const enteredNamesRef: InputRef = namesRef.current.value.trim();
-        const date = new Date().getTime();
         setIsPropertiesReady(true);
         setPropertiesToSend({
             name: enteredNamesRef,
             description: enteredDescriptionRef,
             url: pictureURL[0],
-            date: date
+            date: new Date().getTime()
         })
         descriptionRef.current.value = '';
         namesRef.current.value = '';
@@ -49,8 +49,8 @@ export const OpinionChanger = () => {
     }
     const deleteElementHandler = async (id:string | undefined) =>{
         if(id !== undefined){
-            setFetchedData(updateFetchedData+1);
             await deleteDoc(doc(firebaseFirestore, databaseLocation, id))
+            setFetchedData(updateFetchedData+1);
         }
     }
     const editElementHandler = (element:OpinionElementType)=>{
@@ -58,6 +58,7 @@ export const OpinionChanger = () => {
             namesRef.current.value = element.name;
             descriptionRef.current.value = element.description;
         }
+        setFetchedData(updateFetchedData+1);
         // fileRef.current.value = element.url;
     }
     
