@@ -79,13 +79,8 @@ export const OpinionChanger = () => {
                 {succesPictureUpload && <p className={classes.opinion__success}> Zdjęcie gotowe do dodania !</p>}
                 <button className={classes.opinion__button} type="submit">Dodaj</button>
             </form>
-<<<<<<< HEAD
-            {(Array.isArray(fetchedProperties)) && fetchedProperties.length !== 0 && fetchedProperties.map((element:OpinionElementType) =>{
-                const {name, id} = element as OpinionElementType;
-=======
             {(Array.isArray(fetchedProperties)) && fetchedProperties.length !== 0 && (Object.keys(fetchedProperties[0]).length !== 0 ) && fetchedProperties.map((element:OpinionElementType) =>{
                 const {name, id, url, date, description} = element as OpinionElementType;
->>>>>>> e41a1a5516f9277955efed7cc141b6a014add269
                 return (
                     <div className={classes.fetched__wrapper} key={id}>
                         <p className={classes.fetched__paragraph}>{name}</p>
