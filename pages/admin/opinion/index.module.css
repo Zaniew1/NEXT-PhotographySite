@@ -1,0 +1,69 @@
+
+.admin__opinion{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #ccc;
+    min-height: 100vh;
+}
+.admin__opinion__add{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    height: 50px;
+    width: 200px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin:  50px
+}
+.admin__opinion__add:hover{
+    background-color: red;
+    cursor: pointer
+}
+.fetched__wrapper{
+    display: flex; 
+    width: 60%;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin: 15px auto;
+}
+.fetched__action{
+    margin: 0 10px  0 auto
+}
+.fetched__image__wrapper{
+    width: 200px;
+    height: 200px;
+    margin: 15px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+.fetched__info{
+    margin: 15px 0 15px 0;
+    max-width: 56%;
+}
+.fetched__icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 15px;
+    width: 100px;
+    height: 40px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+.fetched__icon:hover{
+    background-color: red;
+    cursor: pointer
+}
+.admin__opinion__modal__backdrop{
+    position:fixed;
+    top:0 ;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 998;
+    background-color: rgba(0,0,0,0.75);
+}
