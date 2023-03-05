@@ -1,13 +1,20 @@
-import classes from './UploaderSquare.module.css'
+import classes from './UploaderSquare.module.css';
+import Link from "next/link";
 type UploaderSquareProps = {
     text: string,
-    key: number,
-    onClick: (event:React.MouseEvent<HTMLElement>) => void,
+    path: string,
 }
 export  const UploaderSquare = (props: UploaderSquareProps) =>{
    
     return (
-        <div onClick={props.onClick} className={classes.uploader__square}>{props.text}</div>
+        <li className={classes.square__li}>
+        <Link
+            href={props.path}
+            className={classes.square__link}
+        >
+            {props.text}
+        </Link>
+        </li>
     )
 
 };

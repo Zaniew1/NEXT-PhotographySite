@@ -1,18 +1,22 @@
-.uploader__square{
+.square__li{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    width: 30vw;
-    height: 20vw;
-    text-align: center;
-    border: 1px solid #000;
-    margin: 20px;
+    width: 100%;
+    height: 50px;
     background-color: #fff;
-    font-size: 12px;
-    padding: 0 20px;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
+    border: 1px solid #000;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 0 10px;
+    transition: ease-in .2s;
 }
-.uploader__square:hover{
-    transform: scale(1.1)
+.square__li:hover{
+    background-color: #ccc;
+}
+.square__link{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }

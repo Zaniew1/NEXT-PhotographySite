@@ -30,14 +30,19 @@ export const navigationPictures = [
 ];
 export const uploaderEdit=[{
   text: "Cennik",
+  path: "/admin/price",
 },{
   text: "Zdjęcia w sliderze na stronie głównej",
+  path: "/admin/main",
 },{
   text: "Zdjęcia w galerii",
+  path: "/admin/gallery",
 },{
   text: "Zdjęcia w portfolio ślubnym",
+  path: "/admin/portfolio",
 },{
   text: "Opinie",
+  path: "/admin/opinion",
 }];
 
 export const mainPageData=[
