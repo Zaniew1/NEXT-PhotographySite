@@ -1,0 +1,71 @@
+.modal__add{
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 999;
+    overflow: hidden;
+    background-color: #fff;
+}
+.opinion__wrapper{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px;
+}
+.opinion__label{
+    font-size: 16px;
+    padding: 10px
+}
+.opinion__input{
+    padding: 0 10px;
+    word-wrap: break-word;
+    width: 250px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    background-color: transparent;
+}
+.opinion__input:nth-of-type(2){
+    height: 150px;
+    text-align: justify;
+   
+
+}
+.opinion__input:nth-of-type(3){
+    border: none
+}
+.opinion__button{
+    margin: 20px; 
+    width: 120px;
+    outline: none;
+    background-color:#333;
+    border: 1px solid #000;
+    border-radius: 5px;
+    color: #fff;
+    height: 25px;
+    cursor: pointer;
+}
+.opinion__button:hover{
+    background-color:#777;
+}
+.opinion__success{
+    text-align: center;
+    transition: 0.3s ease-in;
+    color:  rgba(24, 168, 24, 0.829)
+}
+.opinion__error{
+    text-align: center;
+    transition: 0.3s ease-in;
+    color:  red
+}
+.modal__closure{
+    width: 40px;
+    height: 40px;
+    background-color: #000;
+    position: absolute;
+    top: 2%;
+    right: 5%;
+}
