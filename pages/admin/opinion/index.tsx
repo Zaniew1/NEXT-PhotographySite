@@ -1,4 +1,4 @@
-import classes from './index.module.css'
+import classes from '../main.module.css'
 import { useFetchFirestore } from '../../../hooks/useFetchFirestore';
 import {firebaseFirestore} from '../../../Firebase/firebase-config';
 import {deleteDoc, doc} from 'firebase/firestore';
@@ -6,9 +6,12 @@ import {useState} from 'react';
 import { CustomImage } from '../../../Components/UI/Images/CustomImage';
 import { AddOpinion } from './AddOpinion';
 import { EditOpinion } from './EditOpinion';
+import { useRouter } from 'next/router'
+
 type OpinionElementType = {name:string, description: string, id:string, date:number, url:string};
 const Opinion:React.FC = ():JSX.Element =>{
     let databaseLocation:string = "Opinion";
+    const router = useRouter();
     const [modalAddToggle,setModalAddToggle] = useState<boolean>(false);
     const [modalEditToggle,setModalEditToggle] = useState<boolean>(false);
     const [elementToEdit, setElementToEdit] = useState<OpinionElementType>({name:'', description:'', id: '', url: '' ,date:0})
@@ -19,6 +22,7 @@ const Opinion:React.FC = ():JSX.Element =>{
             setFetchedData(updateFetchedData+1);
         }
     }
+
     const editElementHandler = async (element: OpinionElementType ) =>{
         setElementToEdit(element);
         toggleEditModal();
@@ -32,6 +36,7 @@ const Opinion:React.FC = ():JSX.Element =>{
     const fetchedProperties = useFetchFirestore(databaseLocation, updateFetchedData);
     return(
         <div className={classes.admin__opinion}>
+            <button  onClick={()=>{router.back()}}className={classes.button__back}>Powróć</button>
             <button onClick={toggleAddModal} className={classes.admin__opinion__add}>{"Dodaj nową opinię"}</button>
             {modalAddToggle && <AddOpinion toggle={toggleAddModal} updateCounter={updateFetchedData} update={setFetchedData}/>}
             {modalEditToggle && <EditOpinion toggle={toggleEditModal} updateCounter={updateFetchedData} update={setFetchedData} elementToEdit={elementToEdit}/>}
@@ -48,6 +53,7 @@ const Opinion:React.FC = ():JSX.Element =>{
                             <p className={classes.fetched__paragraph}>{"ID: "+ id}</p>
                             <p className={classes.fetched__paragraph}>{"Imiona: "+name}</p>
                             <p className={classes.fetched__paragraph}>{"Opis: "+description}</p>
+                            <p className={classes.fetched__paragraph}>{"URL zdjęcia: "+url}</p>
                             <p className={classes.fetched__paragraph}>{`Data dodania: ${new Date(Number(date))}`}</p>
                         </div>
                         <div className={classes.fetched__action} >

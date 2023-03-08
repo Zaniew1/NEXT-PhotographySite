@@ -8,18 +8,18 @@
     overflow: hidden;
     background-color: #fff;
 }
-.opinion__wrapper{
+.admin__wrapper{
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     margin: 40px;
 }
-.opinion__label{
+.admin__label{
     font-size: 16px;
     padding: 10px
 }
-.opinion__input{
+.admin__input{
     padding: 0 10px;
     word-wrap: break-word;
     width: 250px;
@@ -28,16 +28,19 @@
     border: 1px solid #000;
     background-color: transparent;
 }
-.opinion__input:nth-of-type(2){
+#description{
     height: 150px;
     text-align: justify;
-   
-
 }
-.opinion__input:nth-of-type(3){
-    border: none
+#file{
+    border: none;
 }
-.opinion__button{
+.admin__select{
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+}
+.admin__button{
     margin: 20px; 
     width: 120px;
     outline: none;
@@ -48,15 +51,15 @@
     height: 25px;
     cursor: pointer;
 }
-.opinion__button:hover{
+.admin__button:hover{
     background-color:#777;
 }
-.opinion__success{
+.admin__success{
     text-align: center;
     transition: 0.3s ease-in;
     color:  rgba(24, 168, 24, 0.829)
 }
-.opinion__error{
+.admin__error{
     text-align: center;
     transition: 0.3s ease-in;
     color:  red
