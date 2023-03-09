@@ -26,7 +26,7 @@
 }
 .fetched__wrapper{
     display: flex; 
-    width: 60%;
+    width: 100%;
     border: 1px solid #000;
     border-radius: 10px;
     margin: 15px auto;
@@ -80,4 +80,14 @@
 }
 .button__back:hover{
     background-color: red;
+}
+.overlapper{
+    width: 70%;
+    padding: 15px;
+    border: 1px solid red;
+    margin-bottom: 50px;
+}
+.fetched__wrapper_pictures{
+    display: flex;
+    border: 1px solid greenyellow;
 }

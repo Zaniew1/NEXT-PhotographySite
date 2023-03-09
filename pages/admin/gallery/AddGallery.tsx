@@ -41,6 +41,7 @@ export const AddGallery:React.FC<AddAdminType> = (props): JSX.Element=>{
         fileRef.current.value = '';
         props.update(props.updateCounter + 1);
     }
+    console.log(propertiesToSend)
     const {succesfullUpload, error} = useFirestoreDatabase(databaseLocation,propertiesToSend, isPropertiesReady);
     {succesfullUpload && props.toggle()}
     return(

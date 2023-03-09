@@ -68,6 +68,7 @@ export type OpinionPropertiesToSendType = {name:string, url: string, description
 export type MainPropertiesToSendType = {name:string, url: string, id:string, date: number} | {}
 export type GalleryPropertiesToSendType = {name:string, url: string, id:string, date: number, size:number, orientation: number} | {}
 export type PricePropertiesToSendType = {content:string, description:string, price: number, id:string, date:number, url1:string, url2:string} | {};
+export type PortfolioPropertiesToSendType = { name:string, description:string,  id:string, date:number, url:string, orientation:number, pictures:{}[]} | {};
 export type blackNav = boolean;
 export type GalleryPicturesType = {
   data: {

@@ -60,8 +60,8 @@ export const EditPortfolio:React.FC<AddAdminType> = (props): JSX.Element=>{
                 <label className={classes.admin__label} htmlFor='description'>Opis</label>
                 <input className={classes.admin__input} ref={descriptionRef} type="text" id="description"  />
                 <label className={classes.admin__label} htmlFor='orientation'>Orientacja Zdjęcia</label>
-                <select className={classes.admin__select} ref={orientationRef} name="orientation" id="orientation" >
-                    <option value={0} selected>Poziome</option>
+                <select className={classes.admin__select} ref={orientationRef} defaultValue={props.elementToEdit.orientation} name="orientation" id="orientation" >
+                    <option value={0} >Poziome</option>
                     <option value={1}>Pionowe</option>
                 </select>
                 <label className={classes.admin__label} htmlFor='file1'>Załącz zdjęcie nr 1</label>

@@ -53,13 +53,13 @@ export const EditGallery:React.FC<AddAdminType> = (props): JSX.Element=>{
             <label className={classes.admin__label} htmlFor='names'>Tytuł zdjęcia</label>
                 <input className={classes.admin__input} ref={namesRef} type="text" id="names"  />
                 <label className={classes.admin__label} htmlFor='size'>Rozmiar zdjęcia w galerii</label>
-                <select className={classes.admin__select} ref={sizeRef} name="size" id="size" >
+                <select className={classes.admin__select} defaultValue={props.elementToEdit.size} ref={sizeRef} name="size" id="size" >
                     <option value={0}  >Małe</option>
                     <option value={1}>Duże</option>
                     <option value={2}>Bardzo Duże</option>
                 </select>
                 <label className={classes.admin__label} htmlFor='orientation'>Orientacja Zdjęcia</label>
-                <select className={classes.admin__select} ref={orientationRef} name="orientation" id="orientation" >
+                <select className={classes.admin__select} defaultValue={props.elementToEdit.orientation} ref={orientationRef} name="orientation" id="orientation" >
                     <option value={0}>Poziome</option>
                     <option value={1}>Pionowe</option>
                 </select>
