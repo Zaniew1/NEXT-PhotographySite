@@ -58,7 +58,7 @@ const Portfolio:React.FC = ():JSX.Element =>{
           setIdToSend(element.id)
           setIsPropertiesReady(true);
     }
-    useEditFirestoreDatabase(databaseLocation,propertiesToSend, isPropertiesReady ,idtoSend);
+    useEditFirestoreDatabase(databaseLocation, propertiesToSend, isPropertiesReady ,idtoSend);
 
 
     const fetchedProperties = useFetchFirestore(databaseLocation, updateFetchedData);
