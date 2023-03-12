@@ -7,8 +7,7 @@ import { CustomImage } from '../../../Components/UI/Images/CustomImage';
 import { AddMain } from './AddMain';
 import { EditMain } from './EditMain';
 import { useRouter } from 'next/router'
-
-type MainElementType = {name:string, id:string, date:number, url:string};
+import { MainElementType, MainPropertiesToSendType } from '../../../Types/types';
 const Main:React.FC = ():JSX.Element =>{
     let databaseLocation:string = "MainSlider";
     const router = useRouter();
@@ -42,8 +41,9 @@ const Main:React.FC = ():JSX.Element =>{
             {modalEditToggle && <EditMain toggle={toggleEditModal} updateCounter={updateFetchedData} update={setFetchedData} elementToEdit={elementToEdit}/>}
             {modalAddToggle  &&<div className={classes.admin__opinion__modal__backdrop}></div>}
             {modalEditToggle &&<div className={classes.admin__opinion__modal__backdrop}></div>}
-             {(Array.isArray(fetchedProperties)) && fetchedProperties.length !== 0 && (Object.keys(fetchedProperties[0]).length !== 0 ) && fetchedProperties.map((element:any) =>{
+             {(Array.isArray(fetchedProperties)) && fetchedProperties.length !== 0 && (Object.keys(fetchedProperties[0]).length !== 0 ) && fetchedProperties.map((element:MainPropertiesToSendType) =>{
                 const {name, id, url, date} = element as MainElementType;
+                const el = element as MainElementType;
                 return (
                     <div className={classes.fetched__wrapper} key={id}>
                         <div className={classes.fetched__image__wrapper}>
@@ -57,7 +57,7 @@ const Main:React.FC = ():JSX.Element =>{
                         </div>
                         <div className={classes.fetched__action} >
                             <button onClick={()=>{deleteElementHandler(id)}} className={classes.fetched__icon}>{'Usuń'}</button>
-                            <button onClick={()=>{editElementHandler(element)}} className={classes.fetched__icon}>{'Edytuj'}</button>
+                            <button onClick={()=>{editElementHandler(el)}} className={classes.fetched__icon}>{'Edytuj'}</button>
                         </div>
                     </div>
                  ) 

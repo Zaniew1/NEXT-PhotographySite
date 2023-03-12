@@ -4,6 +4,7 @@ import { UIContext } from "../../Store/UI-context";
 import {useContext} from 'react'
 import { useScrollChecker } from "../../hooks/useScrollChecker";
 import { blackNav } from "../../Types/types";
+import {useState} from 'react';
 export const Logo:React.FC<{black: blackNav}> = (props):JSX.Element => {
   const { drop,dropDownNav } = useContext(UIContext);
   const pageY = useScrollChecker();

@@ -1,6 +1,5 @@
 
 import { uploaderEdit } from "../../../Data/Data"
-import { NavigationLinks } from "../../UI/Navigation/NavigationLinks";
 import { CustomHeader } from "../../UI/Texts/CustomHeader";
 import classes from './UploadAdminPanel.module.css'
 import { UploaderSquare } from "./UploaderSquare";

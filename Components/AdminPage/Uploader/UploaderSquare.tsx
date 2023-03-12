@@ -1,3 +1,4 @@
+
 import classes from './UploaderSquare.module.css';
 import Link from "next/link";
 type UploaderSquareProps = {

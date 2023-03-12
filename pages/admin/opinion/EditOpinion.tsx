@@ -6,11 +6,9 @@ import { InputRef } from '../../../Types/types';
 import { useFirestorage } from '../../../hooks/useFirestorage';
 import {OpinionPropertiesToSendType} from '../../../Types/types';
 import { useEditFirestoreDatabase} from '../../../hooks/useEditFirestoreDatabase';
-type OpinionElementType = {name:string, description: string, id:string, date:number, url:string};
-type AddAdminType = {toggle:()=>void, update:(updateCounter:number)=>void, updateCounter:number, elementToEdit:OpinionElementType }
-export const EditOpinion:React.FC<AddAdminType> = (props): JSX.Element=>{
-    console.log('wszedłem do edycji')
-    const [pictureFiles,setPictureFiles] = useState<string[]>([]);
+import { EditOpinionType } from '../../../Types/types';
+export const EditOpinion:React.FC<EditOpinionType> = (props): JSX.Element=>{
+    const [pictureFiles,setPictureFiles] = useState<File[]>([]);
     const [isPropertiesReady, setIsPropertiesReady ] = useState<boolean>(false);
     const [propertiesToSend, setPropertiesToSend ] = useState<OpinionPropertiesToSendType>({});
     const [databaseLocation] = useState<string>("Opinion");
@@ -20,17 +18,14 @@ export const EditOpinion:React.FC<AddAdminType> = (props): JSX.Element=>{
     let fileRef = useRef() as MutableRefObject<HTMLInputElement>
     const fileUploadHandler = (e:React.ChangeEvent<HTMLInputElement>) => {
         if(e.target.files != null){
-            let file = e.target?.files[0].name
+            let file = e.target?.files[0];
             setPictureFiles((prevState)=>[...prevState, file])
         }
     }
-    
-    // Uploadowanie zdjęcia
     useEffect(()=>{
         descriptionRef.current.value = props.elementToEdit.description;
         namesRef.current.value = props.elementToEdit.name;
     },[props.elementToEdit.description, props.elementToEdit.name ])
-
     const {pictureURL, succesPictureUpload} = useFirestorage(pictureFiles);
     const editHandler = async (e:React.SyntheticEvent) => {
         e.preventDefault();
@@ -46,7 +41,6 @@ export const EditOpinion:React.FC<AddAdminType> = (props): JSX.Element=>{
         props.update(props.updateCounter + 1);
     }
     const {succesfullUpload, error} = useEditFirestoreDatabase(databaseLocation,propertiesToSend, isPropertiesReady ,idToSend );
-    console.log(succesfullUpload)
     {succesfullUpload && props.toggle()}
     return(
         <div className={classes.modal__add}>

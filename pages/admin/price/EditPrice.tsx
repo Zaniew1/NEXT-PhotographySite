@@ -3,14 +3,12 @@ import classes from '../editStyle.module.css'
 import {useEffect, useRef, useState, } from 'react';
 import { MutableRefObject } from "react";
 import { InputRef } from '../../../Types/types';
-import { InputRefNumber } from '../../../Types/types';
 import { useFirestorage } from '../../../hooks/useFirestorage';
 import {PricePropertiesToSendType} from '../../../Types/types';
+import { EditPriceType } from '../../../Types/types';
 import { useEditFirestoreDatabase} from '../../../hooks/useEditFirestoreDatabase';
-type PriceElementType = {content:string, name:string, description:string, price: number, id:string, date:number, url1:string, url2:string};
-type AddAdminType = {toggle:()=>void, update:(updateCounter:number)=>void, updateCounter:number, elementToEdit:PriceElementType }
-export const EditPrice:React.FC<AddAdminType> = (props): JSX.Element=>{
-    const [pictureFiles,setPictureFiles] = useState<string[]>([]);
+export const EditPrice:React.FC<EditPriceType> = (props): JSX.Element=>{
+    const [pictureFiles,setPictureFiles] = useState<File[]>([]);
     const [isPropertiesReady, setIsPropertiesReady ] = useState<boolean>(false);
     const [propertiesToSend, setPropertiesToSend ] = useState<PricePropertiesToSendType>({});
     const [databaseLocation] = useState<string>("Price");
@@ -23,14 +21,14 @@ export const EditPrice:React.FC<AddAdminType> = (props): JSX.Element=>{
     let file2Ref = useRef() as MutableRefObject<HTMLInputElement>
     const fileUploadHandler = (e:React.ChangeEvent<HTMLInputElement>) => {
         if(e.target.files != null){
-            let file = e.target?.files[0].name
-            setPictureFiles((prevState)=>[...prevState, file])
+            let file = e.target?.files[0];
+            setPictureFiles((prevState)=>[...prevState, file]);
         }
     }
     const fileUploadHandler2 = (e:React.ChangeEvent<HTMLInputElement>) => {
         if(e.target.files != null){
-            const file =  e.target?.files[0].name
-            setPictureFiles((prevState) => [...prevState, file])
+            const file =  e.target?.files[0];
+            setPictureFiles((prevState) => [...prevState, file]);
         }
     }
     useEffect(()=>{

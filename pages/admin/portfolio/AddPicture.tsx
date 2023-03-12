@@ -5,10 +5,9 @@ import { InputRef } from '../../../Types/types';
 import { useFirestorage } from '../../../hooks/useFirestorage';
 import {PortfolioPropertiesToSendType} from '../../../Types/types';
 import { useEditFirestoreDatabase } from '../../../hooks/useEditFirestoreDatabase';
-type PortfolioElementType = { name:string, description:string,  id:string, date:number, url:string, orientation:number, pictures:{}[]} 
-type AddAdminType = {toggle:()=>void, update:(updateCounter:number)=>void, updateCounter:number, elementToEdit:PortfolioElementType}
-export const AddPicture:React.FC<AddAdminType> = (props): JSX.Element=>{
-    const [pictureFiles,setPictureFiles] = useState<string[]>([]);
+import { EditPortflioType } from '../../../Types/types';
+export const AddPicture:React.FC<EditPortflioType> = (props): JSX.Element=>{
+    const [pictureFiles,setPictureFiles] = useState<File[]>([]);
     const [isPropertiesReady, setIsPropertiesReady ] = useState<boolean>(false)
     const [propertiesToSend, setPropertiesToSend ] = useState<PortfolioPropertiesToSendType>({})
     const [databaseLocation] = useState<string>("Portfolio")
@@ -18,7 +17,7 @@ export const AddPicture:React.FC<AddAdminType> = (props): JSX.Element=>{
     let sizeRef = useRef() as MutableRefObject<HTMLSelectElement>
     const fileUploadHandler = (e:React.ChangeEvent<HTMLInputElement>) => {
         if(e.target.files != null){
-            let file = e.target?.files[0].name
+            let file = e.target?.files[0]
             setPictureFiles((prevState)=>[...prevState, file])
         }
     }
@@ -38,7 +37,6 @@ export const AddPicture:React.FC<AddAdminType> = (props): JSX.Element=>{
             size: enteredSizenRef,
             orientation: enteredOrientationRef,
         })
-        console.log(props.elementToEdit.pictures)
         namesRef.current.value = '';
         fileRef.current.value = '';
         props.update(props.updateCounter + 1);
@@ -47,7 +45,6 @@ export const AddPicture:React.FC<AddAdminType> = (props): JSX.Element=>{
         if(Object.keys(propertiesToSend).length !== 0 )
         props.elementToEdit.pictures.push(propertiesToSend);
         },[propertiesToSend, props.elementToEdit.pictures])
-    console.log(props.elementToEdit)
     const {succesfullUpload, error} = useEditFirestoreDatabase(databaseLocation,props.elementToEdit, isPropertiesReady ,props.elementToEdit.id );
     {succesfullUpload && props.toggle()}
     return(

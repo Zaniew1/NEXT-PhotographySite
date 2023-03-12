@@ -5,9 +5,9 @@ import { InputRef } from '../../../Types/types';
 import { useFirestorage } from '../../../hooks/useFirestorage';
 import {MainPropertiesToSendType} from '../../../Types/types';
 import { useFirestoreDatabase } from '../../../hooks/useFirestoreDatabase';
-type AddAdminType = {toggle:()=>void, update:(updateCounter:number)=>void, updateCounter:number}
+import { AddAdminType } from '../../../Types/types';
 export const AddMain:React.FC<AddAdminType> = (props): JSX.Element=>{
-    const [pictureFiles,setPictureFiles] = useState<string[]>([]);
+    const [pictureFiles,setPictureFiles] = useState<File[]>([]);
     const [isPropertiesReady, setIsPropertiesReady ] = useState<boolean>(false)
     const [propertiesToSend, setPropertiesToSend ] = useState<MainPropertiesToSendType>({})
     const [databaseLocation] = useState<string>("MainSlider")
@@ -15,7 +15,7 @@ export const AddMain:React.FC<AddAdminType> = (props): JSX.Element=>{
     let fileRef = useRef() as MutableRefObject<HTMLInputElement>
     const fileUploadHandler = (e:React.ChangeEvent<HTMLInputElement>) => {
         if(e.target.files != null){
-            let file = e.target?.files[0].name
+            let file = e.target?.files[0];
             setPictureFiles((prevState)=>[...prevState, file])
         }
     }

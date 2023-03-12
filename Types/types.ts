@@ -12,20 +12,6 @@ export type UiContextType = {
   desktopResolution: boolean;
   dropDownNav: (dropNav: dropDownNavType) => void;
 };
-export type DataContextType ={
-  dataSlider: {},
-  dataOffer: {},
-  dataOpinion: {},
-  dataGallery: {},
-  dataPortfolio: {},
-  setDataSlider: (data: {}[]) => void,
-  setDataOffer: (data: {}[]) => void,
-  setDataOpinion: (data: {}[]) => void,
-  setDataGallery: (data: {}[]) => void,
-  setDataPortfolio: (data: {}[]) => void,
-}
-
-
 export type ContextPropsType = {
   children: React.ReactNode
 }
@@ -64,11 +50,27 @@ export type AuthContextType = {
   loggedIn: boolean,
   loggedInFunction: (logged: boolean) => void,
 }
+export type AddAdminType = {toggle:()=>void, update:(updateCounter:number)=>void, updateCounter:number}
+
+export type EditOpinionType = {toggle:()=>void, update:(updateCounter:number)=>void, updateCounter:number, elementToEdit:OpinionElementType }
+export type EditMainType = {toggle:()=>void, update:(updateCounter:number)=>void, updateCounter:number, elementToEdit:MainElementType } 
+export type EditPortflioType = {toggle:()=>void, update:(updateCounter:number)=>void, updateCounter:number, elementToEdit:PortfolioElementType}
+export type EditGalleryType = {toggle:()=>void, update:(updateCounter:number)=>void, updateCounter:number, elementToEdit:GalleryElementType }
+export type EditPriceType = {toggle:()=>void, update:(updateCounter:number)=>void, updateCounter:number, elementToEdit:PriceElementType }
+
+
 export type OpinionPropertiesToSendType = {name:string, url: string, description:string, id:string, date: number} | {}
 export type MainPropertiesToSendType = {name:string, url: string, id:string, date: number} | {}
 export type GalleryPropertiesToSendType = {name:string, url: string, id:string, date: number, size:number, orientation: number} | {}
 export type PricePropertiesToSendType = {content:string, description:string, price: number, id:string, date:number, url1:string, url2:string} | {};
-export type PortfolioPropertiesToSendType = { name:string, description:string,  id:string, date:number, url:string, orientation:number, pictures:{}[]} | {};
+export type PortfolioPropertiesToSendType = { name:string, description:string, content:string,  id:string, date:number, url:string, orientation:number, pictures:{}[]} | {};
+
+export type GalleryElementType = {name:string, size:number, orientation: number, id:string, date:number, url:string};
+export type MainElementType = {name:string, id:string, date:number, url:string};
+export type OpinionElementType = {name:string, description: string, id:string, date:number, url:string};
+export type PortfolioElementType = { name:string, description:string, content:string,  id:string, date:number, url:string, orientation:number, pictures:{}[]} 
+export type PriceElementType = {content:string, name:string, description:string, price: number, id:string, date:number, url1:string, url2:string};
+
 export type blackNav = boolean;
 export type GalleryPicturesType = {
   data: {

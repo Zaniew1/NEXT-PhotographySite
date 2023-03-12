@@ -7,9 +7,11 @@ export const useEditFirestoreDatabase = (dataLocation:string, passedProperties: 
    useEffect( ()=>{
     const sendData = async () => {
         try{
-
+            console.log(firebaseFirestore);
+            console.log(dataLocation);
+            console.log(id);
+            console.log(passedProperties);
                 await updateDoc(doc(firebaseFirestore, dataLocation, id), passedProperties);
-                console.log('edytuję obiekt')
                 setSuccesfullUpload(true);
         }catch(err){
             console.log(err)

@@ -5,20 +5,20 @@ import { InputRef } from '../../../Types/types';
 import { useFirestorage } from '../../../hooks/useFirestorage';
 import {PricePropertiesToSendType} from '../../../Types/types';
 import { useFirestoreDatabase } from '../../../hooks/useFirestoreDatabase';
-
-type AddAdminType = {toggle:()=>void, update:(updateCounter:number)=>void, updateCounter:number}
+import { AddAdminType } from '../../../Types/types';
 export const AddPortfolio:React.FC<AddAdminType> = (props): JSX.Element=>{
-    const [pictureFiles,setPictureFiles] = useState<string[]>([]);
+    const [pictureFiles,setPictureFiles] = useState<File[]>([]);
     const [isPropertiesReady, setIsPropertiesReady ] = useState<boolean>(false)
     const [propertiesToSend, setPropertiesToSend ] = useState<PricePropertiesToSendType>({})
-    const [databaseLocation] = useState<string>("Portfolio")
+    const [databaseLocation] = useState<string>("Portfolio");
     let namesRef = useRef() as MutableRefObject<HTMLInputElement>
     let descriptionRef = useRef() as MutableRefObject<HTMLInputElement>
+    let contentRef = useRef() as MutableRefObject<HTMLInputElement>
     let orientationRef = useRef() as MutableRefObject<HTMLSelectElement>
     let fileRef = useRef() as MutableRefObject<HTMLInputElement>
     const fileUploadHandler = (e:React.ChangeEvent<HTMLInputElement>) => {
         if(e.target.files != null){
-            let file = e.target?.files[0].name
+            let file = e.target?.files[0];
             setPictureFiles((prevState)=>[...prevState, file])
         }
     }
@@ -27,14 +27,16 @@ export const AddPortfolio:React.FC<AddAdminType> = (props): JSX.Element=>{
     const addNewHandler = async (e:React.SyntheticEvent) => {
         e.preventDefault();
         const enteredNamesRef: InputRef = namesRef.current.value.trim();
-        const enteredDescriptionRef: InputRef = descriptionRef.current.value.trim()
-        const enteredOrientationRef: InputRef = orientationRef.current.value.trim()
+        const enteredDescriptionRef: InputRef = descriptionRef.current.value.trim();
+        const enteredOrientationRef: InputRef = orientationRef.current.value;
+        const enteredContentRef: InputRef = contentRef.current.value.trim();
 
         setIsPropertiesReady(true);
         setPropertiesToSend({
             name: enteredNamesRef,
             description: enteredDescriptionRef,
             orientation:enteredOrientationRef,
+            content: enteredContentRef,
             url: pictureURL[0],
             date: new Date().getTime(),
             pictures: []
@@ -45,7 +47,6 @@ export const AddPortfolio:React.FC<AddAdminType> = (props): JSX.Element=>{
         props.update(props.updateCounter + 1);
     }
     const {succesfullUpload, error} = useFirestoreDatabase(databaseLocation,propertiesToSend, isPropertiesReady);
-    console.log(succesfullUpload)
     {succesfullUpload && props.toggle()}
     return(
         <div className={classes.modal__add}>
@@ -57,6 +58,8 @@ export const AddPortfolio:React.FC<AddAdminType> = (props): JSX.Element=>{
                 <input className={classes.admin__input} ref={namesRef} type="text" id="names"  required/>
                 <label className={classes.admin__label} htmlFor='description'>Opis</label>
                 <input className={classes.admin__input} ref={descriptionRef} type="text" id="description"  required/>
+                <label className={classes.admin__label} htmlFor='content'>Nagłówek portfolio</label>
+                <input className={classes.admin__input} ref={contentRef} type="text" id="content"  required/>
                 <label className={classes.admin__label} htmlFor='orientation'>Orientacja Zdjęcia</label>
                 <select className={classes.admin__select} ref={orientationRef} name="orientation" id="orientation" required>
                     <option value={0} >Poziome</option>

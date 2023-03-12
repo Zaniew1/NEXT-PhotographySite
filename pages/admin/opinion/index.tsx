@@ -7,8 +7,7 @@ import { CustomImage } from '../../../Components/UI/Images/CustomImage';
 import { AddOpinion } from './AddOpinion';
 import { EditOpinion } from './EditOpinion';
 import { useRouter } from 'next/router'
-
-type OpinionElementType = {name:string, description: string, id:string, date:number, url:string};
+import { OpinionElementType, OpinionPropertiesToSendType } from '../../../Types/types';
 const Opinion:React.FC = ():JSX.Element =>{
     let databaseLocation:string = "Opinion";
     const router = useRouter();
@@ -42,8 +41,9 @@ const Opinion:React.FC = ():JSX.Element =>{
             {modalEditToggle && <EditOpinion toggle={toggleEditModal} updateCounter={updateFetchedData} update={setFetchedData} elementToEdit={elementToEdit}/>}
             {modalAddToggle  &&<div className={classes.admin__opinion__modal__backdrop}></div>}
             {modalEditToggle &&<div className={classes.admin__opinion__modal__backdrop}></div>}
-             {(Array.isArray(fetchedProperties)) && fetchedProperties.length !== 0 && (Object.keys(fetchedProperties[0]).length !== 0 ) && fetchedProperties.map((element:any) =>{
+             {(Array.isArray(fetchedProperties)) && fetchedProperties.length !== 0 && (Object.keys(fetchedProperties[0]).length !== 0 ) && fetchedProperties.map((element:OpinionPropertiesToSendType) =>{
                 const {name, id, description, url, date} = element as OpinionElementType;
+                const el = element as OpinionElementType
                 return (
                     <div className={classes.fetched__wrapper} key={id}>
                         <div className={classes.fetched__image__wrapper}>
@@ -58,7 +58,7 @@ const Opinion:React.FC = ():JSX.Element =>{
                         </div>
                         <div className={classes.fetched__action} >
                             <button onClick={()=>{deleteElementHandler(id)}} className={classes.fetched__icon}>{'Usuń'}</button>
-                            <button onClick={()=>{editElementHandler(element)}} className={classes.fetched__icon}>{'Edytuj'}</button>
+                            <button onClick={()=>{editElementHandler(el)}} className={classes.fetched__icon}>{'Edytuj'}</button>
                         </div>
                     </div>
                  ) 

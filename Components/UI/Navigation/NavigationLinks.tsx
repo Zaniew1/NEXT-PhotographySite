@@ -2,13 +2,12 @@ import { NavigationLinkType } from "../../../Types/types";
 import Link from "next/link";
 import { useContext } from "react";
 import { UIContext } from "../../../Store/UI-context";
-
 export const NavigationLinks: React.FC<NavigationLinkType> = (
   props
 ): JSX.Element => {
   const { drop, dropDownNav } = useContext(UIContext);
   const TurnOffDropDonwNav = () =>{
-    drop ? dropDownNav(false) : dropDownNav(true);
+    dropDownNav(true) 
   }
   const { text, path } = props;
   return (

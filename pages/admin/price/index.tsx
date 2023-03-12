@@ -7,15 +7,15 @@ import { CustomImage } from '../../../Components/UI/Images/CustomImage';
 import { AddPrice } from './AddPrice';
 import { EditPrice } from './EditPrice';
 import { useRouter } from 'next/router'
+import { PricePropertiesToSendType,PriceElementType } from '../../../Types/types';
 
-type PriceElementType = {content:string, name:string, description:string, price: number, id:string, date:number, url1:string, url2:string};
 const Price:React.FC = ():JSX.Element =>{
     let databaseLocation:string = "Price";
+    const [updateFetchedData,setFetchedData] = useState<number>(0);
     const router = useRouter();
     const [modalAddToggle,setModalAddToggle] = useState<boolean>(false);
     const [modalEditToggle,setModalEditToggle] = useState<boolean>(false);
     const [elementToEdit, setElementToEdit] = useState<PriceElementType>({content:'',name:'', description:'', price: 0, id:'', date:0,  url1:'', url2:''})
-    const [updateFetchedData,setFetchedData] = useState<number>(0);
     const deleteElementHandler = async (id:string | undefined) =>{
         if(id !== undefined){
             await deleteDoc(doc(firebaseFirestore, databaseLocation, id))
@@ -42,8 +42,9 @@ const Price:React.FC = ():JSX.Element =>{
             {modalEditToggle && <EditPrice toggle={toggleEditModal} updateCounter={updateFetchedData} update={setFetchedData} elementToEdit={elementToEdit}/>}
             {modalAddToggle  &&<div className={classes.admin__opinion__modal__backdrop}></div>}
             {modalEditToggle &&<div className={classes.admin__opinion__modal__backdrop}></div>}
-             {(Array.isArray(fetchedProperties)) && fetchedProperties.length !== 0 && (Object.keys(fetchedProperties[0]).length !== 0 ) && fetchedProperties.map((element:any) =>{
+             {(Array.isArray(fetchedProperties)) && fetchedProperties.length !== 0 && (Object.keys(fetchedProperties[0]).length !== 0 ) && fetchedProperties.map((element:PricePropertiesToSendType) =>{
                 const {id, date, description, url1, url2, content, price} = element as PriceElementType;
+                const el = element as PriceElementType
                 return (
                     <div className={classes.fetched__wrapper} key={id}>
                         <div className={classes.fetched__image__wrapper}>
@@ -63,7 +64,7 @@ const Price:React.FC = ():JSX.Element =>{
                         </div>
                         <div className={classes.fetched__action} >
                             <button onClick={()=>{deleteElementHandler(id)}} className={classes.fetched__icon}>{'Usuń'}</button>
-                            <button onClick={()=>{editElementHandler(element)}} className={classes.fetched__icon}>{'Edytuj'}</button>
+                            <button onClick={()=>{editElementHandler(el)}} className={classes.fetched__icon}>{'Edytuj'}</button>
                         </div>
                     </div>
                  ) 

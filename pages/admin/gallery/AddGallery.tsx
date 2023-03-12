@@ -4,10 +4,10 @@ import { MutableRefObject } from "react";
 import { InputRef } from '../../../Types/types';
 import { useFirestorage } from '../../../hooks/useFirestorage';
 import {GalleryPropertiesToSendType} from '../../../Types/types';
+import { AddAdminType } from '../../../Types/types';
 import { useFirestoreDatabase } from '../../../hooks/useFirestoreDatabase';
-type AddAdminType = {toggle:()=>void, update:(updateCounter:number)=>void, updateCounter:number}
 export const AddGallery:React.FC<AddAdminType> = (props): JSX.Element=>{
-    const [pictureFiles,setPictureFiles] = useState<string[]>([]);
+    const [pictureFiles,setPictureFiles] = useState<File[]>([]);
     const [isPropertiesReady, setIsPropertiesReady ] = useState<boolean>(false)
     const [propertiesToSend, setPropertiesToSend ] = useState<GalleryPropertiesToSendType>({})
     const [databaseLocation] = useState<string>("Gallery")
@@ -17,7 +17,7 @@ export const AddGallery:React.FC<AddAdminType> = (props): JSX.Element=>{
     let sizeRef = useRef() as MutableRefObject<HTMLSelectElement>
     const fileUploadHandler = (e:React.ChangeEvent<HTMLInputElement>) => {
         if(e.target.files != null){
-            let file = e.target?.files[0].name
+            let file = e.target?.files[0]
             setPictureFiles((prevState)=>[...prevState, file])
         }
     }
