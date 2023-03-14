@@ -47,7 +47,7 @@ const Opinion:React.FC = ():JSX.Element =>{
                 return (
                     <div className={classes.fetched__wrapper} key={id}>
                         <div className={classes.fetched__image__wrapper}>
-                            <CustomImage customClass={classes.fetched__image} src={String(url)} alt={String(name)}/>
+                            <CustomImage customClass={classes.fetched__image} src={url} alt={String(name)}/>
                         </div>
                         <div className={classes.fetched__info}>
                             <p className={classes.fetched__paragraph}>{"ID: "+ id}</p>

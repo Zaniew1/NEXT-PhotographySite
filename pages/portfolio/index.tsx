@@ -5,8 +5,13 @@ import { CustomHeader } from '../../Components/UI/Texts/CustomHeader';
 import { ButtonCalendar } from '../../Components/UI/Buttons/ButtonCalendar';
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { portfolioData } from '../../Data/Data';
+import { PortfolioElementType } from '../../Types/types';
+
+import { useFetchFirestore } from '../../hooks/useFetchFirestore';
+
 import { SinglePortfolio } from '../../Components/SinglePortfolio/SinglePortfolio';
 const Portfolio = () => {
+  const fetchedProperties:PortfolioElementType[] | {}[]= useFetchFirestore('Price');
  
 
 
@@ -19,9 +24,10 @@ const Portfolio = () => {
             <p className={classes.portfolio__paragraph}>Z pasją chcę wyciągnąć rękę przez obiektyw, aby uchwycić wszystkie emocje tego wyjątkowego dnia. Skupiam się na wszystkim, od świetnych punktów po drobne szczegóły. Każdy element pomaga mi stworzyć wizualną historię, którą możecie Państwo przeglądać w nieskończoność. Cały dzień to historia.</p>
             <div className={classes.portfolio__portfolios}>
 
-            {portfolioData.map((el,index)=>{
+            {fetchedProperties.map((el,index)=>{
+              const {name, url,  orientation} = el as PortfolioElementType
               return(
-                <SinglePortfolio id={'/portfolio/'+el.name.replace(/ /g,'')} key={el.name.replace(" ", "")+index} thumbnail={el.thumbnail} orientation={el.orientation} name={el.name} index={index} />
+                <SinglePortfolio id={'/portfolio/'+name.replace(/ /g,'')} key={name.replace(" ", "")+index} url={url} orientation={orientation} name={name} index={index} />
                 )
               })}
               </div>

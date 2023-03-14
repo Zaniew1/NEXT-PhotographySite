@@ -3,18 +3,21 @@ import classes from './Opinions.module.css';
 import { CustomImage } from '../../UI/Images/CustomImage';
 import { opinionsSlider } from '../../../Data/Data';
 import { SliderNav } from '../../UI/SliderNav/SliderNav';
+import { OpinionElementType } from '../../../Types/types';
+import { useFetchFirestore } from '../../../hooks/useFetchFirestore';
 export const Opinions:React.FC = ():JSX.Element => {
-    const [slide] = useState<{src: string, path: string, text:string, comment:string}[]>(opinionsSlider)
+  const fetchedProperties:OpinionElementType[] | {}[]= useFetchFirestore('Opinion');
+   
     const [index, setIndex] = useState<number>(0);
     useEffect(() => {
-        const lastIndex:number = slide.length - 1;
+        const lastIndex:number = fetchedProperties.length - 1;
         if (index < 0) {
           setIndex(lastIndex);
         }
         if (index > lastIndex) {
           setIndex(0);
         }
-      }, [index, slide]);
+      }, [index, fetchedProperties]);
     
       useEffect(() => {
         let slider:ReturnType<typeof setInterval> = setInterval(() => {
@@ -27,33 +30,32 @@ export const Opinions:React.FC = ():JSX.Element => {
     return(
         <div className={classes.slider}>
                <div className={classes.opinions__slider__content}>
-                {slide.map((el, indexSlide)=>{
+                {fetchedProperties.map((el, indexSlide)=>{
+                  const {url, name, description, date } = el as OpinionElementType;
                   let position = `${classes.opinions__element__next }`;
                   if(indexSlide === index){
                     position = `${classes.opinions__element__active }`
                   }
-                  if(indexSlide === index - 1 || (index === 0 && indexSlide === slide.length - 1))
+                  if(indexSlide === index - 1 || (index === 0 && indexSlide === fetchedProperties.length - 1))
                   {
                     position = `${classes.opinions__element__last }`
                   }
                   return(   
-                    <>
-                    <article className={`${classes.opinions__element} ${position}`} key={el.src}>
+                    <article className={`${classes.opinions__element} ${position}`} key={url}>
                       <div className={classes.opinions__feedback}>
-                        <p className={classes.opinions__text}>&quot;{opinionsSlider[indexSlide].comment} &quot;</p>
-                        <p className={classes.opinions__names}>{el.text}</p>
+                        <p className={classes.opinions__text}>&quot;{description} &quot;</p>
+                        <p className={classes.opinions__names}>{name}</p>
                       </div>
                       <div className={classes.opinions__navigation}>
                         <div className={classes.opinions__background}></div>
                         <div className={classes.opinions__title}>Opinie</div>
-                          <SliderNav black={false} index={index} length={slide.length} moveLeft={() => setIndex(index - 1)} moveRight={() => setIndex(index + 1)} />
+                          <SliderNav black={false} index={index} length={fetchedProperties.length} moveLeft={() => setIndex(index - 1)} moveRight={() => setIndex(index + 1)} />
              
                       </div>
-                      <a className={classes.opinions__link} href={el.path}>
-                        <CustomImage className={classes.opinions__image} customClass={classes.opinions__image__wrapper}src={el.src} alt={'Kamila Koziara'}/>
+                      <a className={classes.opinions__link} >
+                        <CustomImage className={classes.opinions__image} customClass={classes.opinions__image__wrapper}src={url} alt={name}/>
                       </a>
                     </article>
-                  </>
                 )
                 })}
             </div>

@@ -3,8 +3,8 @@ import { Questions } from '../MainPage/Questions/Questions';
 import classes from './OpinionCard.module.css';
 import Image from 'next/image'
 import { useFetchFirestore } from '../../hooks/useFetchFirestore';
-import { opinionsSlider } from '../../Data/Data';
 import { Arrow } from '../UI/SliderNav/Arrow';
+import { OpinionElementType } from '../../Types/types';
 export const OpinionCard:React.FC = (): JSX.Element =>{
     const fetchedProperties:{id:string, url:string, name:string, description:string, date:number}[] | {}[] = useFetchFirestore('Opinion');
     return(
@@ -22,18 +22,19 @@ export const OpinionCard:React.FC = (): JSX.Element =>{
                         <Arrow customClass={classes.card__icon} direction={'down'} black={false}/>
                     </div>
                 </div>
-            {fetchedProperties.map((el:any,index)=>{
+            {fetchedProperties.map((element:OpinionElementType|{},index)=>{
+                const {name, description, url,} = element as OpinionElementType;
                 return(
                 <div className={classes.card__element} key={Math.random()*index} >
                     <Image
-                        src={'https://firebasestorage.googleapis.com/v0/b/react-…=media&token=99d35f80-d2c1-47bc-9886-502c9f17885a'}
-                        alt={el.name}
+                        src={url}
+                        alt={name}
                         layout="fill"
                         objectFit="cover"
                     />
                     <div className={classes.card__paragraph__wrapper}>
-                        <p className={classes.card__paragraph}>&quot; {el.description} &quot;</p>
-                        <p className={classes.card__names}>{el.name}</p>
+                        <p className={classes.card__paragraph}>&quot; {description} &quot;</p>
+                        <p className={classes.card__names}>{name}</p>
                     </div>
                 </div>
                 )

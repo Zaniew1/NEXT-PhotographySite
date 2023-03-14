@@ -5,7 +5,11 @@ import { OffertPackage } from './OffertPackage';
 import { Footer } from '../Footer/Footer';
 import { OffertData } from '../../Data/Data';
 import classes from './OffertPage.module.css'
+import { useFetchFirestore } from '../../hooks/useFetchFirestore';
+import { PriceElementType } from '../../Types/types';
 export const OffertPage : React.FC = () : JSX.Element =>{
+    const fetchedProperties:PriceElementType[] | {}[]= useFetchFirestore('Price');
+
     return(
         <section className={classes.offert}>
             <Header black={true}/>
@@ -22,9 +26,10 @@ export const OffertPage : React.FC = () : JSX.Element =>{
                 </p>
             </div>
             <div className={classes.offert__packages}>
-                {OffertData.map((el,index)=>{
+                {fetchedProperties.map((el,index)=>{
+                    const {name, description, content, price, url1, url2} = el as PriceElementType
                     return(
-                        <OffertPackage index={index} key={el.name} name={el.name} description={el.description} content={el.content} price={el.price} picture1={el.picture1} picture2={el.picture2}/>
+                        <OffertPackage index={index} key={name} name={name} description={description} content={content} price={price} picture1={url1} picture2={url2}/>
                     )
                 })}
             </div>

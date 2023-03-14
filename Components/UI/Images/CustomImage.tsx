@@ -10,6 +10,7 @@ export const CustomImage:React.FC<CustomImageType> = (props:CustomImageType): JS
             layout="fill"
             objectFit="cover"
             className={classes.slider__image}
+            
             />
         </div>
     )

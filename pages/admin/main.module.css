@@ -35,6 +35,7 @@
     margin: 0 10px  0 auto
 }
 .fetched__image__wrapper{
+    position:relative;
     width: 200px;
     height: 200px;
     margin: 15px;

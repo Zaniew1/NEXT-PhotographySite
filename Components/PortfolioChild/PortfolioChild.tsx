@@ -28,7 +28,7 @@ export const PortfolioChild:React.FC<aa>= (props):JSX.Element => {
             <div className={classes.child__description__wrap}>
                 <p className={classes.child__description}>{description}</p>
             </div>
-            <GalleryPictures data={pictures}/>
+            {/* <GalleryPictures data={pictures}/> */}
             <Portfolio/>
             <ContactFormWithText text={'POROZMAWIAJMY O TWOIM WYMARZONYM WESELU!'}/>
             <Footer />
