@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { CustomImageType } from '../../../Types/types';
 export const CustomImage:React.FC<CustomImageType> = (props:CustomImageType): JSX.Element =>{
     return (
-        <div key={props.key} className={`${props.customClass !== "" ? `${classes.image__wrapper} ${props.customClass}` : classes.image__wrapper}`}>
+        <div key={props.src+props.alt} className={`${props.customClass !== "" ? `${classes.image__wrapper} ${props.customClass}` : classes.image__wrapper}`}>
             <Image
             src={props.src}
             alt={props.alt}

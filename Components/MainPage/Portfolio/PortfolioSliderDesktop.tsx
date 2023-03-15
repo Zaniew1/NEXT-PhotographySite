@@ -7,7 +7,6 @@ import { MutableRefObject } from 'react';
 import { PortfolioElementType } from '../../../Types/types';
 
 export const PortfolioSliderDesktop:React.FC<{data:PortfolioElementType[] | {}[]}> = (props) => {
-  console.log(props)
     const [current, setCurrent] = useState<number>(0);
     let containerRef = useRef() as MutableRefObject<HTMLDivElement>
     let carouselRef = useRef() as MutableRefObject<HTMLDivElement>

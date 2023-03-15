@@ -3,14 +3,10 @@ import { useState } from "react";
 import { CustomImage } from "../../UI/Images/CustomImage";
 import {useEffect} from 'react';
 import { SliderNav } from "../../UI/SliderNav/SliderNav";
-import { useFetchFirestore } from '../../../hooks/useFetchFirestore';
 import { MainElementType, MainPropertiesToSendType } from "../../../Types/types";
 
-export const Slider:React.FC = ():JSX.Element => {
-
-const fetchedProperties:MainElementType[] | {}[]= useFetchFirestore('MainSlider');
-console.log(fetchedProperties)
-
+export const Slider = (props:{data:MainElementType[]}):JSX.Element => {
+const [fetchedProperties] =  useState<MainElementType[]>(props.data)
   const [index, setIndex] = useState<number>(0);
   useEffect(() => {
       const lastIndex:number = fetchedProperties.length - 1;
@@ -21,8 +17,6 @@ console.log(fetchedProperties)
         setIndex(0);
       }
     }, [index, fetchedProperties]);
-  
-  
   return(
       <div className={classes.slider}>
              <div className={classes.slider__slider__content}>

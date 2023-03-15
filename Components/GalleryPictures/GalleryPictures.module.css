@@ -1,6 +1,6 @@
 .gallery__wrapper{
     max-width: 1000px;
-    width: 90%;
+    width: 90vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,10 +42,12 @@
 @media (min-width: 768px){
     .gallery__wrapper{
         flex-direction: row;
+        width: 100vw;
         flex-wrap: wrap;
-        margin: 35px auto ;
+        margin: 35px auto 35px auto ;
         
     }
+
     .gallery__image__horizontal__small{
         margin: 10px 10px;
         width: 30%;

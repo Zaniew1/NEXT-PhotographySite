@@ -6,11 +6,16 @@ import { Header } from './../Components/Header/Header';
 import { Questions } from './../Components/MainPage/Questions/Questions';
 import {Opinions} from '../Components/MainPage/Opinions/Opinions'
 import {Portfolio} from '../Components/MainPage/Portfolio/Portfolio';
-const Home:React.FC = ():JSX.Element => {
+import { firebaseFirestore } from './../Firebase/firebase-config';
+import { collection, getDocs } from 'firebase/firestore';
+import {MainElementType} from '../Types/types'
+const Home:React.FC<{slider:MainElementType[]}> = (props):JSX.Element => {
+  console.log(props)
+  
   return (
     <main>
       <Header black={false}/>
-      <Slider/>
+      <Slider data={props.slider}/>
       <About />
       <Portfolio/>
       <Opinions/>
@@ -19,4 +24,23 @@ const Home:React.FC = ():JSX.Element => {
     </main>
   );
 }
+export async function getStaticProps(){
+  const allCollection = collection(firebaseFirestore, "MainSlider");
+    const data = await getDocs(allCollection);
+    const formattedData = data.docs.map(
+      (doc): MainElementType => ({
+        ...(doc.data() as MainElementType),
+        id: doc.id,
+      })
+    );
+    const sortedStoreData = [...formattedData].sort(
+        (a: MainElementType, b: MainElementType) => a.date - b.date
+      );
+  return {
+      props:{
+         slider: sortedStoreData
+      },
+      revalidate: 3600
+  }
+};
 export default Home;
