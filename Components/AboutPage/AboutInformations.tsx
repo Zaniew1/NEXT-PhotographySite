@@ -15,7 +15,7 @@ export const AboutInformations:React.FC = (): JSX.Element =>{
                 <div className={classes.about__facts}>
                     <div className={classes.about__fact}>
                         <p className={classes.about__title}>Ulubiony Kraj</p>
-                        <p className={classes.about__answer}>Włochy</p>
+                        <p className={classes.about__answer}>Hiszpania</p>
                     </div>
                     <div className={classes.about__fact}>
                         <p className={classes.about__title}>Tajny talent</p>

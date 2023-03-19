@@ -43,7 +43,7 @@ const Price:React.FC = ():JSX.Element =>{
             {modalAddToggle  &&<div className={classes.admin__opinion__modal__backdrop}></div>}
             {modalEditToggle &&<div className={classes.admin__opinion__modal__backdrop}></div>}
              {(Array.isArray(fetchedProperties)) && fetchedProperties.length !== 0 && (Object.keys(fetchedProperties[0]).length !== 0 ) && fetchedProperties.map((element:PricePropertiesToSendType) =>{
-                const {id, date, description, url1, url2, content, price} = element as PriceElementType;
+                const {id, date, description, url1, url2, content, price, name} = element as PriceElementType;
                 const el = element as PriceElementType
                 return (
                     <div className={classes.fetched__wrapper} key={id}>
@@ -55,9 +55,10 @@ const Price:React.FC = ():JSX.Element =>{
                         </div>
                         <div className={classes.fetched__info}>
                             <p className={classes.fetched__paragraph}>{"ID: "+ id}</p>
-                            <p className={classes.fetched__paragraph}>{"Pakiet: "+content}</p>
+                            <p className={classes.fetched__paragraph}>{"Pakiet: "+name}</p>
                             <p className={classes.fetched__paragraph}>{"Opis: "+description}</p>
                             <p className={classes.fetched__paragraph}>{"Cena: "+price}</p>
+                            <p className={classes.fetched__paragraph}>{"Co zawiera pakiet: "+content}</p>
                             <p className={classes.fetched__paragraph}>{"URL zdjęcia1: "+url1}</p>
                             <p className={classes.fetched__paragraph}>{"URL zdjęcia2: "+url2}</p>
                             <p className={classes.fetched__paragraph}>{`Data dodania: ${new Date(Number(date))}`}</p>

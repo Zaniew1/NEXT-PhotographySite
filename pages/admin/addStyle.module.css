@@ -20,13 +20,14 @@
     padding: 10px
 }
 .admin__input{
-    padding: 0 10px;
+    padding: 5px 10px;
     word-wrap: break-word;
     width: 250px;
     height: 30px;
     border-radius: 5px;
     border: 1px solid #000;
     background-color: transparent;
+    overflow-wrap: break-word;
 }
 #description{
     height: 150px;
@@ -67,8 +68,8 @@
 .modal__closure{
     width: 40px;
     height: 40px;
-    background-color: #000;
     position: absolute;
+    font-size: 24px;
     top: 2%;
     right: 5%;
 }

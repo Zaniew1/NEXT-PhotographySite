@@ -4,6 +4,7 @@ import {useState, useEffect,} from 'react';
 export const useFirestorage = (pictureFiles:File[]) => {
     const [pictureURL, setPictureURL] = useState<string[]>([]);
     const [succesPictureUpload, setSuccesPictureUpload] = useState<boolean>(false);
+    const [progress, setProgress] = useState<number>(0);
     useEffect(()=>{
         setPictureURL([]); 
             pictureFiles?.forEach((file:File)=>{
@@ -11,7 +12,7 @@ export const useFirestorage = (pictureFiles:File[]) => {
                 const storage  =  ref(firebaseStorage, name );
                 const uploadTask = uploadBytesResumable(storage, file);
                 uploadTask.on('state_changed', (snapshot)=> {
-                    
+                    setProgress((snapshot.bytesTransferred / snapshot.totalBytes * 100));
                     switch(snapshot.state){
                         case 'paused':
                         console.log('Upload is paused');
@@ -34,6 +35,6 @@ export const useFirestorage = (pictureFiles:File[]) => {
                 })
         // }
     },[pictureFiles ])
-    return {pictureURL, succesPictureUpload}
+    return {pictureURL, succesPictureUpload, progress, setProgress, setSuccesPictureUpload}
 }
 

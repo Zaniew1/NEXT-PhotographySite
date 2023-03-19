@@ -60,12 +60,12 @@ const Portfolio:React.FC = ():JSX.Element =>{
                   setIsPropertiesReady(true);
     
         } 
-        pictureToDelete.element.name!= '' && deletePictureHandler(pictureToDelete)
+        deletePictureHandler(pictureToDelete)
     },[pictureToDelete])
     useEditFirestoreDatabase(databaseLocation, propertiesToSend, isPropertiesReady ,idtoSend);
 
     const fetchedProperties = useFetchFirestore(databaseLocation, updateFetchedData);
-    console.log(fetchedProperties)
+    console.log(fetchedProperties) 
     return(
         <div className={classes.admin__opinion}>
             <button  onClick={()=>{router.back()}}className={classes.button__back}>Powróć</button>

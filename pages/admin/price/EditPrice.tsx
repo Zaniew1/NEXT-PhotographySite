@@ -15,8 +15,8 @@ export const EditPrice:React.FC<EditPriceType> = (props): JSX.Element=>{
     let idToSend = props.elementToEdit.id;
     let namesRef = useRef() as MutableRefObject<HTMLInputElement>
     let priceRef = useRef() as MutableRefObject<HTMLInputElement>
-    let descriptionRef = useRef() as MutableRefObject<HTMLInputElement>
-    let contentRef = useRef() as MutableRefObject<HTMLInputElement>
+    let descriptionRef = useRef() as MutableRefObject<HTMLTextAreaElement>
+    let contentRef = useRef() as MutableRefObject<HTMLTextAreaElement>
     let file1Ref = useRef() as MutableRefObject<HTMLInputElement>
     let file2Ref = useRef() as MutableRefObject<HTMLInputElement>
     const fileUploadHandler = (e:React.ChangeEvent<HTMLInputElement>) => {
@@ -32,20 +32,18 @@ export const EditPrice:React.FC<EditPriceType> = (props): JSX.Element=>{
         }
     }
     useEffect(()=>{
-        console.log(priceRef.current.value + "1")
-        let price = Number(priceRef.current.value);
         namesRef.current.value = props.elementToEdit.name;
-        price = props.elementToEdit.price;
+        priceRef.current.value = props.elementToEdit.price;
         contentRef.current.value = props.elementToEdit.content;
         descriptionRef.current.value = props.elementToEdit.description;
     },[props.elementToEdit.description, props.elementToEdit.name, props.elementToEdit.price,props.elementToEdit.content ])
 
-    const {pictureURL, succesPictureUpload} = useFirestorage(pictureFiles);
+    const {pictureURL, succesPictureUpload, progress, setSuccesPictureUpload, setProgress} = useFirestorage(pictureFiles);
     const editHandler = async (e:React.SyntheticEvent) => {
         e.preventDefault();
         const enteredDescriptionRef: InputRef = descriptionRef.current.value.trim()
         const enteredNamesRef: InputRef = namesRef.current.value.trim();
-        const enteredPriceRef:number = Number(priceRef.current.value);
+        const enteredPriceRef:InputRef = priceRef.current.value;
         const enteredContentRef: InputRef = contentRef.current.value.trim();
         setIsPropertiesReady(true);
         props.elementToEdit.name = enteredNamesRef;
@@ -59,26 +57,36 @@ export const EditPrice:React.FC<EditPriceType> = (props): JSX.Element=>{
         namesRef.current.value = '';
         props.update(props.updateCounter + 1);
     }
+    useEffect(()=>{
+        if(progress == 100 && succesPictureUpload == true){
+            const turnOffSuccess = setTimeout(()=>{
+                setSuccesPictureUpload(false)
+                setProgress(0)
+            },2000)
+            return ()=> clearInterval(turnOffSuccess)
+        }
+    }, [succesPictureUpload,progress, setProgress, setSuccesPictureUpload ])
     const {succesfullUpload, error} = useEditFirestoreDatabase(databaseLocation,propertiesToSend, isPropertiesReady ,idToSend );
     console.log(succesfullUpload)
     {succesfullUpload && props.toggle()}
     return(
         <div className={classes.modal__add}>
             {error && <p className={classes.admin__success}>Niestety wystąpił błąd ! </p>}
-            <button onClick={props.toggle} className={classes.modal__closure}></button>
+            <button onClick={props.toggle} className={classes.modal__closure}>X</button>
             <form className={classes.admin__wrapper} onSubmit={editHandler}>
                 <label className={classes.admin__label} htmlFor='names'>Nazwa Pakietu</label>
                 <input className={classes.admin__input} ref={namesRef} type="text" id="names"  />
                 <label className={classes.admin__label} htmlFor='description'>Opis</label>
-                <input className={classes.admin__input} ref={descriptionRef} type="text" id="description"  />
+                <textarea className={classes.admin__input} ref={descriptionRef}  id="description"  style={{ height:"150px"}}/>
                 <label className={classes.admin__label} htmlFor='price'>Cena</label>
                 <input className={classes.admin__input} ref={priceRef} type="text" id="price" />
                 <label className={classes.admin__label} htmlFor='content'>Z czego się składa pakiet:</label>
-                <input className={classes.admin__input} ref={contentRef} type="text" id="content" />
+                <textarea className={classes.admin__input} ref={contentRef} style={{ height:"150px"}} id="content" required/>
                 <label className={classes.admin__label} htmlFor='file1'>Załącz zdjęcie nr 1</label>
                 <input className={classes.admin__input} onChange={fileUploadHandler} ref={file1Ref} style={{border:'none'}} type="file" id="file1" accept='image/png, image/jpeg' />
                 <label className={classes.admin__label} htmlFor='file2'>Załącz zdjęcie nr 2</label>
                 <input className={classes.admin__input} onChange={fileUploadHandler2} ref={file2Ref} style={{border:'none'}} type="file" id="file2" accept='image/png, image/jpeg' />
+                {progress !=0 && <p className={classes.admin__success}>{`Trwa upload zdjęcia (${Math.round(progress)})%`}</p>}
                 {succesPictureUpload && <p className={classes.admin__success}> Wszystko gotowe do dodania !</p>}
                 <button className={classes.admin__button} type="submit">Zapisz</button>
             </form>

@@ -4,15 +4,12 @@ import classes from './portfolio.module.css';
 import { CustomHeader } from '../../Components/UI/Texts/CustomHeader';
 import { ButtonCalendar } from '../../Components/UI/Buttons/ButtonCalendar';
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
-import { portfolioData } from '../../Data/Data';
 import { PortfolioElementType } from '../../Types/types';
-
-import { useFetchFirestore } from '../../hooks/useFetchFirestore';
+import { collection, getDocs } from 'firebase/firestore';
+import { firebaseFirestore } from './../../Firebase/firebase-config';
 
 import { SinglePortfolio } from '../../Components/SinglePortfolio/SinglePortfolio';
-const Portfolio = () => {
-  const fetchedProperties:PortfolioElementType[] | {}[]= useFetchFirestore('Price');
- 
+const Portfolio:React.FC<{portfolio: PortfolioElementType[]}> = (props):JSX.Element => {
 
 
     return (
@@ -24,10 +21,9 @@ const Portfolio = () => {
             <p className={classes.portfolio__paragraph}>Z pasją chcę wyciągnąć rękę przez obiektyw, aby uchwycić wszystkie emocje tego wyjątkowego dnia. Skupiam się na wszystkim, od świetnych punktów po drobne szczegóły. Każdy element pomaga mi stworzyć wizualną historię, którą możecie Państwo przeglądać w nieskończoność. Cały dzień to historia.</p>
             <div className={classes.portfolio__portfolios}>
 
-            {fetchedProperties.map((el,index)=>{
-              const {name, url,  orientation} = el as PortfolioElementType
+            {props.portfolio?.map((el,index)=>{
               return(
-                <SinglePortfolio id={'/portfolio/'+name.replace(/ /g,'')} key={name.replace(" ", "")+index} url={url} orientation={orientation} name={name} index={index} />
+                <SinglePortfolio id={'/portfolio/'+el.id} key={el.id} url={el.url} orientation={el.orientation} name={el.name} index={index} />
                 )
               })}
               </div>
@@ -42,4 +38,26 @@ const Portfolio = () => {
         </main>
       );
 };
+export async function getStaticProps(){
+    const dataPortfolio = await getDocs(collection(firebaseFirestore, "Portfolio"));
+   
+    const formattedDataPortfolio = dataPortfolio.docs.map(
+      (doc): PortfolioElementType => ({
+        ...(doc.data() as PortfolioElementType),
+        id: doc.id,
+      })
+    );
+  
+      const sortedStoreDataPortfolio = [...formattedDataPortfolio].sort(
+        (a: PortfolioElementType, b: PortfolioElementType) => a.date - b.date
+      );
+  return {
+      props:{
+         portfolio: sortedStoreDataPortfolio
+      },
+      revalidate: 3600
+  }
+};
+
+
 export default Portfolio

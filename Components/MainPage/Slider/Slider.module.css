@@ -77,9 +77,11 @@
     color: #fff
   }
   .slider__paragraph__one{
+    margin-left: 20px;
     max-width: 300px;
   }
   .slider__paragraph__two{
+    margin-right: 20px;
     max-width: 400px;
   }
 } 
@@ -87,7 +89,18 @@
   .slider__description{
     top: 65%;
   }
+  .slider__paragraph__one{
+    margin-left: 80px;
+  }
+  .slider__paragraph__two{
+    margin-right: 80px;
+  }
 } 
 @media(min-width: 1480px){
-
+  .slider__paragraph__one{
+    margin-left: 150px;
+  }
+  .slider__paragraph__two{
+    margin-right: 150px;
+  }
 } 

@@ -1,5 +1,5 @@
 import classes from '../addStyle.module.css'
-import {useRef, useState, } from 'react';
+import {useRef, useState,useEffect } from 'react';
 import { MutableRefObject } from "react";
 import { InputRef } from '../../../Types/types';
 import { useFirestorage } from '../../../hooks/useFirestorage';
@@ -12,7 +12,7 @@ export const AddPortfolio:React.FC<AddAdminType> = (props): JSX.Element=>{
     const [propertiesToSend, setPropertiesToSend ] = useState<PricePropertiesToSendType>({})
     const [databaseLocation] = useState<string>("Portfolio");
     let namesRef = useRef() as MutableRefObject<HTMLInputElement>
-    let descriptionRef = useRef() as MutableRefObject<HTMLInputElement>
+    let descriptionRef = useRef() as MutableRefObject<HTMLTextAreaElement>
     let contentRef = useRef() as MutableRefObject<HTMLInputElement>
     let orientationRef = useRef() as MutableRefObject<HTMLSelectElement>
     let fileRef = useRef() as MutableRefObject<HTMLInputElement>
@@ -23,7 +23,7 @@ export const AddPortfolio:React.FC<AddAdminType> = (props): JSX.Element=>{
         }
     }
     // Uploadowanie zdjęcia
-    const {pictureURL, succesPictureUpload} = useFirestorage(pictureFiles);
+    const {pictureURL, succesPictureUpload, progress, setProgress} = useFirestorage(pictureFiles);
     const addNewHandler = async (e:React.SyntheticEvent) => {
         e.preventDefault();
         const enteredNamesRef: InputRef = namesRef.current.value.trim();
@@ -46,18 +46,26 @@ export const AddPortfolio:React.FC<AddAdminType> = (props): JSX.Element=>{
         fileRef.current.value = '';
         props.update(props.updateCounter + 1);
     }
+    useEffect(()=>{
+        if(progress == 100 && succesPictureUpload == true){
+            const turnOffSuccess = setTimeout(()=>{
+                setProgress(0)
+            },2000)
+            return ()=> clearInterval(turnOffSuccess)
+        }
+    }, [succesPictureUpload,progress, setProgress ])
     const {succesfullUpload, error} = useFirestoreDatabase(databaseLocation,propertiesToSend, isPropertiesReady);
     {succesfullUpload && props.toggle()}
     return(
         <div className={classes.modal__add}>
               {succesfullUpload &&  <p className={classes.admin__success}>Udało się dodać nową opinię ! </p>}
             {error && <p className={classes.admin__success}>Niestety wystąpił błąd ! </p>}
-            <button onClick={props.toggle} className={classes.modal__closure}></button>
+            <button onClick={props.toggle} className={classes.modal__closure}>X</button>
             <form className={classes.admin__wrapper} onSubmit={addNewHandler}>
                 <label className={classes.admin__label} htmlFor='names'>Nazwa Portfolio</label>
                 <input className={classes.admin__input} ref={namesRef} type="text" id="names"  required/>
                 <label className={classes.admin__label} htmlFor='description'>Opis</label>
-                <input className={classes.admin__input} ref={descriptionRef} type="text" id="description"  required/>
+                <textarea className={classes.admin__input} ref={descriptionRef} id="description"  style={{ height:"120px"}} required></textarea>
                 <label className={classes.admin__label} htmlFor='content'>Nagłówek portfolio</label>
                 <input className={classes.admin__input} ref={contentRef} type="text" id="content"  required/>
                 <label className={classes.admin__label} htmlFor='orientation'>Orientacja Zdjęcia</label>
@@ -67,6 +75,7 @@ export const AddPortfolio:React.FC<AddAdminType> = (props): JSX.Element=>{
                 </select>
                 <label className={classes.admin__label} htmlFor='file1'>Załącz zdjęcie nr 1</label>
                 <input className={classes.admin__input} onChange={fileUploadHandler} ref={fileRef} style={{border:'none'}} type="file" id="file" accept='image/png, image/jpeg' required/>
+                {progress !=0 && <p className={classes.admin__success}>{`Trwa upload zdjęcia (${Math.round(progress)})%`}</p>}
                 {succesPictureUpload && <p className={classes.admin__success}> Wszystko gotowe do dodania !</p>}
                 <button className={classes.admin__button} type="submit">Dodaj</button>
             </form>

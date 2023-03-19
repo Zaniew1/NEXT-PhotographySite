@@ -8,8 +8,8 @@ export const OffertPackage:React.FC<OffertPackageType> = (props):JSX.Element => 
     return(
     <div className={`${classes.package__wrapper} ${props.index % 2==0 ? ""  : classes.package__wrapper__left}`}>
         <CustomHeader text={props.name} customClass={classes.package__header}/>
-        <CustomImage customClass={classes.package__image} src={props.picture1} alt={'Kamila Koziara'}/>
-        <CustomImage customClass={classes.package__image__two} src={props.picture2} alt={'Kamila Koziara'}/>
+        <CustomImage customClass={classes.package__image} src={props.picture1} alt={props.name}/>
+        <CustomImage customClass={classes.package__image__two} src={props.picture2} alt={props.name}/>
         <div className={classes.package__text}>
             <p className={classes.package__price}>{`${props.price} PLN`}</p>
             <p className={classes.package__description}>{props.description}</p>

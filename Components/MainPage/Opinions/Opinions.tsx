@@ -1,13 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import classes from './Opinions.module.css';
 import { CustomImage } from '../../UI/Images/CustomImage';
-import { opinionsSlider } from '../../../Data/Data';
 import { SliderNav } from '../../UI/SliderNav/SliderNav';
 import { OpinionElementType } from '../../../Types/types';
 import { useFetchFirestore } from '../../../hooks/useFetchFirestore';
-export const Opinions:React.FC = ():JSX.Element => {
-  const fetchedProperties:OpinionElementType[] | {}[]= useFetchFirestore('Opinion');
-   
+export const Opinions = (props:{data:OpinionElementType[]}):JSX.Element => {
+   const [fetchedProperties] = useState<OpinionElementType[]>(props.data)
     const [index, setIndex] = useState<number>(0);
     useEffect(() => {
         const lastIndex:number = fetchedProperties.length - 1;
@@ -31,7 +29,7 @@ export const Opinions:React.FC = ():JSX.Element => {
         <div className={classes.slider}>
                <div className={classes.opinions__slider__content}>
                 {fetchedProperties.map((el, indexSlide)=>{
-                  const {url, name, description, date } = el as OpinionElementType;
+                  const {url, name, description} = el as OpinionElementType;
                   let position = `${classes.opinions__element__next }`;
                   if(indexSlide === index){
                     position = `${classes.opinions__element__active }`

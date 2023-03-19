@@ -1,5 +1,5 @@
 import classes from '../addStyle.module.css'
-import {useRef, useState, } from 'react';
+import {useRef, useState,useEffect } from 'react';
 import { MutableRefObject } from "react";
 import { InputRef } from '../../../Types/types';
 import { useFirestorage } from '../../../hooks/useFirestorage';
@@ -23,7 +23,7 @@ export const AddGallery:React.FC<AddAdminType> = (props): JSX.Element=>{
     }
     
     // Uploadowanie zdjęcia
-    const {pictureURL, succesPictureUpload} = useFirestorage(pictureFiles);
+    const {pictureURL, succesPictureUpload, progress, setProgress} = useFirestorage(pictureFiles);
     const addNewHandler = async (e:React.SyntheticEvent) => {
         e.preventDefault();
         const enteredOrientationRef: number = Number(orientationRef.current.value);
@@ -41,14 +41,21 @@ export const AddGallery:React.FC<AddAdminType> = (props): JSX.Element=>{
         fileRef.current.value = '';
         props.update(props.updateCounter + 1);
     }
-    console.log(propertiesToSend)
+    useEffect(()=>{
+        if(progress == 100 && succesPictureUpload == true){
+            const turnOffSuccess = setTimeout(()=>{
+                setProgress(0)
+            },2000)
+            return ()=> clearInterval(turnOffSuccess)
+        }
+    }, [succesPictureUpload,progress, setProgress ])
     const {succesfullUpload, error} = useFirestoreDatabase(databaseLocation,propertiesToSend, isPropertiesReady);
     {succesfullUpload && props.toggle()}
     return(
         <div className={classes.modal__add}>
               {succesfullUpload &&  <p className={classes.admin__success}>Udało się dodać nowe zdjęcie ! </p>}
             {error && <p className={classes.admin__success}>Niestety wystąpił błąd ! </p>}
-            <button onClick={props.toggle} className={classes.modal__closure}></button>
+            <button onClick={props.toggle} className={classes.modal__closure}>X</button>
             <form className={classes.admin__wrapper} onSubmit={addNewHandler}>
                 <label className={classes.admin__label} htmlFor='names'>Tytuł zdjęcia</label>
                 <input className={classes.admin__input} ref={namesRef} type="text" id="names" required />
@@ -65,6 +72,7 @@ export const AddGallery:React.FC<AddAdminType> = (props): JSX.Element=>{
                 </select>
                 <label className={classes.admin__label} htmlFor='file'>Załącz zdjęcie</label>
                 <input className={classes.admin__input} onChange={fileUploadHandler} ref={fileRef} style={{border:'none'}} type="file" id="file" accept='image/png, image/jpeg' required/>
+                {progress !=0 && <p className={classes.admin__success}>{`Trwa upload zdjęcia (${Math.round(progress)})%`}</p>}
                 {succesPictureUpload && <p className={classes.admin__success}> Zdjęcie gotowe do dodania !</p>}
                 <button className={classes.admin__button} type="submit">Dodaj</button>
             </form>

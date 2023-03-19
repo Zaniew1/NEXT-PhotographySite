@@ -14,11 +14,12 @@
     left: 50%;
     transform: translate(-50%);
     color: #fff;
-    font-size: 38px;
+    max-width: 800px;
+    font-size: 30px;
 }
 .child__names{
         position: absolute;
-        top: 40%;
+        top: 45%;
         left: 50%;
         transform: translate(-50%);
         color: #fff;
@@ -28,12 +29,13 @@
 }
 .child__description{
     color: #000;
-    font-size: 16px;
+    font-size: 14px;
     font-family: "Lato", sans-serif;
-    text-align: center;
+    column-count:2;
+    text-align: left;
     padding: 50px 30px 10px 30px;
-    line-height: 1.8;
-    max-width: 1200px;
+    line-height: 1.4;
+    max-width: 500px;
     margin: 30px auto;
 }
 .child__wrapper{

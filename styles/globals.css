@@ -11,6 +11,9 @@ a {
   color: inherit;
   text-decoration: none;
 }
+p{
+  font-family: 'Raleway', sans-serif;
+}
 ul {
   list-style-type: none;
   margin: 0;

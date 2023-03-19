@@ -11,10 +11,10 @@ const About:React.FC = ():JSX.Element => {
           <Header black={true}/>
           <BackgroundImage
             classContainer={classes.about__background}
-            src={'/img/3.jpg'} 
-            alt={'Zdjęcie przedstawiające zakochaną parę'} 
+            src={'/img/kamila1.jpg'} 
+            alt={'Zdjęcie przedstawiające sesję Kamili Koziary podczas jej ślubu'} 
             />
-              <p className={classes.about__greet}>CZEŚĆ! MAM NA IMIĘ Kamila! JESTEM FOTOGRAFEM ŚLUBNYM.</p>
+              <p className={classes.about__greet}>CZEŚĆ! MAM NA IMIĘ KAMILA! JESTEM FOTOGRAFEM ŚLUBNYM.</p>
             <AboutInformations/>
             <AboutPassion/>
            <ContactFormWithText text={'POROZMAWIAJMY O TWOIM WYMARZONYM WESELU!'}/>

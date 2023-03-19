@@ -3,6 +3,7 @@
 .about__background{
     height: 130vh;
     position: relative;
+    object-position: left ;
 }
 
 .about__greet{

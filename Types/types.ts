@@ -69,7 +69,7 @@ export type GalleryElementType = {name:string, size:number, orientation: number,
 export type MainElementType = {name:string, id:string, date:number, url:string};
 export type OpinionElementType = {name:string, description: string, id:string, date:number, url:string};
 export type PortfolioElementType = { name:string, description:string, content:string,  id:string, date:number, url:string, orientation:number, pictures:{}[]} 
-export type PriceElementType = {content:string, name:string, description:string, price: number, id:string, date:number, url1:string, url2:string};
+export type PriceElementType = {content:string, name:string, description:string, price: string, id:string, date:number, url1:string, url2:string};
 
 export type blackNav = boolean;
 export type GalleryPicturesType = {

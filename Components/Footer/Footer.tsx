@@ -2,7 +2,6 @@ import classes from "./Footer.module.css";
 import Link from "next/link";
 import { ButtonCalendar } from "../UI/Buttons/ButtonCalendar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFaceAngry } from "@fortawesome/free-solid-svg-icons";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 export const Footer: React.FC = (): JSX.Element => {
   return (
@@ -42,12 +41,8 @@ export const Footer: React.FC = (): JSX.Element => {
               <a href="tel:+48502232699">+48 502 232 699</a>
             </div>
             <div className={classes.footer__icons__wrap}>
-              <div className={classes.footer__icons}>
-                <FontAwesomeIcon icon={faFaceAngry} />
-              </div>
-              <div className={classes.footer__icons}>
-                <FontAwesomeIcon icon={faFaceAngry} />
-              </div>
+              <Link href="https://facebook.com" className={classes.footer__icons}/>
+              <Link href="https://instagram.com" className={classes.footer__icons}/>
             </div>
           </div>
         </div>

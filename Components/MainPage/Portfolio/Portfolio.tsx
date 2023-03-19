@@ -3,12 +3,12 @@ import {Button} from '../../UI/Buttons/Button';
 import { PortfolioSliderDesktop } from './PortfolioSliderDesktop';
 import {PortfolioSliderMobile} from './PortfolioSliderMobile';
 import { UIContext } from '../../../Store/UI-context';
-import { useContext} from "react";
+import { useContext, useState} from "react";
 import { useFetchFirestore } from '../../../hooks/useFetchFirestore';
 import { PortfolioElementType } from '../../../Types/types';
-export const Portfolio:React.FC = () :JSX.Element=>{
+export const Portfolio = (props:{data:PortfolioElementType[]}) :JSX.Element=>{
     const { desktopResolution } = useContext(UIContext);
-    const fetchedProperties:PortfolioElementType[] | {}[]= useFetchFirestore('Portfolio');
+    const [fetchedProperties] = useState<PortfolioElementType[]>(props.data)
     return (
         <div className={classes.portfolio__wrapper}>
             <div className={classes.portfolio__content}>

@@ -3,8 +3,11 @@ import classes from './PortfolioSliderMobile.module.css';
 import { CustomImage } from '../../UI/Images/CustomImage';
 import { SliderNav } from '../../UI/SliderNav/SliderNav';
 import { PortfolioElementType } from '../../../Types/types';
-export const PortfolioSliderMobile:React.FC<{data:PortfolioElementType[] | {}[]}> = (props):JSX.Element => {
+import { useRouter } from 'next/router';
+export const PortfolioSliderMobile:React.FC<{data:PortfolioElementType[]}> = (props):JSX.Element => {
     const [index, setIndex] = useState<number>(0);
+    const router = useRouter();
+
     useEffect(() => {
         const lastIndex:number = props.data.length - 1;
         if (index < 0) {
@@ -17,7 +20,10 @@ export const PortfolioSliderMobile:React.FC<{data:PortfolioElementType[] | {}[]}
     return(
         <div className={classes.slider}>
                <div className={classes.portfolio__slider__content}>
-                {props.data.map((el, indexSlide)=>{
+                {props.data?.map((el, indexSlide)=>{
+                    const navigateProgrammaticlyHandler = () =>{
+                      router.push('portfolio/'+el.id);
+                  }
                   const{url, name} = el as PortfolioElementType
                   let position = `${classes.portfolio__element__next }`;
                   if(indexSlide === index){
@@ -28,7 +34,7 @@ export const PortfolioSliderMobile:React.FC<{data:PortfolioElementType[] | {}[]}
                     position = `${classes.portfolio__element__last }`
                   }
                   return(   
-                    <article className={`${classes.portfolio__element} ${position}`} key={url}>
+                    <article onClick={navigateProgrammaticlyHandler} className={`${classes.portfolio__element} ${position}`} key={url}>
                         <CustomImage customClass={classes.portfolio__image__wrapper}src={url} alt={'Kamila Koziara'}/>
                       <p className={classes.portfolio__names}>{name}</p>
                     </article>
