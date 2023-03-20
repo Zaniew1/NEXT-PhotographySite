@@ -1,7 +1,7 @@
 {
   "name": "react-photography",
   "version": "0.1.0",
-  "homepage": "https://Zaniew1.github.io/React-PhotographySite/",
+  "homepage": "https://zaniew1.github.io/React-PhotographySite/",
   "private": true,
   "scripts": {
     "predeploy": "npm run build",
