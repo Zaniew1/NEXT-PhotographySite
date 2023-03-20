@@ -15,7 +15,7 @@ const Price:React.FC = ():JSX.Element =>{
     const router = useRouter();
     const [modalAddToggle,setModalAddToggle] = useState<boolean>(false);
     const [modalEditToggle,setModalEditToggle] = useState<boolean>(false);
-    const [elementToEdit, setElementToEdit] = useState<PriceElementType>({content:'',name:'', description:'', price: 0, id:'', date:0,  url1:'', url2:''})
+    const [elementToEdit, setElementToEdit] = useState<PriceElementType>({content:'',name:'', description:'', price: '', id:'', date:0,  url1:'', url2:''})
     const deleteElementHandler = async (id:string | undefined) =>{
         if(id !== undefined){
             await deleteDoc(doc(firebaseFirestore, databaseLocation, id))

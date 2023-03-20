@@ -1,6 +1,5 @@
-import { useWidthSize } from "../hooks/useWidthSize";
-import React, { useState, useEffect } from "react";
-import { UiContextType,ContextPropsType, DataContextType } from "../Types/types";
+import React, { useState } from "react";
+import { DataContextType } from "../Types/types";
 
 export const DataContext = React.createContext<DataContextType>({
     dataSlider: {},

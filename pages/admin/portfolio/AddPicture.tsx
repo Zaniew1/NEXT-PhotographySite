@@ -3,13 +3,13 @@ import {useRef, useState, useEffect} from 'react';
 import { MutableRefObject } from "react";
 import { InputRef } from '../../../Types/types';
 import { useFirestorage } from '../../../hooks/useFirestorage';
-import {PortfolioPropertiesToSendType} from '../../../Types/types';
 import { useEditFirestoreDatabase } from '../../../hooks/useEditFirestoreDatabase';
 import { EditPortflioType } from '../../../Types/types';
+type PicturesType = {name: string,size: number,orientation: number,date: number, url: string,}
 export const AddPicture:React.FC<EditPortflioType> = (props): JSX.Element=>{
     const [pictureFiles,setPictureFiles] = useState<File[]>([]);
     const [isPropertiesReady, setIsPropertiesReady ] = useState<boolean>(false)
-    const [propertiesToSend, setPropertiesToSend ] = useState<PortfolioPropertiesToSendType>({})
+    const [propertiesToSend, setPropertiesToSend ] = useState<PicturesType>({name: '',size: 0,orientation: 0,date: 0, url: '',})
     const [databaseLocation] = useState<string>("Portfolio")
     let namesRef = useRef() as MutableRefObject<HTMLInputElement>
     let fileRef = useRef() as MutableRefObject<HTMLInputElement>
@@ -50,7 +50,7 @@ export const AddPicture:React.FC<EditPortflioType> = (props): JSX.Element=>{
         }
     }, [succesPictureUpload,progress, setProgress ])
     useEffect(()=>{
-        if(Object.keys(propertiesToSend).length !== 0 )
+        if(propertiesToSend.url != "" )
         props.elementToEdit.pictures.push(propertiesToSend);
         },[propertiesToSend, props.elementToEdit.pictures])
     const {succesfullUpload, error} = useEditFirestoreDatabase(databaseLocation,props.elementToEdit, isPropertiesReady ,props.elementToEdit.id );

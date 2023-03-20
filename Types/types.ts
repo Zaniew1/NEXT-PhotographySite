@@ -15,6 +15,20 @@ export type UiContextType = {
 export type ContextPropsType = {
   children: React.ReactNode
 }
+export type DataContextType = {
+  dataSlider: {},
+  dataOffer: {},
+  dataOpinion: {},
+  dataGallery: {},
+  dataPortfolio: {},
+  setDataSlider: (data: {}[]) => void,
+  setDataOffer: (data: {}[]) => void,
+  setDataOpinion: (data: {}[]) => void,
+  setDataGallery: (data: {}[]) => void,
+  setDataPortfolio: (data: {}[]) => void,
+}
+
+
 export type UploadProgressType = number
 export type UploadErrorType = string
 export type UploadUrlType = string
@@ -62,13 +76,13 @@ export type EditPriceType = {toggle:()=>void, update:(updateCounter:number)=>voi
 export type OpinionPropertiesToSendType = {name:string, url: string, description:string, id:string, date: number} | {}
 export type MainPropertiesToSendType = {name:string, url: string, id:string, date: number} | {}
 export type GalleryPropertiesToSendType = {name:string, url: string, id:string, date: number, size:number, orientation: number} | {}
-export type PricePropertiesToSendType = {content:string, description:string, price: number, id:string, date:number, url1:string, url2:string} | {};
-export type PortfolioPropertiesToSendType = { name:string, description:string, content:string,  id:string, date:number, url:string, orientation:number, pictures:{}[]} | {};
+export type PricePropertiesToSendType = {content:string, description:string, price: string, id:string, date:number, url1:string, url2:string} | {};
+export type PortfolioPropertiesToSendType = { name:string, description:string, content:string,  id:string, date:number, url:string, orientation:number, pictures:{name:string, size:number, orientation: number,  date:number, url:string}[]} | {};
 
 export type GalleryElementType = {name:string, size:number, orientation: number, id:string, date:number, url:string};
 export type MainElementType = {name:string, id:string, date:number, url:string};
 export type OpinionElementType = {name:string, description: string, id:string, date:number, url:string};
-export type PortfolioElementType = { name:string, description:string, content:string,  id:string, date:number, url:string, orientation:number, pictures:{}[]} 
+export type PortfolioElementType = { name:string, description:string, content:string,  id:string, date:number, url:string, orientation:number, pictures:{name:string, size:number, orientation: number,  date:number, url:string}[]} 
 export type PriceElementType = {content:string, name:string, description:string, price: string, id:string, date:number, url1:string, url2:string};
 
 export type blackNav = boolean;
@@ -92,7 +106,7 @@ export type CustomImageType = {
 export type OffertPackageType = {
   index:number,
   name: string,
-  price: number,
+  price: string,
   description: string,
   content: string,
   picture1: string,
