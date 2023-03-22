@@ -1,16 +1,16 @@
 import classes from '../addStyle.module.css'
-import {useRef, useState, useEffect} from 'react';
+import {useRef, useState,useEffect } from 'react';
 import { MutableRefObject } from "react";
 import { InputRef } from '../../../Types/types';
 import { useFirestorage } from '../../../hooks/useFirestorage';
-import { useEditFirestoreDatabase } from '../../../hooks/useEditFirestoreDatabase';
-import { EditPortflioType } from '../../../Types/types';
-type PicturesType = {name: string,size: number,orientation: number,date: number, url: string,}
-export const AddPicture:React.FC<EditPortflioType> = (props): JSX.Element=>{
+import {GalleryPropertiesToSendType} from '../../../Types/types';
+import { AddAdminType } from '../../../Types/types';
+import { useFirestoreDatabase } from '../../../hooks/useFirestoreDatabase';
+ const AddGallery:React.FC<AddAdminType> = (props): JSX.Element=>{
     const [pictureFiles,setPictureFiles] = useState<File[]>([]);
     const [isPropertiesReady, setIsPropertiesReady ] = useState<boolean>(false)
-    const [propertiesToSend, setPropertiesToSend ] = useState<PicturesType>({name: '',size: 0,orientation: 0,date: 0, url: '',})
-    const [databaseLocation] = useState<string>("Portfolio")
+    const [propertiesToSend, setPropertiesToSend ] = useState<GalleryPropertiesToSendType>({})
+    const [databaseLocation] = useState<string>("Gallery")
     let namesRef = useRef() as MutableRefObject<HTMLInputElement>
     let fileRef = useRef() as MutableRefObject<HTMLInputElement>
     let orientationRef = useRef() as MutableRefObject<HTMLSelectElement>
@@ -21,6 +21,7 @@ export const AddPicture:React.FC<EditPortflioType> = (props): JSX.Element=>{
             setPictureFiles((prevState)=>[...prevState, file])
         }
     }
+    
     // Uploadowanie zdjęcia
     const {pictureURL, succesPictureUpload, progress, setProgress} = useFirestorage(pictureFiles);
     const addNewHandler = async (e:React.SyntheticEvent) => {
@@ -28,7 +29,6 @@ export const AddPicture:React.FC<EditPortflioType> = (props): JSX.Element=>{
         const enteredOrientationRef: number = Number(orientationRef.current.value);
         const enteredSizenRef: number = Number(sizeRef.current.value);
         const enteredNamesRef: InputRef = namesRef.current.value.trim();
-        
         setIsPropertiesReady(true);
         setPropertiesToSend({
             name: enteredNamesRef,
@@ -49,11 +49,7 @@ export const AddPicture:React.FC<EditPortflioType> = (props): JSX.Element=>{
             return ()=> clearInterval(turnOffSuccess)
         }
     }, [succesPictureUpload,progress, setProgress ])
-    useEffect(()=>{
-        if(propertiesToSend.url != "" )
-        props.elementToEdit.pictures.push(propertiesToSend);
-        },[propertiesToSend, props.elementToEdit.pictures])
-    const {succesfullUpload, error} = useEditFirestoreDatabase(databaseLocation,props.elementToEdit, isPropertiesReady ,props.elementToEdit.id );
+    const {succesfullUpload, error} = useFirestoreDatabase(databaseLocation,propertiesToSend, isPropertiesReady);
     {succesfullUpload && props.toggle()}
     return(
         <div className={classes.modal__add}>
@@ -83,3 +79,4 @@ export const AddPicture:React.FC<EditPortflioType> = (props): JSX.Element=>{
         </div>
     )
 }
+export default AddGallery;

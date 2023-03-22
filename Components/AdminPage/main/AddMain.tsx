@@ -6,7 +6,7 @@ import { useFirestorage } from '../../../hooks/useFirestorage';
 import {MainPropertiesToSendType} from '../../../Types/types';
 import { useFirestoreDatabase } from '../../../hooks/useFirestoreDatabase';
 import { AddAdminType } from '../../../Types/types';
-export const AddMain:React.FC<AddAdminType> = (props): JSX.Element=>{
+const AddMain:React.FC<AddAdminType> = (props): JSX.Element=>{
     const [pictureFiles,setPictureFiles] = useState<File[]>([]);
     const [isPropertiesReady, setIsPropertiesReady ] = useState<boolean>(false)
     const [propertiesToSend, setPropertiesToSend ] = useState<MainPropertiesToSendType>({})
@@ -63,3 +63,4 @@ export const AddMain:React.FC<AddAdminType> = (props): JSX.Element=>{
         </div>
     )
 }
+export default AddMain;

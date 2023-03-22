@@ -7,12 +7,14 @@ import { useFirestorage } from '../../../hooks/useFirestorage';
 import {MainPropertiesToSendType} from '../../../Types/types';
 import { EditMainType } from '../../../Types/types';
 import { useEditFirestoreDatabase} from '../../../hooks/useEditFirestoreDatabase';
-export const EditMain:React.FC<EditMainType> = (props): JSX.Element=>{
+const EditMain:React.FC<EditMainType> = (props): JSX.Element=>{
+    const {elementToEdit} = props as EditMainType;
     const [pictureFiles,setPictureFiles] = useState<File[]>([]);
     const [isPropertiesReady, setIsPropertiesReady ] = useState<boolean>(false);
     const [propertiesToSend, setPropertiesToSend ] = useState<MainPropertiesToSendType>({});
     const [databaseLocation] = useState<string>("MainSlider");
-    let idToSend = props.elementToEdit.id
+    let idToSend = elementToEdit?.id ;
+
     let namesRef = useRef() as MutableRefObject<HTMLInputElement>
     let fileRef = useRef() as MutableRefObject<HTMLInputElement>
     const fileUploadHandler = (e:React.ChangeEvent<HTMLInputElement>) => {
@@ -24,17 +26,17 @@ export const EditMain:React.FC<EditMainType> = (props): JSX.Element=>{
     
     // Uploadowanie zdjęcia
     useEffect(()=>{
-        namesRef.current.value = props.elementToEdit.name;
-    },[ props.elementToEdit.name ])
+        namesRef.current.value = elementToEdit?.name;
+    },[ elementToEdit?.name ])
 
     const {pictureURL, succesPictureUpload, progress, setProgress} = useFirestorage(pictureFiles);
     const editHandler = async (e:React.SyntheticEvent) => {
         e.preventDefault();
         const enteredNamesRef: InputRef = namesRef.current.value.trim();
         setIsPropertiesReady(true);
-        props.elementToEdit.name = enteredNamesRef;
-        pictureURL.length !== 0  ? props.elementToEdit.url = pictureURL[0]: props.elementToEdit.url;
-        setPropertiesToSend(props.elementToEdit)
+        elementToEdit.name = enteredNamesRef;
+        pictureURL.length !== 0  ? elementToEdit.url = pictureURL[0]: elementToEdit?.url;
+        setPropertiesToSend(elementToEdit)
         namesRef.current.value = '';
         props.update(props.updateCounter + 1);
     }
@@ -64,5 +66,5 @@ export const EditMain:React.FC<EditMainType> = (props): JSX.Element=>{
         </div>
     )
 }
-
+export default EditMain;
 

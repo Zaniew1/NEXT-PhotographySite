@@ -1,14 +1,14 @@
 import classes from '../main.module.css'
-import { useFetchFirestore } from '../../../hooks/useFetchFirestore';
 import {firebaseFirestore} from '../../../Firebase/firebase-config';
 import {deleteDoc, doc} from 'firebase/firestore';
 import {useState} from 'react';
 import { CustomImage } from '../../../Components/UI/Images/CustomImage';
-import { AddOpinion } from './AddOpinion';
-import { EditOpinion } from './EditOpinion';
+import  AddOpinion  from '../../../Components/AdminPage/opinion/AddOpinion';
+import  EditOpinion  from '../../../Components/AdminPage/opinion/EditOpinion';
 import { useRouter } from 'next/router'
+import { collection, getDocs } from 'firebase/firestore';
 import { OpinionElementType, OpinionPropertiesToSendType } from '../../../Types/types';
-const Opinion:React.FC = ():JSX.Element =>{
+const Opinion:React.FC<{data:OpinionElementType[]}> = (props):JSX.Element =>{
     let databaseLocation:string = "Opinion";
     const router = useRouter();
     const [modalAddToggle,setModalAddToggle] = useState<boolean>(false);
@@ -32,7 +32,6 @@ const Opinion:React.FC = ():JSX.Element =>{
     const toggleEditModal = ()=>{
         setModalEditToggle(!modalEditToggle)
     }
-    const fetchedProperties = useFetchFirestore(databaseLocation, updateFetchedData);
     return(
         <div className={classes.admin__opinion}>
             <button  onClick={()=>{router.back()}}className={classes.button__back}>Powróć</button>
@@ -41,7 +40,7 @@ const Opinion:React.FC = ():JSX.Element =>{
             {modalEditToggle && <EditOpinion toggle={toggleEditModal} updateCounter={updateFetchedData} update={setFetchedData} elementToEdit={elementToEdit}/>}
             {modalAddToggle  &&<div className={classes.admin__opinion__modal__backdrop}></div>}
             {modalEditToggle &&<div className={classes.admin__opinion__modal__backdrop}></div>}
-             {(Array.isArray(fetchedProperties)) && fetchedProperties.length !== 0 && (Object.keys(fetchedProperties[0]).length !== 0 ) && fetchedProperties.map((element:OpinionPropertiesToSendType) =>{
+             {(Array.isArray(props.data)) && props.data.length !== 0 && (Object.keys(props.data[0]).length !== 0 ) && props.data.map((element:OpinionPropertiesToSendType) =>{
                 const {name, id, description, url, date} = element as OpinionElementType;
                 const el = element as OpinionElementType
                 return (
@@ -66,4 +65,25 @@ const Opinion:React.FC = ():JSX.Element =>{
         </div>
     )
 } 
+export async function getStaticProps(){
+    const allCollection = collection(firebaseFirestore, "Opinion");
+      const data = await getDocs(allCollection);
+      const formattedData = data.docs.map(
+        (doc): OpinionElementType => ({
+          ...(doc.data() as OpinionElementType),
+          id: doc.id,
+        })
+      );
+      const sortedStoreData = [...formattedData].sort(
+          (a: OpinionElementType, b: OpinionElementType) => a.date - b.date
+        );
+    return {
+        props:{
+           data: sortedStoreData
+        },
+        revalidate: 3600
+    }
+  };
+
+
 export default Opinion;

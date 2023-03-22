@@ -4,9 +4,9 @@ import {firebaseFirestore} from '../../../Firebase/firebase-config';
 import {deleteDoc, doc} from 'firebase/firestore';
 import {useState, useEffect} from 'react';
 import { CustomImage } from '../../../Components/UI/Images/CustomImage';
-import { AddPortfolio } from './AddPortfolio';
-import { AddPicture } from './AddPicture';
-import { EditPortfolio } from './EditPortfolio';
+import  AddPortfolio  from '../../../Components/AdminPage/portfolio/AddPortfolio';
+import  AddPicture  from '../../../Components/AdminPage/portfolio/AddPicture';
+import  EditPortfolio  from '../../../Components/AdminPage/portfolio/EditPortfolio';
 import { useEditFirestoreDatabase } from '../../../hooks/useEditFirestoreDatabase';
 import { useRouter } from 'next/router';
 import {PortfolioPropertiesToSendType,GalleryElementType } from '../../../Types/types'

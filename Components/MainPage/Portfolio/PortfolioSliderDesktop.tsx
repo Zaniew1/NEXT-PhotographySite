@@ -1,5 +1,4 @@
 import classes from './PortfolioSliderDesktop.module.css';
-import { portfolioData } from '../../../Data/Data';
 import { CustomImage } from '../../UI/Images/CustomImage';
 import { useState, useRef, useEffect } from "react";
 import { SliderNav } from '../../UI/SliderNav/SliderNav';
@@ -50,7 +49,7 @@ export const PortfolioSliderDesktop:React.FC<{data:PortfolioElementType[]}> = (p
           )
           })}
           </div>
-          <SliderNav black={true} index={current} customClass={classes.slider__navigation} length={portfolioData.length} moveLeft={previousSlideHandler} moveRight={nextSlideHandler} counterInvisible={true}/>
+          <SliderNav black={true} index={current} customClass={classes.slider__navigation} length={props.data.length} moveLeft={previousSlideHandler} moveRight={nextSlideHandler} counterInvisible={true}/>
     </div>
    );
 

@@ -1,14 +1,14 @@
 import classes from '../main.module.css'
-import { useFetchFirestore } from '../../../hooks/useFetchFirestore';
 import {firebaseFirestore} from '../../../Firebase/firebase-config';
 import {deleteDoc, doc} from 'firebase/firestore';
 import {useState} from 'react';
 import { CustomImage } from '../../../Components/UI/Images/CustomImage';
-import { AddMain } from './AddMain';
-import { EditMain } from './EditMain';
-import { useRouter } from 'next/router'
+import  AddMain  from '../../../Components/AdminPage/main/AddMain';
+import  EditMain  from '../../../Components/AdminPage/main/EditMain';
+import { useRouter } from 'next/router';
+import { collection, getDocs } from 'firebase/firestore';
 import { MainElementType, MainPropertiesToSendType } from '../../../Types/types';
-const Main:React.FC = ():JSX.Element =>{
+const Main:React.FC<{data:MainElementType[]}> = (props):JSX.Element =>{
     let databaseLocation:string = "MainSlider";
     const router = useRouter();
     const [modalAddToggle,setModalAddToggle] = useState<boolean>(false);
@@ -32,7 +32,6 @@ const Main:React.FC = ():JSX.Element =>{
     const toggleEditModal = ()=>{
         setModalEditToggle(!modalEditToggle)
     }
-    const fetchedProperties = useFetchFirestore(databaseLocation, updateFetchedData);
     return(
         <div className={classes.admin__opinion}>
             <button  onClick={()=>{router.back()}}className={classes.button__back}>Powróć</button>
@@ -41,7 +40,7 @@ const Main:React.FC = ():JSX.Element =>{
             {modalEditToggle && <EditMain toggle={toggleEditModal} updateCounter={updateFetchedData} update={setFetchedData} elementToEdit={elementToEdit}/>}
             {modalAddToggle  &&<div className={classes.admin__opinion__modal__backdrop}></div>}
             {modalEditToggle &&<div className={classes.admin__opinion__modal__backdrop}></div>}
-             {(Array.isArray(fetchedProperties)) && fetchedProperties.length !== 0 && (Object.keys(fetchedProperties[0]).length !== 0 ) && fetchedProperties.map((element:MainPropertiesToSendType) =>{
+             {(Array.isArray(props.data)) && props.data.length !== 0 && (Object.keys(props.data[0]).length !== 0 ) && props.data.map((element:MainPropertiesToSendType) =>{
                 const {name, id, url, date} = element as MainElementType;
                 const el = element as MainElementType;
                 return (
@@ -65,4 +64,24 @@ const Main:React.FC = ():JSX.Element =>{
         </div>
     )
 } 
+export async function getStaticProps(){
+    const allCollection = collection(firebaseFirestore, "MainSlider");
+      const data = await getDocs(allCollection);
+      const formattedData = data.docs.map(
+        (doc): MainElementType => ({
+          ...(doc.data() as MainElementType),
+          id: doc.id,
+        })
+      );
+      const sortedStoreData = [...formattedData].sort(
+          (a: MainElementType, b: MainElementType) => a.date - b.date
+        );
+    return {
+        props:{
+           data: sortedStoreData
+        },
+        revalidate: 3600
+    }
+  };
+
 export default Main;

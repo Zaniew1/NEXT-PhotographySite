@@ -8,12 +8,13 @@ import {PricePropertiesToSendType} from '../../../Types/types';
 import { EditPortflioType } from '../../../Types/types';
 import { useEditFirestoreDatabase} from '../../../hooks/useEditFirestoreDatabase';
 
-export const EditPortfolio:React.FC<EditPortflioType> = (props): JSX.Element=>{
+const EditPortfolio:React.FC<EditPortflioType> = (props): JSX.Element=>{
+    const {elementToEdit} = props as EditPortflioType;
     const [pictureFiles,setPictureFiles] = useState<File[]>([]);
     const [isPropertiesReady, setIsPropertiesReady ] = useState<boolean>(false);
     const [propertiesToSend, setPropertiesToSend ] = useState<PricePropertiesToSendType>({});
     const [databaseLocation] = useState<string>("Portfolio");
-    let idToSend = props.elementToEdit.id;
+    let idToSend = elementToEdit?.id ;
     let namesRef = useRef() as MutableRefObject<HTMLInputElement>
     let descriptionRef = useRef() as MutableRefObject<HTMLTextAreaElement>
     let contentRef = useRef() as MutableRefObject<HTMLInputElement>
@@ -28,11 +29,11 @@ export const EditPortfolio:React.FC<EditPortflioType> = (props): JSX.Element=>{
     }
 
     useEffect(()=>{
-        namesRef.current.value = props.elementToEdit.name;
-        descriptionRef.current.value = props.elementToEdit.description;
-        contentRef.current.value = props.elementToEdit.content;
+        namesRef.current.value = elementToEdit?.name;
+        descriptionRef.current.value = elementToEdit?.description;
+        contentRef.current.value = elementToEdit?.content;
 
-    },[props.elementToEdit.description, props.elementToEdit.name,props.elementToEdit.content ])
+    },[elementToEdit?.description, elementToEdit?.name,elementToEdit?.content ])
 
     const {pictureURL, succesPictureUpload, progress, setProgress} = useFirestorage(pictureFiles);
     const editHandler = async (e:React.SyntheticEvent) => {
@@ -43,12 +44,12 @@ export const EditPortfolio:React.FC<EditPortflioType> = (props): JSX.Element=>{
         const enteredContentRef: InputRef = contentRef.current.value.trim();
 
         setIsPropertiesReady(true);
-        props.elementToEdit.name = enteredNamesRef;
-        props.elementToEdit.description = enteredDescriptionRef;
-        props.elementToEdit.content = enteredContentRef;
-        props.elementToEdit.orientation = Number(enteredOrientationRef);
-        pictureURL.length !== 0  ? props.elementToEdit.url = pictureURL[0]: props.elementToEdit.url;
-        setPropertiesToSend(props.elementToEdit)
+        elementToEdit.name = enteredNamesRef;
+        elementToEdit.description = enteredDescriptionRef;
+        elementToEdit.content = enteredContentRef;
+        elementToEdit.orientation = Number(enteredOrientationRef);
+        pictureURL.length !== 0  ? elementToEdit.url = pictureURL[0]: elementToEdit?.url;
+        setPropertiesToSend(elementToEdit)
         descriptionRef.current.value = '';
         namesRef.current.value = '';
         props.update(props.updateCounter + 1);
@@ -75,7 +76,7 @@ export const EditPortfolio:React.FC<EditPortflioType> = (props): JSX.Element=>{
                 <label className={classes.admin__label} htmlFor='content'>Nagłówek portfolio</label>
                 <input className={classes.admin__input} ref={contentRef} type="text" id="content"  required/>
                 <label className={classes.admin__label} htmlFor='orientation'>Orientacja Zdjęcia</label>
-                <select className={classes.admin__select} ref={orientationRef} defaultValue={props.elementToEdit.orientation} name="orientation" id="orientation" >
+                <select className={classes.admin__select} ref={orientationRef} defaultValue={props.elementToEdit?.orientation} name="orientation" id="orientation" >
                     <option value={0} >Poziome</option>
                     <option value={1}>Pionowe</option>
                 </select>
@@ -88,5 +89,5 @@ export const EditPortfolio:React.FC<EditPortflioType> = (props): JSX.Element=>{
         </div>
     )
 }
-
+export default EditPortfolio;
 

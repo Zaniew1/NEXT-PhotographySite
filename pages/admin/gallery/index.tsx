@@ -4,8 +4,8 @@ import {firebaseFirestore} from '../../../Firebase/firebase-config';
 import {deleteDoc, doc} from 'firebase/firestore';
 import {useState} from 'react';
 import { CustomImage } from '../../../Components/UI/Images/CustomImage';
-import { AddGallery } from './AddGallery';
-import { EditGallery } from './EditGallery';
+import AddGallery  from '../../../Components/AdminPage/gallery/AddGallery';
+import  EditGallery  from '../../../Components/AdminPage/gallery/EditGallery';
 import { useRouter } from 'next/router'
 import { GalleryElementType, GalleryPropertiesToSendType } from '../../../Types/types';
 

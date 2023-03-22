@@ -4,8 +4,8 @@ import {firebaseFirestore} from '../../../Firebase/firebase-config';
 import {deleteDoc, doc} from 'firebase/firestore';
 import {useState} from 'react';
 import { CustomImage } from '../../../Components/UI/Images/CustomImage';
-import { AddPrice } from './AddPrice';
-import { EditPrice } from './EditPrice';
+import  AddPrice  from '../../../Components/AdminPage/price/AddPrice';
+import  EditPrice  from '../../../Components/AdminPage/price/EditPrice';
 import { useRouter } from 'next/router'
 import { PricePropertiesToSendType,PriceElementType } from '../../../Types/types';
 
