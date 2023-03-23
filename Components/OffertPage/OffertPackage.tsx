@@ -14,7 +14,7 @@ export const OffertPackage:React.FC<OffertPackageType> = (props):JSX.Element => 
             <p className={classes.package__price}>{`${props.price} PLN`}</p>
             <p className={classes.package__description}>{props.description}</p>
             <p className={classes.package__line}>Z czego składa się pakiet ?</p>
-            <p className={classes.package__content}>{props.content}</p>
+            <p className={classes.package__description}>{props.content}</p>
             <ButtonCalendar black={false} text="Sprawdź datę" fontAwesome={faCalendar} path="/contact"/>
         </div>
     </div>
