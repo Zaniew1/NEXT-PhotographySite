@@ -11,7 +11,7 @@ const About:React.FC = ():JSX.Element => {
           <Header black={true}/>
           <BackgroundImage
             classContainer={classes.about__background}
-            src={'/img/kamila1.jpg'} 
+            src={'../public/static/images/kamila1.jpg'} 
             alt={'Zdjęcie przedstawiające sesję Kamili Koziary podczas jej ślubu'} 
             />
               <p className={classes.about__greet}>CZEŚĆ! MAM NA IMIĘ KAMILA! JESTEM FOTOGRAFEM ŚLUBNYM.</p>
