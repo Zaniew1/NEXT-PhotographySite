@@ -11,7 +11,7 @@ export const OpinionCard:React.FC = (): JSX.Element =>{
         <div className={classes.card}>
              <div className={classes.card__element} >
                     <Image
-                        src={'/static/images/15.jpg'}
+                        src={'/static/images/kamila1.jpg'}
                         alt={'asd'}
                         layout="fill"
                         objectFit="cover"

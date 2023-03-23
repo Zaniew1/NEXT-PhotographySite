@@ -4,6 +4,8 @@
     height: 50vh;
     margin-bottom: 10px;
     background-image: url("/static/images/kamila1.jpg");
+    background-position: center;
+    background-size: cover;
 }
 
 .contact__wrapper{

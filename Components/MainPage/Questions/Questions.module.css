@@ -41,6 +41,8 @@
 }
 .questions__picture__wrapper{
         background-image: url("/static/images/kamila2.jpg");
+        background-position: center;
+        background-size: cover;
         position: relative;
         width: 90vw;
         height: 90vw;
