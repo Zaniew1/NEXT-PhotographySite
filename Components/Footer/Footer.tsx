@@ -1,7 +1,6 @@
 import classes from "./Footer.module.css";
 import Link from "next/link";
 import { ButtonCalendar } from "../UI/Buttons/ButtonCalendar";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 export const Footer: React.FC = (): JSX.Element => {
   return (

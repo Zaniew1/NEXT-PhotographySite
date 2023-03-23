@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&display=swap');
 .footer {
   display: flex;
-  background-image: url("../../public/img/16.jpg");
+  background-image: url("../../public/static/images/16.jpg");
   background-position: center center;
   
   font-family: "Raleway";
@@ -73,10 +73,10 @@
   height: 30px;
 }
 .footer__icons:nth-child(1){
-  background-image: url("../../public/img/fb.png");
+  background-image: url("../../public/static/images/fb.png");
 }
 .footer__icons:nth-child(2){
-  background-image: url("../../public/img/insta.png");
+  background-image: url("../../public/static/images/insta.png");
 }
 @media (min-width: 1280px){
   .footer__wrapper {

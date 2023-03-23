@@ -6,7 +6,7 @@ import classes from './contact.module.css';
 const Contact:React.FC = ():JSX.Element => { return (
     <main>
       <Header black={true}/>
-      <BackgroundImage classContainer={classes.contact__background} src={'/img/3.jpg'} alt={'Zdjęcie przedstawiające zakochaną parę'} />
+      <BackgroundImage classContainer={classes.contact__background} src={'../public/static/images/3.jpg'} alt={'Zdjęcie przedstawiające zakochaną parę'} />
      <section className={classes.contact__wrapper}>
       <h2 className={classes.contact__header}>
         KONTAKT
