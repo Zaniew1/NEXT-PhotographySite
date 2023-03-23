@@ -11,12 +11,10 @@ export const OpinionCard:React.FC = (): JSX.Element =>{
         <div className={classes.card}>
              <div className={classes.card__element} >
                     <Image
-                        src={'./public/static/images/kamila1.jpg'}
-                        alt={''}
-                        fill
-                        style={{objectFit:"cover"}}
-                        className={classes.card__picture}
-                        
+                        src={'/../public/static/images/kamila1.jpg'}
+                        alt={'asd'}
+                        layout="fill"
+                        objectFit="cover"
                     />
                     <div className={classes.card__paragraph__wrapper}>
                         <p className={classes.card__feedback}>KIND WORDS FROM MY BRIDES & GROOMS</p>

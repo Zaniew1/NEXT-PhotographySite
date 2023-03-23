@@ -19,12 +19,6 @@
     top: 0;
     left: 0;
     background-color: #fff;
-   
-}
-.card__picture{
-    background-image: url("/static/images/kamila1.jpg");
-    background-position: center;
-    background-size: cover;
 }
 .card__element__footer{
     min-height: 230vh;
