@@ -32,7 +32,6 @@
     margin: 40px 40px 0 0 
 }
 .about__picture__wrapper{
-    background-image: url("/static/images/kamila2.jpg");
     position: relative;
     width: 90%;
     aspect-ratio: 4/3;
@@ -42,7 +41,6 @@
     position: absolute;
 }
 .about__picture__wrapper__two{
-    background-image: url("/static/images/kamila3.jpg");
     position: relative;
 }
 @media (min-width: 768px){

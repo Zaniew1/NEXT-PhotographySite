@@ -19,6 +19,7 @@ const Opinion:React.FC<{data:OpinionElementType[]}> = (props) : JSX.Element => {
                      alt={'Piękna para pozująca w sesji ślubnej'}
                      quality={80}
                      fill
+                     priority
                      style={{
                      objectFit: 'cover',
                      }} 
