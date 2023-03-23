@@ -1,4 +1,4 @@
-import classes from '../main.module.css'
+import classes from '../../../Components/AdminPage/main.module.css'
 import {firebaseFirestore} from '../../../Firebase/firebase-config';
 import {deleteDoc, doc} from 'firebase/firestore';
 import {useState} from 'react';

@@ -1,4 +1,4 @@
-import classes from '../main.module.css'
+import classes from '../../../Components/AdminPage/main.module.css'
 import {firebaseFirestore} from '../../../Firebase/firebase-config';
 import {deleteDoc, doc} from 'firebase/firestore';
 import {useState} from 'react';
@@ -8,7 +8,6 @@ import  EditPrice  from '../../../Components/AdminPage/price/EditPrice';
 import { useRouter } from 'next/router'
 import { PricePropertiesToSendType,PriceElementType } from '../../../Types/types';
 import { collection, getDocs } from 'firebase/firestore';
-
 const Price:React.FC<{data:PriceElementType[]}> = (props):JSX.Element =>{
     let databaseLocation:string = "Price";
     const [updateFetchedData,setFetchedData] = useState<number>(0);
@@ -22,7 +21,6 @@ const Price:React.FC<{data:PriceElementType[]}> = (props):JSX.Element =>{
             setFetchedData(updateFetchedData+1);
         }
     }
-
     const editElementHandler = async (element: PriceElementType ) =>{
         setElementToEdit(element);
         toggleEditModal();
