@@ -29,6 +29,7 @@
     margin: 40px 40px 0 0 
 }
 .passion__image__wrapper__one{
+    background-image: url("/static/images/kamila2.jpg");
     position: relative;
     width: 90%;
     max-width: 500px;
@@ -36,6 +37,7 @@
     margin: 20px auto;
 }
 .passion__image__wrapper__two{
+    background-image: url("/static/images/kamila3.jpg");
     display: none;
     position: relative;
     width: 90%;

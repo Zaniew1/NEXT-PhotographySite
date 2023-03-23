@@ -40,6 +40,7 @@
     margin: 40px 0 0 0;
 }
 .questions__picture__wrapper{
+        background-image: url("/static/images/kamila2.jpg");
         position: relative;
         width: 90vw;
         height: 90vw;
