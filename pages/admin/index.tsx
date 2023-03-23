@@ -6,8 +6,8 @@ const Admin: React.FC = ():JSX.Element =>{
     const {loggedIn} = useContext(AuthContext)
     return (
         <>
-        {(loggedIn === false) && <LoginForm/>}
-        {(loggedIn === true) && <UploadAdminPanel/>}
+        {(loggedIn === true) && <LoginForm/>}
+        {(loggedIn === false) && <UploadAdminPanel/>}
         </>
 
     )

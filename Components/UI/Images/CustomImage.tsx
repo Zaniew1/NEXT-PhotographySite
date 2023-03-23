@@ -8,6 +8,7 @@ export const CustomImage:React.FC<CustomImageType> = (props:CustomImageType): JS
             src={props.src}
             alt={props.alt}
             fill
+            priority
             style={{objectFit:"cover"}}
             className={classes.slider__image}
             />
