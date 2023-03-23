@@ -55,7 +55,7 @@ export async function getStaticProps(){
       props:{
          portfolio: sortedStoreDataPortfolio
       },
-      revalidate: 3600
+      revalidate: 5
   }
 };
 

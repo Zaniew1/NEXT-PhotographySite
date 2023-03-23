@@ -3,7 +3,7 @@ import { uploaderEdit } from "../../../Data/Data"
 import { CustomHeader } from "../../UI/Texts/CustomHeader";
 import classes from './UploadAdminPanel.module.css'
 import { UploaderSquare } from "./UploaderSquare";
-export  const UploadAdminPanel: React.FC = (props):JSX.Element =>{
+export  const UploadAdminPanel: React.FC = ():JSX.Element =>{
     return(
         <div className={classes.upload}>
             <div className={classes.upload__header__wrapper}>

@@ -28,9 +28,12 @@ export const LoginForm:React.FC = () => {
         .catch((error)=>{
             const errorCode = error.code;
             const errorMessage = error.message;
+            console.log(errorCode);
+            console.log(errorMessage);
             setError(true);
         });
     };
+
     return(
         <div className={classes.login}>
             <h2 className={classes.login__header}>Zaloguj się </h2>
