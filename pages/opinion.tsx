@@ -15,10 +15,13 @@ const Opinion:React.FC<{data:OpinionElementType[]}> = (props) : JSX.Element => {
           <div className={classes.card}>
              <div className={classes.card__element} >
                     <Image
-                        src={'/../public/img/15.jpg'}
-                        alt={'asd'}
-                        layout="fill"
-                        objectFit="cover"
+                     src={'/static/images/couple.jpg'}
+                     alt={'Piękna para pozująca w sesji ślubnej'}
+                     quality={80}
+                     fill
+                     style={{
+                     objectFit: 'cover',
+                     }} 
                     />
                     <div className={classes.card__paragraph__wrapper}>
                         <p className={classes.card__feedback}>KIND WORDS FROM MY BRIDES & GROOMS</p>

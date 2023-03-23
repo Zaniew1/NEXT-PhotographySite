@@ -38,11 +38,15 @@
     width: 90%;
     font-size: 18px;
     color: #fff;
+
 }
 
 .card__paragraph{
-    font-size: 14px;
+    font-size: 16px;
     padding: 10px 0;
+    font-family: 'Lato', sans-serif;
+    line-height: 1.8;
+    letter-spacing: 1px;
 }
 .card__icon{
     padding-top: 25px;

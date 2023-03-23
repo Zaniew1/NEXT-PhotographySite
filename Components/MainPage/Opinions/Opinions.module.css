@@ -160,6 +160,7 @@
     .opinions__text{
       column-count: 2; 
       column-gap: 30px;
+      max-width: 800px;
      
     }
     .opinions__background{
