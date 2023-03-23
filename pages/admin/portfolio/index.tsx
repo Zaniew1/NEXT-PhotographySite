@@ -9,9 +9,10 @@ import  AddPicture  from '../../../Components/AdminPage/portfolio/AddPicture';
 import  EditPortfolio  from '../../../Components/AdminPage/portfolio/EditPortfolio';
 import { useEditFirestoreDatabase } from '../../../hooks/useEditFirestoreDatabase';
 import { useRouter } from 'next/router';
+import { collection, getDocs } from 'firebase/firestore';
 import {PortfolioPropertiesToSendType,GalleryElementType } from '../../../Types/types'
 type PortfolioElementType = { name:string, description:string,  id:string, date:number, url:string, content: string, orientation:number, pictures:{orientation: number, name: string, date: number, url:string, size: number}[]};
-const Portfolio:React.FC = ():JSX.Element =>{
+const Portfolio:React.FC<{data:PortfolioElementType[]}> = (props):JSX.Element =>{
     let databaseLocation:string = "Portfolio";
     const router = useRouter();
     const [modalAddToggle,setModalAddToggle] = useState<boolean>(false);
@@ -64,8 +65,6 @@ const Portfolio:React.FC = ():JSX.Element =>{
     },[pictureToDelete])
     useEditFirestoreDatabase(databaseLocation, propertiesToSend, isPropertiesReady ,idtoSend);
 
-    const fetchedProperties = useFetchFirestore(databaseLocation, updateFetchedData);
-    console.log(fetchedProperties) 
     return(
         <div className={classes.admin__opinion}>
             <button  onClick={()=>{router.back()}}className={classes.button__back}>Powróć</button>
@@ -76,7 +75,7 @@ const Portfolio:React.FC = ():JSX.Element =>{
             {modalAddPictureToggle  && <div className={classes.admin__opinion__modal__backdrop}></div>}
             {modalAddToggle  &&<div className={classes.admin__opinion__modal__backdrop}></div>}
             {modalEditToggle &&<div className={classes.admin__opinion__modal__backdrop}></div>}
-             { fetchedProperties.length > 0 && fetchedProperties?.map((element:PortfolioElementType|{}) =>{
+             { props.data.length > 0 && props.data?.map((element:PortfolioElementType|{}) =>{
                  const {id, date, description, orientation, url, name, content, pictures} = element as PortfolioElementType;
                  const el = element as PortfolioElementType
                 return (
@@ -130,4 +129,25 @@ const Portfolio:React.FC = ():JSX.Element =>{
         </div>
     )
 } 
+export async function getStaticProps(){
+    const allCollection = collection(firebaseFirestore, "Portfolio");
+      const data = await getDocs(allCollection);
+      const formattedData = data.docs.map(
+        (doc): PortfolioElementType => ({
+          ...(doc.data() as PortfolioElementType),
+          id: doc.id,
+        })
+      );
+      const sortedStoreData = [...formattedData].sort(
+          (a: PortfolioElementType, b: PortfolioElementType) => a.date - b.date
+        );
+    return {
+        props:{
+           data: sortedStoreData
+        },
+        revalidate: 3600
+    }
+  };
+
+
 export default Portfolio;

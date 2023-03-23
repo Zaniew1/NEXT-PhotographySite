@@ -1,5 +1,4 @@
 import classes from '../main.module.css'
-import { useFetchFirestore } from '../../../hooks/useFetchFirestore';
 import {firebaseFirestore} from '../../../Firebase/firebase-config';
 import {deleteDoc, doc} from 'firebase/firestore';
 import {useState} from 'react';
@@ -8,8 +7,9 @@ import AddGallery  from '../../../Components/AdminPage/gallery/AddGallery';
 import  EditGallery  from '../../../Components/AdminPage/gallery/EditGallery';
 import { useRouter } from 'next/router'
 import { GalleryElementType, GalleryPropertiesToSendType } from '../../../Types/types';
+import { collection, getDocs } from 'firebase/firestore';
 
-const Gallery:React.FC = ():JSX.Element =>{
+const Gallery:React.FC<{data:GalleryElementType[]}> = (props):JSX.Element =>{
     let databaseLocation:string = "Gallery";
     const router = useRouter();
     const [modalAddToggle,setModalAddToggle] = useState<boolean>(false);
@@ -33,7 +33,6 @@ const Gallery:React.FC = ():JSX.Element =>{
     const toggleEditModal = ()=>{
         setModalEditToggle(!modalEditToggle)
     }
-    const fetchedProperties = useFetchFirestore(databaseLocation, updateFetchedData);
     return(
         <div className={classes.admin__opinion}>
             <button  onClick={()=>{router.back()}}className={classes.button__back}>Powróć</button>
@@ -42,7 +41,7 @@ const Gallery:React.FC = ():JSX.Element =>{
             {modalEditToggle && <EditGallery toggle={toggleEditModal} updateCounter={updateFetchedData} update={setFetchedData} elementToEdit={elementToEdit}/>}
             {modalAddToggle  &&<div className={classes.admin__opinion__modal__backdrop}></div>}
             {modalEditToggle &&<div className={classes.admin__opinion__modal__backdrop}></div>}
-             {(Array.isArray(fetchedProperties)) && fetchedProperties.length !== 0 && (Object.keys(fetchedProperties[0]).length !== 0 ) && fetchedProperties.map((element:GalleryPropertiesToSendType) =>{
+             {(Array.isArray(props.data)) && props.data.length !== 0 && (Object.keys(props.data[0]).length !== 0 ) && props.data.map((element:GalleryPropertiesToSendType) =>{
                 const {name, id, url, date, size, orientation} = element as GalleryElementType;
                 const el =  element as GalleryElementType
                 return (
@@ -68,4 +67,24 @@ const Gallery:React.FC = ():JSX.Element =>{
         </div>
     )
 } 
+export async function getStaticProps(){
+    const allCollection = collection(firebaseFirestore, "Gallery");
+      const data = await getDocs(allCollection);
+      const formattedData = data.docs.map(
+        (doc): GalleryElementType => ({
+          ...(doc.data() as GalleryElementType),
+          id: doc.id,
+        })
+      );
+      const sortedStoreData = [...formattedData].sort(
+          (a: GalleryElementType, b: GalleryElementType) => a.date - b.date
+        );
+    return {
+        props:{
+           data: sortedStoreData
+        },
+        revalidate: 3600
+    }
+  };
+
 export default Gallery;

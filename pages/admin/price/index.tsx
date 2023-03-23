@@ -1,5 +1,4 @@
 import classes from '../main.module.css'
-import { useFetchFirestore } from '../../../hooks/useFetchFirestore';
 import {firebaseFirestore} from '../../../Firebase/firebase-config';
 import {deleteDoc, doc} from 'firebase/firestore';
 import {useState} from 'react';
@@ -8,8 +7,9 @@ import  AddPrice  from '../../../Components/AdminPage/price/AddPrice';
 import  EditPrice  from '../../../Components/AdminPage/price/EditPrice';
 import { useRouter } from 'next/router'
 import { PricePropertiesToSendType,PriceElementType } from '../../../Types/types';
+import { collection, getDocs } from 'firebase/firestore';
 
-const Price:React.FC = ():JSX.Element =>{
+const Price:React.FC<{data:PriceElementType[]}> = (props):JSX.Element =>{
     let databaseLocation:string = "Price";
     const [updateFetchedData,setFetchedData] = useState<number>(0);
     const router = useRouter();
@@ -33,7 +33,6 @@ const Price:React.FC = ():JSX.Element =>{
     const toggleEditModal = ()=>{
         setModalEditToggle(!modalEditToggle)
     }
-    const fetchedProperties = useFetchFirestore(databaseLocation, updateFetchedData);
     return(
         <div className={classes.admin__opinion}>
             <button  onClick={()=>{router.back()}}className={classes.button__back}>Powróć</button>
@@ -42,7 +41,7 @@ const Price:React.FC = ():JSX.Element =>{
             {modalEditToggle && <EditPrice toggle={toggleEditModal} updateCounter={updateFetchedData} update={setFetchedData} elementToEdit={elementToEdit}/>}
             {modalAddToggle  &&<div className={classes.admin__opinion__modal__backdrop}></div>}
             {modalEditToggle &&<div className={classes.admin__opinion__modal__backdrop}></div>}
-             {(Array.isArray(fetchedProperties)) && fetchedProperties.length !== 0 && (Object.keys(fetchedProperties[0]).length !== 0 ) && fetchedProperties.map((element:PricePropertiesToSendType) =>{
+             {(Array.isArray(props.data)) && props.data.length !== 0 && (Object.keys(props.data[0]).length !== 0 ) && props.data.map((element:PricePropertiesToSendType) =>{
                 const {id, date, description, url1, url2, content, price, name} = element as PriceElementType;
                 const el = element as PriceElementType
                 return (
@@ -73,4 +72,24 @@ const Price:React.FC = ():JSX.Element =>{
         </div>
     )
 } 
+
+export async function getStaticProps(){
+    const allCollection = collection(firebaseFirestore, "Price");
+      const data = await getDocs(allCollection);
+      const formattedData = data.docs.map(
+        (doc): PriceElementType => ({
+          ...(doc.data() as PriceElementType),
+          id: doc.id,
+        })
+      );
+      const sortedStoreData = [...formattedData].sort(
+          (a: PriceElementType, b: PriceElementType) => a.date - b.date
+        );
+    return {
+        props:{
+           data: sortedStoreData
+        },
+        revalidate: 3600
+    }
+  };
 export default Price;
