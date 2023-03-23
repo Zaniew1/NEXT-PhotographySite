@@ -3,7 +3,6 @@
 .about__background{
     height: 130vh;
     position: relative;
-    object-position: left ;
 }
 
 .about__greet{
@@ -13,7 +12,6 @@
     font-family: 'Cinzel', serif;
     font-weight: 400;
     font-size: 38px;
-    color: #fff;
     text-align: center;
     text-transform: uppercase;
     margin: 0 40px;
