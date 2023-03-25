@@ -51,7 +51,7 @@ export const Opinions = (props:{data:OpinionElementType[]}):JSX.Element => {
              
                       </div>
                       <a className={classes.opinions__link} >
-                        <CustomImage className={classes.opinions__image} customClass={classes.opinions__image__wrapper}src={url} alt={name}/>
+                        <CustomImage imageClass={classes.opinions__image} customClass={classes.opinions__image__wrapper}src={url} alt={name}/>
                       </a>
                     </article>
                 )
