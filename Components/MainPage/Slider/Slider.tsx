@@ -39,7 +39,7 @@ const [fetchedProperties] =  useState<MainElementType[]>(props.data)
                         <SliderNav black={false} index={index} length={fetchedProperties.length} customClass={classes.slider__nav} moveLeft={() => setIndex(index - 1)} moveRight={() => setIndex(index + 1)} />
            
                     </div>
-                      <CustomImage className={classes.slider__image} customClass={classes.slider__image__wrapper} src={url} alt={name}/>
+                      <CustomImage imageClass={classes.slider__image} customClass={classes.slider__image__wrapper} src={url} alt={name}/>
                   </article>
               )
               })}
