@@ -1,18 +1,28 @@
-import classes from './LoginForm.module.css';
+import classes from './login.module.css';
 import React, { useState, useRef } from 'react';
 import { MutableRefObject } from "react";
-import { InputRef } from '../../../Types/types';
+import { InputRef } from '../Types/types';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import  {firebaseAuth} from '../../../Firebase/firebase-config';
-import { useContext } from 'react';
-import {AuthContext} from '../../../Store/Auth-context'
+import  {firebaseAuth} from '../Firebase/firebase-config';
+import { useContext, useEffect, useCallback} from 'react';
+import { useRouter } from 'next/router';
+import {AuthContext} from '../Store/Auth-context'
 type LoginError = boolean;
-export const LoginForm:React.FC = () => {
+const Login:React.FC = () => {
 
     const emailRef = useRef() as MutableRefObject<HTMLInputElement>
     const passwordRef = useRef() as MutableRefObject<HTMLInputElement>
     const [error, setError] = useState<LoginError>(false)
-    const {loggedInFunction} = useContext(AuthContext);
+    const {loggedInFunction, loggedIn} = useContext(AuthContext);
+    console.log(loggedIn)
+
+    const router = useRouter();
+        const navigateIfNotLoggedHandler = (isLogged:boolean) =>{
+            if(isLogged){
+                router.push('/admin');
+            }
+     }
+    //  navigateIfNotLoggedHandler()
     const loginHandler = (event:React.FormEvent) => {
         event.preventDefault();
         const enteredEmail:InputRef = emailRef.current.value;
@@ -47,3 +57,4 @@ export const LoginForm:React.FC = () => {
         </div>
     )
 }
+export default Login

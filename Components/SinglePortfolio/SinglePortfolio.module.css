@@ -2,11 +2,8 @@
     width: 100%;
     margin: 40px auto;
 }
-.single:hover{
-    cursor:pointer
-}
+
 .single__image{
-    cursor: pointer;
     transition: 0.3s ease-in-out;
 
 }
@@ -24,15 +21,25 @@
     position: relative;
     aspect-ratio: 16/13;
     width: 100%;
+    transition: .2s ease-in-out;
+    cursor: pointer;
+}
+.single__image__horizontal:hover{
+ scale:1.03
 
 }
 .single__image__vertical{
+    cursor: pointer;
     overflow: hidden;
     position: relative;
     aspect-ratio: 1/1.3;
     width: 100%;
+    transition: .2s ease-in-out;
 }
-
+.single__image__vertical:hover{
+    scale:1.03
+   
+   }
 .single__paragraph{
     padding: 35px 0;
     font-size: 16px;

@@ -25,6 +25,31 @@
 .footer__link {
   color: #000;
 }
+.footer__contact__link{
+  margin-bottom: 15px
+}
+.footer__link::after {
+  width: 60px;
+  display: block;
+  content: "";
+  border-bottom: solid 1px #000;
+  margin-top: 5px;
+  transform: scaleX(0);
+  opacity: 0;
+  transition: opacity transform 0.2s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+.footer__link:hover:after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+.footer__link:after {
+  transform-origin: 0% 50%;
+} 
+.footer__portfolio{
+  display: flex;
+  flex-direction: column;
+}
 .footer__nav {
   display: flex;
 }
@@ -48,6 +73,7 @@
   text-align: center;
 }
 .footer__header {
+
   font-weight: bold;
   text-transform: uppercase;
   margin: 20px 0;
@@ -72,6 +98,10 @@
   color: #fff;
   width: 30px;
   height: 30px;
+}
+.footer__icons:hover{
+  transition: 0.2s ease-in-out;
+  scale: 1.1;
 }
 .footer__icons:nth-child(1){
   background-image: url("/static/images/fb.png");

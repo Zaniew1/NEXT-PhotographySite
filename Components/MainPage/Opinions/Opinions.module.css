@@ -163,10 +163,7 @@
       max-width: 800px;
      
     }
-    .opinions__background{
-      background-color: rgba(0,0,0,0);
-      z-index: -1;
-    }
+
   }
   @media(min-width: 1000px){
     .opinions__element {

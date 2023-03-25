@@ -13,7 +13,11 @@
 .slider__carousel{
   display: flex;
   transition: 0.3s ease-in;
-
+  cursor: pointer;
+  transition: 0.3s ease-in-out
+}
+.slider__carousel:hover .slider__card{
+  transform: scale(1.04)
 }
 .slider__card__container{
   transform: translateY(0);
@@ -27,7 +31,7 @@
 .slider__card{
   width: 95%;
   height: 95%;
-  
+  transition: 0.3s ease-in-out
 }
 
 .slider__navigation {

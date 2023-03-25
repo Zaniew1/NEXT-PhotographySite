@@ -10,10 +10,15 @@ export const Footer: React.FC = (): JSX.Element => {
           <p>jestem artystką, która tworzy piekne i romantyczne portrety!</p>
         </div>
         <div className={classes.footer__pictures}>
-          <p className={classes.footer__header}>Portfolio</p>
-          <Link href="/gallery" className={classes.footer__link}>
-            Galeria
-          </Link>
+          <div className={classes.footer__portfolio}>
+            <p className={classes.footer__header}>Portfolio</p>
+            <Link href="/gallery" className={classes.footer__link}>
+              Galeria
+            </Link>
+            <Link href="/portfolio" className={classes.footer__link}>
+              Portfolio
+            </Link>
+          </div>
         </div>
         <div className={classes.footer__nav}>
           <div className={classes.footer__about}>
@@ -35,9 +40,9 @@ export const Footer: React.FC = (): JSX.Element => {
           </div>
           <div className={classes.footer__contact}>
             <p className={classes.footer__header}>Kontakt</p>
-            <div className={classes.footer__link}>Kamila.Koziara@gmail.com</div>
-            <div className={classes.footer__link}>
-              <a href="tel:+48502232699">+48 502 232 699</a>
+            <div className={classes.footer__contact__link}>Kamila@gmail.com</div>
+            <div className={classes.footer__contact__link}>
+              <a href="tel:+48502232699">+48 599 990 999</a>
             </div>
             <div className={classes.footer__icons__wrap}>
               <Link href="https://facebook.com" className={classes.footer__icons}/>

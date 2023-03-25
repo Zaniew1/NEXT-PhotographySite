@@ -14,26 +14,28 @@ const Opinion:React.FC<{data:OpinionElementType[]}> = (props) : JSX.Element => {
           <Header black={false}/>
           <div className={classes.card}>
              <div className={classes.card__element} >
-                    <Image
-                     src={'/static/images/couple.jpg'}
-                     alt={'Piękna para pozująca w sesji ślubnej'}
-                     quality={80}
-                     fill
-                     priority
-                     style={{
-                     objectFit: 'cover',
-                     }} 
-                    />
-                    <div className={classes.card__paragraph__wrapper}>
-                        <p className={classes.card__feedback}>KIND WORDS FROM MY BRIDES & GROOMS</p>
-                        <p className={classes.card__paragraph}>&quot; Thanks to everyone for your feedback about my wedding or pre-wedding photography. It means a lot to me that you love the images and having a great time with me as your photographer. &quot;</p>
-                        <Arrow customClass={classes.card__icon} direction={'down'} black={false}/>
-                    </div>
+                <div className={classes.card__background}></div>
+                <Image
+                  src={'/static/images/couple.jpg'}
+                  alt={'Piękna para pozująca w sesji ślubnej'}
+                  quality={80}
+                  fill
+                  priority
+                  style={{
+                  objectFit: 'cover',
+                  }} 
+                />
+                <div className={classes.card__paragraph__wrapper}>
+                    <p className={classes.card__feedback}>KIND WORDS FROM MY BRIDES & GROOMS</p>
+                    <p className={classes.card__paragraph}>&quot; Thanks to everyone for your feedback about my wedding or pre-wedding photography. It means a lot to me that you love the images and having a great time with me as your photographer. &quot;</p>
+                    <Arrow customClass={classes.card__icon} direction={'down'} black={false}/>
                 </div>
+              </div>
             {props.data?.map((element:OpinionElementType|{},index:number)=>{
                 const {name, description, url,} = element as OpinionElementType;
                 return(
                 <div className={classes.card__element} key={Math.random()*index} >
+                  <div className={classes.card__background}></div>
                     <Image
                         src={url}
                         alt={name}

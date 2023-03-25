@@ -38,9 +38,17 @@
     width: 90%;
     font-size: 18px;
     color: #fff;
-
+    z-index: 5;
 }
-
+.card__background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.2);
+    z-index: 2;
+}
 .card__paragraph{
     font-size: 16px;
     padding: 10px 0;
@@ -55,7 +63,8 @@
 .card__feedback{
     font-family: 'Cinzel',sans-serif;
     font-size:30px;
-    padding-bottom: 20px
+    padding-bottom: 20px;
+    z-index: 5;
 }
 @media(min-height: 769px) and (orientation: portrait){
     .card__element__footer{

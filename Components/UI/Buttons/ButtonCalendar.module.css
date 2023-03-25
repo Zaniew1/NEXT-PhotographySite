@@ -13,6 +13,9 @@
   font-size: 10px;
   transition: ease-in-out .2s
 }
+.nav__callendar:hover{
+  scale: 1.05
+}
 .nav__callendar__black{
   display: flex;
   justify-content: center;

@@ -6,6 +6,10 @@
     cursor: pointer;
     user-select: none;
     height: 100%;
+    transition: .2s ease-in-out;
+}
+.arrow__wrapper:hover{
+  scale: 1.1
 }
 .arrow__line{
     height: 1px;

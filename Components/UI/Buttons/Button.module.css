@@ -13,3 +13,6 @@
     font-size: 12px;
     transition: ease-in-out .2s
   }
+  .button:hover {
+    scale:1.05
+  }

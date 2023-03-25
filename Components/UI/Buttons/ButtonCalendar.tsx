@@ -15,7 +15,6 @@ export const ButtonCalendar:React.FC<ButtonCallendarType> = (props ): JSX.Elemen
                 width={20}
                 height={20}
                 style={{
-                filter: "invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(80%)",
                 marginRight:"10px",
                 objectFit: 'cover',
                 }} 

@@ -12,11 +12,13 @@ export const PortfolioChild:React.FC<{data:PortfolioElementType}>= (props):JSX.E
     return (
         <section className={classes.child}>
             <Header black={false}/>
+            <div className={classes.child__background}></div>
             <div className={classes.child__image__wrap}>
                 <Image
                     src={url}
                     alt={name}
                     fill
+                    priority
                     style={{objectFit:"cover"}}
                     className={classes.child__image}
                 />

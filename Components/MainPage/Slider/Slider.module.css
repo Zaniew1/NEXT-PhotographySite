@@ -56,8 +56,10 @@
 }
 .slider__paragraph{
   font-family: 'Lato', sans-serif;
-  padding: 40px 20px;
-  line-height: 1.7;
+  padding: 10px 20px;
+  line-height: 1.5;
+  margin: 10px auto 0 auto;
+  max-width: 80%
 }
 
 
