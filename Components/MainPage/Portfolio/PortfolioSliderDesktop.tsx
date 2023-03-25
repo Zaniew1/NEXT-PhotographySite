@@ -43,7 +43,7 @@ export const PortfolioSliderDesktop:React.FC<{data:PortfolioElementType[]}> = (p
             const {name, url} = el as PortfolioElementType
             return( 
               <div onClick={navigateProgrammaticlyHandler} className={classes.slider__card__container} ref={containerRef} key={name+Math.random()*1000}>
-                <CustomImage customClass={classes.slider__card} src={url} alt={name}/>
+                <CustomImage imageClass={classes.slider__picture} customClass={classes.slider__card} src={url} alt={name}/>
                 <p className={classes.slider__names}>{name}</p>
               </div>
           )

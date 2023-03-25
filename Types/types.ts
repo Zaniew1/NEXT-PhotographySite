@@ -101,7 +101,7 @@ export type CustomImageType = {
   key?: string,
   layout?:"fill",
   objectFit?:"cover",
-  className?: string,
+  imageClass?: string,
 }
 export type OffertPackageType = {
   index:number,

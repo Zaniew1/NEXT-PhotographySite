@@ -35,7 +35,7 @@ export const PortfolioSliderMobile:React.FC<{data:PortfolioElementType[]}> = (pr
                   }
                   return(   
                     <article onClick={navigateProgrammaticlyHandler} className={`${classes.portfolio__element} ${position}`} key={url}>
-                        <CustomImage customClass={classes.portfolio__image__wrapper}src={url} alt={'Kamila Koziara'}/>
+                        <CustomImage imageClass={classes.slider__picture} customClass={classes.portfolio__image__wrapper}src={url} alt={'Kamila Koziara'}/>
                       <p className={classes.portfolio__names}>{name}</p>
                     </article>
                 )

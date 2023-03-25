@@ -10,7 +10,7 @@ export const CustomImage:React.FC<CustomImageType> = (props:CustomImageType): JS
             fill
             priority
             style={{objectFit:"cover"}}
-            className={classes.slider__image}
+            className={`${props.imageClass !== "" ? `${classes.slider__image} ${props.imageClass}` : classes.slider__image}`}
             />
         </div>
     )

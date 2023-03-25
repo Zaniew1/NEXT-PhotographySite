@@ -16,9 +16,7 @@
   cursor: pointer;
   transition: 0.3s ease-in-out
 }
-.slider__carousel:hover .slider__card{
-  transform: scale(1.04)
-}
+
 .slider__card__container{
   transform: translateY(0);
   width: 200px;
@@ -33,7 +31,12 @@
   height: 95%;
   transition: 0.3s ease-in-out
 }
-
+.slider__picture{
+  transition: .2s  ease-in-out
+}
+.slider__picture:hover{
+  scale:1.03
+}
 .slider__navigation {
   display: flex;
   justify-content: space-around;
