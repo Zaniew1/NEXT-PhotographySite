@@ -1,9 +1,8 @@
 import classes from "./NavMobile.module.css";
 import { navigation, navigationPictures } from "../../Data/Data";
 import { BooleanElementType } from "../../Types/types";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFaceAngry } from "@fortawesome/free-solid-svg-icons";
 import { ButtonCalendar } from "../UI/Buttons/ButtonCalendar";
+import Link from "next/link";
 import { NavigationLinks } from "../UI/Navigation/NavigationLinks";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 export const NavMobile: React.FC<BooleanElementType> = (props): JSX.Element => {
@@ -50,12 +49,8 @@ export const NavMobile: React.FC<BooleanElementType> = (props): JSX.Element => {
         <ButtonCalendar black={true} text="Sprawdź datę" fontAwesome={faCalendar} path="/contact"/>
       </div>
       <div className={classes.nav__socials}>
-        <div className={classes.socials__icons}>
-          <FontAwesomeIcon icon={faFaceAngry} />
-        </div>
-        <div className={classes.socials__icons}>
-          <FontAwesomeIcon icon={faFaceAngry} />
-        </div>
+      <Link href="https://facebook.com" className={classes.socials__icons}/>
+      <Link href="https://instagram.com" className={classes.socials__icons}/>
       </div>
     </nav>
   );

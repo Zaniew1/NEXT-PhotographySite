@@ -11,7 +11,7 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   font-size: 10px;
-  transition: ease-in-out .2s
+  transition: ease-in-out .2s;
 }
 .nav__callendar:hover{
   scale: 1.05
@@ -29,7 +29,8 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   font-size: 12px;
-  transition: ease-in-out .2s
+  transition: ease-in-out .2s;
+  background-color: transparent;
 }
 .nav__callendar:hover{
   opacity: 0.8
@@ -52,4 +53,5 @@
     border: 1px #000 solid;
     color: #000
   }
+
 }
