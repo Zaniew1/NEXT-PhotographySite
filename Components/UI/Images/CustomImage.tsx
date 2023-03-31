@@ -11,7 +11,7 @@ export const CustomImage:React.FC<CustomImageType> = (props:CustomImageType): JS
             <Image
             src={props.src}
             alt={props.alt}
-            quality={70}
+            quality={30}
             fill
             priority
             style={{objectFit:"cover"}}
@@ -20,7 +20,7 @@ export const CustomImage:React.FC<CustomImageType> = (props:CustomImageType): JS
             : <Image
             src={props.src}
             alt={props.alt}
-            quality={30}
+            quality={10}
             fill
             priority
             style={{objectFit:"cover"}}
