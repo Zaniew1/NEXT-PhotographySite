@@ -20,7 +20,7 @@
 }
 .logo__proffesion {
   color: #fff;
-  font-size: 14px;
+  font-size: 12px;
   text-align: center;
   text-transform: lowercase;
 }
@@ -57,12 +57,22 @@
     border: 0;
   }
   .logo__name {
-    font-size: 24px;
+    font-size: 18px;
     padding-right: 10px;
   }
   .logo__proffesion {
-    font-size: 12px;
+    font-size: 10px;
     text-align: center;
     text-transform: lowercase;
+  }
+}
+@media (min-width: 1420px) {
+  .logo__proffesion {
+    font-size: 12px;
+
+  }
+  .logo__name {
+    font-size: 20px;
+    padding-right: 10px;
   }
 }

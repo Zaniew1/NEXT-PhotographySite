@@ -44,7 +44,7 @@
   width: 300px;
   height: 200px;
   transform: translate(-50%, -50%);
-  z-index: 22222;
+  z-index: 222;
 
 }
 .slider__image__wrapper{
@@ -55,8 +55,9 @@
   padding: -40px 30px
 }
 .slider__paragraph{
+  font-size: 12px;
   font-family: 'Lato', sans-serif;
-  padding: 10px 20px;
+  padding: 20px 20px;
   line-height: 1.5;
   margin: 10px auto 0 auto;
   max-width: 80%
@@ -77,6 +78,10 @@
     width: 100%;
     top: 60%;
     color: #fff
+  }
+  .slider__paragraph{
+    font-size: 14px;
+
   }
   .slider__paragraph__one{
     margin-left: 20px;

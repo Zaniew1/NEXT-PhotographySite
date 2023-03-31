@@ -83,13 +83,11 @@
   .nav__navigation {
     font-size: 10px;
   }
-
-
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1420px) {
   .nav__navigation {
-    font-size: 16px;
+    font-size: 14px;
   }
   .nav__scrolled .nav__li {
     margin: 0 20px;

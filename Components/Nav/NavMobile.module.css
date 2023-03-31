@@ -78,12 +78,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
-  background-color: #333;
   width: 35px;
   height: 35px;
-  color: #fff;
   margin: 0 5px 0 5px;
+  background-size: cover;
+
+}
+
+.socials__icons:hover{
+  transition: 0.2s ease-in-out;
+  scale: 1.1;
+}
+.socials__icons:nth-child(1){
+  background-image: url("/static/images/fb.png");
+}
+.socials__icons:nth-child(2){
+  background-image: url("/static/images/insta.png");
 }
 @media(min-width: 600px){
   .nav__pictures{
