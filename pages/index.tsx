@@ -8,11 +8,22 @@ import {Opinions} from '../Components/MainPage/Opinions/Opinions'
 import {Portfolio} from '../Components/MainPage/Portfolio/Portfolio';
 import { firebaseFirestore } from './../Firebase/firebase-config';
 import { collection, getDocs } from 'firebase/firestore';
+import Head from 'next/head';
 import {MainElementType, PortfolioElementType,OpinionElementType} from '../Types/types'
 const Home:React.FC<{slider:MainElementType[],portfolio:PortfolioElementType[], opinion:OpinionElementType[]}> = (props):JSX.Element => {
   
   return (
     <main>
+        <Head>
+        <title>
+          Portfolio Fotograficzne - Kamila Koziara
+        </title>
+        <meta
+          name="description"
+          content="Zapraszam do zobaczenia mojego portfolio fotograficznego"
+          key="fotografia, fotograf, śląsk, kamila, koziara, ślub, sesja, wesele"
+        />
+      </Head>
       <Header black={false}/>
       <Slider data={props.slider}/>
       <About />

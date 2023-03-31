@@ -50,9 +50,9 @@ export const Opinions = (props:{data:OpinionElementType[]}):JSX.Element => {
                           <SliderNav black={false} index={index} length={fetchedProperties.length} moveLeft={() => setIndex(index - 1)} moveRight={() => setIndex(index + 1)} />
              
                       </div>
-                      <a className={classes.opinions__link} >
+                      <div className={classes.opinions__link} >
                         <CustomImage imageClass={classes.opinions__image} customClass={classes.opinions__image__wrapper}src={url} alt={name}/>
-                      </a>
+                      </div>
                     </article>
                 )
                 })}

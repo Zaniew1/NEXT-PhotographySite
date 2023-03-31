@@ -49,8 +49,8 @@ export const NavMobile: React.FC<BooleanElementType> = (props): JSX.Element => {
         <ButtonCalendar black={true} text="Sprawdź datę" fontAwesome={faCalendar} path="/contact"/>
       </div>
       <div className={classes.nav__socials}>
-      <Link href="https://facebook.com" className={classes.socials__icons}/>
-      <Link href="https://instagram.com" className={classes.socials__icons}/>
+      <Link href="https://facebook.com"  aria-label="Zobacz mój fanpage na Facebooku" className={classes.socials__icons}/>
+      <Link href="https://instagram.com"  aria-label="Zobacz mój fanpage na Instagramie" className={classes.socials__icons}/>
       </div>
     </nav>
   );

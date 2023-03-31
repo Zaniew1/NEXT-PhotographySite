@@ -45,8 +45,8 @@ export const Footer: React.FC = (): JSX.Element => {
               <a href="tel:+48502232699">+48 599 990 999</a>
             </div>
             <div className={classes.footer__icons__wrap}>
-              <Link href="https://facebook.com" className={classes.footer__icons}/>
-              <Link href="https://instagram.com" className={classes.footer__icons}/>
+              <Link href="https://facebook.com" aria-label="Zobacz mój fanpage na Facebooku" className={classes.footer__icons}/>
+              <Link href="https://instagram.com" aria-label="Zobacz mój fanpage na Instagramie" className={classes.footer__icons}/>
             </div>
           </div>
         </div>
