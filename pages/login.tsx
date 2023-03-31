@@ -14,14 +14,13 @@ const Login:React.FC = () => {
     const passwordRef = useRef() as MutableRefObject<HTMLInputElement>
     const [error, setError] = useState<LoginError>(false)
     const {loggedInFunction, loggedIn} = useContext(AuthContext);
-    console.log(loggedIn)
-
     const router = useRouter();
-        const navigateIfNotLoggedHandler = (isLogged:boolean) =>{
-            if(isLogged){
-                router.push('/admin');
-            }
-     }
+    useEffect(()=>{
+        if(loggedIn){
+            router.push('/admin');
+        }
+    },[loggedIn, router])
+      
     //  navigateIfNotLoggedHandler()
     const loginHandler = (event:React.FormEvent) => {
         event.preventDefault();

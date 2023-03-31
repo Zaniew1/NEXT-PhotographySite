@@ -61,7 +61,7 @@ export async function getStaticProps(){
         opinion:sortedStoreDataOpinion,
         slider: sortedStoreDataSlider
       },
-      revalidate: 3600
+      revalidate: 60
   }
 };
 

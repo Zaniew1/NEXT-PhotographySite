@@ -8,8 +8,10 @@ import  EditGallery  from '../../../Components/AdminPage/gallery/EditGallery';
 import { useRouter } from 'next/router'
 import { GalleryElementType, GalleryPropertiesToSendType } from '../../../Types/types';
 import { collection, getDocs } from 'firebase/firestore';
-
+import { useContext, useEffect} from 'react';
+import {AuthContext} from '../../../Store/Auth-context';
 const Gallery:React.FC<{data:GalleryElementType[]}> = (props):JSX.Element =>{
+    const {loggedIn} = useContext(AuthContext);
     let databaseLocation:string = "Gallery";
     const router = useRouter();
     const [modalAddToggle,setModalAddToggle] = useState<boolean>(false);
@@ -22,7 +24,11 @@ const Gallery:React.FC<{data:GalleryElementType[]}> = (props):JSX.Element =>{
             setFetchedData(updateFetchedData+1);
         }
     }
-
+    useEffect(()=>{
+        if(!loggedIn){
+            router.push('/login');
+        }
+    },[loggedIn, router])
     const editElementHandler = async (element: GalleryElementType ) =>{
         setElementToEdit(element);
         toggleEditModal();
@@ -83,7 +89,7 @@ export async function getStaticProps(){
         props:{
            data: sortedStoreData
         },
-        revalidate: 3600
+        revalidate: 60
     }
   };
 

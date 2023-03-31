@@ -8,7 +8,10 @@ import  EditPrice  from '../../../Components/AdminPage/price/EditPrice';
 import { useRouter } from 'next/router'
 import { PricePropertiesToSendType,PriceElementType } from '../../../Types/types';
 import { collection, getDocs } from 'firebase/firestore';
+import { useContext, useEffect} from 'react';
+import {AuthContext} from '../../../Store/Auth-context';
 const Price:React.FC<{data:PriceElementType[]}> = (props):JSX.Element =>{
+    const {loggedIn} = useContext(AuthContext);
     let databaseLocation:string = "Price";
     const [updateFetchedData,setFetchedData] = useState<number>(0);
     const router = useRouter();
@@ -21,6 +24,11 @@ const Price:React.FC<{data:PriceElementType[]}> = (props):JSX.Element =>{
             setFetchedData(updateFetchedData+1);
         }
     }
+    useEffect(()=>{
+        if(!loggedIn){
+            router.push('/login');
+        }
+    },[loggedIn, router])
     const editElementHandler = async (element: PriceElementType ) =>{
         setElementToEdit(element);
         toggleEditModal();
@@ -87,7 +95,7 @@ export async function getStaticProps(){
         props:{
            data: sortedStoreData
         },
-        revalidate: 3600
+        revalidate: 60
     }
   };
 export default Price;

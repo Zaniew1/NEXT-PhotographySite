@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {AuthContextType, ContextPropsType} from '../Types/types'
 export const AuthContext = React.createContext<AuthContextType>({
   loggedIn: false,
-  loggedInFunction: (loggedIn: boolean) => {},
+  loggedInFunction: () => {},
 });
 
 export const AuthContextProvider = (props: ContextPropsType) => {

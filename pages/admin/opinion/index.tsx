@@ -7,8 +7,11 @@ import  AddOpinion  from '../../../Components/AdminPage/opinion/AddOpinion';
 import  EditOpinion  from '../../../Components/AdminPage/opinion/EditOpinion';
 import { useRouter } from 'next/router'
 import { collection, getDocs } from 'firebase/firestore';
+import { useContext, useEffect} from 'react';
+import {AuthContext} from '../../../Store/Auth-context';
 import { OpinionElementType, OpinionPropertiesToSendType } from '../../../Types/types';
 const Opinion:React.FC<{data:OpinionElementType[]}> = (props):JSX.Element =>{
+    const {loggedIn} = useContext(AuthContext);
     let databaseLocation:string = "Opinion";
     const router = useRouter();
     const [modalAddToggle,setModalAddToggle] = useState<boolean>(false);
@@ -21,7 +24,11 @@ const Opinion:React.FC<{data:OpinionElementType[]}> = (props):JSX.Element =>{
             setFetchedData(updateFetchedData+1);
         }
     }
-
+    useEffect(()=>{
+        if(!loggedIn){
+            router.push('/login');
+        }
+    },[loggedIn, router])
     const editElementHandler = async (element: OpinionElementType ) =>{
         setElementToEdit(element);
         toggleEditModal();
@@ -81,7 +88,7 @@ export async function getStaticProps(){
         props:{
            data: sortedStoreData
         },
-        revalidate: 3600
+        revalidate: 60
     }
   };
 

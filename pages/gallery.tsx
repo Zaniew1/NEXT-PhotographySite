@@ -51,7 +51,7 @@ export async function getStaticProps(){
          gallery: sortedStoreDataGallery,
          portfolio: sortedStoreDataPortfolio
       },
-      revalidate: 3600
+      revalidate: 60
   }
 };
 export default Gallery;

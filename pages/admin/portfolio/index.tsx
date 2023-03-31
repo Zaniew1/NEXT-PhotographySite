@@ -1,7 +1,7 @@
 import classes from '../../../Components/AdminPage/main.module.css'
 import {firebaseFirestore} from '../../../Firebase/firebase-config';
 import {deleteDoc, doc} from 'firebase/firestore';
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
 import { CustomImage } from '../../../Components/UI/Images/CustomImage';
 import  AddPortfolio  from '../../../Components/AdminPage/portfolio/AddPortfolio';
 import  AddPicture  from '../../../Components/AdminPage/portfolio/AddPicture';
@@ -9,6 +9,7 @@ import  EditPortfolio  from '../../../Components/AdminPage/portfolio/EditPortfol
 import { useEditFirestoreDatabase } from '../../../hooks/useEditFirestoreDatabase';
 import { useRouter } from 'next/router';
 import { collection, getDocs } from 'firebase/firestore';
+import {AuthContext} from '../../../Store/Auth-context';
 import {PortfolioPropertiesToSendType,GalleryElementType } from '../../../Types/types'
 type PortfolioElementType = { name:string, description:string,  id:string, date:number, url:string, content: string, orientation:number, pictures:{orientation: number, name: string, date: number, url:string, size: number}[]};
 const Portfolio:React.FC<{data:PortfolioElementType[]}> = (props):JSX.Element =>{
@@ -23,13 +24,18 @@ const Portfolio:React.FC<{data:PortfolioElementType[]}> = (props):JSX.Element =>
     const [propertiesToSend, setPropertiesToSend ] = useState<PortfolioPropertiesToSendType>({});
     const [pictureToDelete, setPictureToDelete] = useState<{element:PortfolioElementType, picture:GalleryElementType}>({element:{name:'', description:'', content:'', orientation: 0, id:'', date:0,  url:'', pictures:[] }, picture:{name:'', size:0, orientation: 0, id:'', date:0, url:''}})
     const [idtoSend, setIdToSend ] = useState<string>('');
+    const {loggedIn} = useContext(AuthContext);
     const deleteElementHandler = async (id:string | undefined) =>{
         if(id !== undefined){
             await deleteDoc(doc(firebaseFirestore, databaseLocation, id))
             setFetchedData(updateFetchedData+1);
         }
     }
-
+        useEffect(()=>{
+            if(!loggedIn){
+                router.push('/login');
+            }
+        },[loggedIn, router])
     const editElementHandler = (element: PortfolioElementType ) =>{
         setElementToEdit(element);
         toggleEditModal();
@@ -144,7 +150,7 @@ export async function getStaticProps(){
         props:{
            data: sortedStoreData
         },
-        revalidate: 3600
+        revalidate: 60
     }
   };
 

@@ -53,7 +53,7 @@ export async function getStaticProps(){
       props:{
          data: sortedStoreData
       },
-      revalidate: 3600
+      revalidate: 60
   }
 };
 

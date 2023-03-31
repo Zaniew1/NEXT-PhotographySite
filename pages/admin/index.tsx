@@ -8,17 +8,13 @@ import { UploaderSquare } from "./../../Components/AdminPage/Uploader/UploaderSq
 
 const Admin: React.FC = ():JSX.Element =>{
     const {loggedIn} = useContext(AuthContext)
-    console.log(loggedIn)
     const router = useRouter();
-        const navigateIfNotLoggedHandler = useCallback((isLogged:boolean) =>{
-            if(isLogged){
-                router.push('/login');
-            }
-     }, [router]);
-     useEffect(()=>{
-
-         navigateIfNotLoggedHandler(loggedIn);
-     },[loggedIn, navigateIfNotLoggedHandler])
+    useEffect(()=>{
+        if(!loggedIn){
+            router.push('/login');
+        }
+    },[loggedIn, router])
+         
     return (
         <div className={classes.upload}>
         <div className={classes.upload__header__wrapper}>
