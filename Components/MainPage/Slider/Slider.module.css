@@ -1,6 +1,8 @@
 .slider {
   width: 100vw;
   height: 100vh;
+  background-color: #fff;
+
 }
 .slider__slider__content {
   width: 100vw;
@@ -53,7 +55,6 @@
 }
 .slider__description{
   padding: -40px 30px;
-  background-color: #fff;
 }
 .slider__paragraph{
   font-size: 12px;
