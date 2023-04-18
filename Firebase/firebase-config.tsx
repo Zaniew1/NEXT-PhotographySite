@@ -3,12 +3,12 @@ import {getStorage} from 'firebase/storage';
 import {getFirestore} from'firebase/firestore';
 import {getAuth} from 'firebase/auth';
 const firebaseConfig = {
-  apiKey: "AIzaSyA4bRI_AJIqel0pdZTzZWpYEUlpJtFFtBU",
+  apiKey: process.env.REACT_APP_FIREBASE_KEY,
   authDomain: "react-photography-c6b2f.firebaseapp.com",
   projectId: "react-photography-c6b2f",
   storageBucket: "react-photography-c6b2f.appspot.com",
   messagingSenderId: "9911131058",
-  appId: "1:9911131058:web:4269b821e02e16baa8a2ab",
+  appId: process.env.REACT_APP_FIREBASE_ID,
   measurementId: "G-D7PVTCJL2R"
 };
 export const app = initializeApp(firebaseConfig);
