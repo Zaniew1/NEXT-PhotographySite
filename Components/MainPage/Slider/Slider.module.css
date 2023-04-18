@@ -52,7 +52,8 @@
   height: 100%;
 }
 .slider__description{
-  padding: -40px 30px
+  padding: -40px 30px;
+  background-color: #fff;
 }
 .slider__paragraph{
   font-size: 12px;
