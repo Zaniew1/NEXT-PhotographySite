@@ -26,10 +26,7 @@
     color: #000;
 
 }
-.passion__button{
-    color:#000;
-    border: 1px solid #000;
-}
+
 .passion__button__wrapper{
     display:flex;
     width: 100%;

@@ -7,9 +7,10 @@
     align-items: flex-start;
     justify-content: center;
     background-color: #f2f0ec;
-    margin: 30px 0;
     }
-
+.about__overlap{
+    margin: 30px 0;
+}
 .about__greetting{
     display: none;
     font-family: 'Cinzel', serif;

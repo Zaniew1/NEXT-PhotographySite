@@ -8,7 +8,7 @@ import { AboutPassion } from "../Components/AboutPage/AboutPassion";
 const About:React.FC = ():JSX.Element => {
     return (
         <main className={classes.about}>
-          <Header black={false}/>
+          <Header black={true}/>
           <BackgroundImage
             classContainer={classes.about__background}
             src={'/static/images/kamila.jpg'} 
