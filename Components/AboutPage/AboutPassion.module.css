@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     margin: 0 15px 50px 15px;
+    background-color: #fff;
 
 }
 .passion__header{
@@ -12,6 +13,7 @@
     font-weight: 500;
     margin: 30px 0 ;
     font-size: 28px;
+    color: #000;
 }
 .passion__image__wrap{
     width: 100%;
@@ -21,12 +23,18 @@
     padding: 10px 0;
     font-size: 17px;
     line-height: 1.6;
+    color: #000;
+
+}
+.passion__button{
+    color:#000;
+    border: 1px solid #000;
 }
 .passion__button__wrapper{
     display:flex;
     width: 100%;
     justify-content: flex-end;
-    margin: 40px 40px 0 0 
+    margin: 40px 40px 0 0;
 }
 .passion__image__wrapper__one{
     position: relative;

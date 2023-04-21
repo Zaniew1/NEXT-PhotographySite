@@ -7,6 +7,7 @@
     width: 300px;
     margin: 0 auto;
     color: #000;
+    font-weight: 300;
 
 }
 .portfolio__paragraph{
@@ -36,6 +37,8 @@
     align-items: center;
     width: 100%;
     margin: 20px auto 50px auto;
+    color: #000;
+    background-color: #fff;
 }
 @media(min-width: 1000px){
     .portfolio__portfolios{

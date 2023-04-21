@@ -30,7 +30,7 @@ const Portfolio:React.FC<{portfolio: PortfolioElementType[]}> = (props):JSX.Elem
             <CustomHeader customClass={classes.portfolio__header} text={'Fotografia ślubna'}/>
             <p className={classes.portfolio__paragraph}>Od pierwszego pocałunku do pierwszego tańca, od przysięgi po przemówienia, są to chwile, których nigdy nie da się zapomnieć. Są także takie momenty, których nigdy nie da się zobaczyć pod czas gwaru weselnego. Staram się to wszystko ogarnąć, uchwycić każdą chwilę.</p>
             <div className={classes.portfolio__button__wrap}>
-                <ButtonCalendar black={false} text="Sprawdź Datę" fontAwesome={faCalendar} path="/contact"/>
+                <ButtonCalendar black={true} text="Sprawdź Datę" fontAwesome={faCalendar} path="/contact"/>
             </div>
 
           </section>
