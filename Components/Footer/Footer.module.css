@@ -76,13 +76,18 @@
   text-align: center;
 }
 .footer__header {
-
+  font-weight: 300;
+  text-transform: uppercase;
+  margin: 20px 0;
+  color: #000;
+  font-family: 'Cinzel', serif;
+}
+.footer__section {
   font-weight: bold;
   text-transform: uppercase;
   margin: 20px 0;
   color: #000;
   font-family: 'Cinzel', serif;
-
 }
 .footer__link {
   font-weight: 400;

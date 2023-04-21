@@ -7,11 +7,11 @@ export const Footer: React.FC = (): JSX.Element => {
     <footer className={classes.footer}>
       <div className={classes.footer__wrapper}>
         <div className={classes.footer__description}>
-          <p>jestem artystką, która tworzy piekne i romantyczne portrety!</p>
+          <p className={classes.footer__header}>jestem artystką, która tworzy piekne i romantyczne portrety!</p>
         </div>
         <div className={classes.footer__pictures}>
           <div className={classes.footer__portfolio}>
-            <p className={classes.footer__header}>Portfolio</p>
+            <p className={classes.footer__section}>Portfolio</p>
             <Link href="/gallery" className={classes.footer__link}>
               Galeria
             </Link>
@@ -22,7 +22,7 @@ export const Footer: React.FC = (): JSX.Element => {
         </div>
         <div className={classes.footer__nav}>
           <div className={classes.footer__about}>
-            <p className={classes.footer__header}>O Mnie</p>
+            <p className={classes.footer__section}>O Mnie</p>
             <ul>
               <li className={classes.footer__link}>
                 <Link href="/opinion">Opinie</Link>
@@ -39,7 +39,7 @@ export const Footer: React.FC = (): JSX.Element => {
             </ul>
           </div>
           <div className={classes.footer__contact}>
-            <p className={classes.footer__header}>Kontakt</p>
+            <p className={classes.footer__section}>Kontakt</p>
             <div className={classes.footer__contact__link}>Kamila@gmail.com</div>
             <div className={classes.footer__contact__link}>
               <a href="tel:+48502232699">+48 599 990 999</a>
