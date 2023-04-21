@@ -3,9 +3,15 @@ import { navigation, navigationPictures } from "../../Data/Data";
 import { BooleanElementType } from "../../Types/types";
 import { ButtonCalendar } from "../UI/Buttons/ButtonCalendar";
 import Link from "next/link";
+import { useContext } from "react";
+import { UIContext } from "../../Store/UI-context";
 import { NavigationLinks } from "../UI/Navigation/NavigationLinks";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 export const NavMobile: React.FC<BooleanElementType> = (props): JSX.Element => {
+  const { drop, dropDownNav } = useContext(UIContext);
+  const TurnOffDropDonwNav = () =>{
+    dropDownNav(true) 
+  }
   return (
     <nav
     
@@ -45,7 +51,7 @@ export const NavMobile: React.FC<BooleanElementType> = (props): JSX.Element => {
           })}
         </ul>
       </div>
-      <div className={classes.nav__date}>
+      <div className={classes.nav__date} onClick={()=>dropDownNav(!drop)}>
         <ButtonCalendar black={true} text="Sprawdź datę" fontAwesome={faCalendar} path="/contact"/>
       </div>
       <div className={classes.nav__socials}>
