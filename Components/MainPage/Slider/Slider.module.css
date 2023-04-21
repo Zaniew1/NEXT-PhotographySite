@@ -55,6 +55,7 @@
 }
 .slider__description{
   padding: -40px 30px;
+  color: #000;
 }
 .slider__paragraph{
   font-size: 12px;
@@ -62,7 +63,8 @@
   padding: 20px 20px;
   line-height: 1.5;
   margin: 10px auto 0 auto;
-  max-width: 80%
+  max-width: 80%;
+  color: #000;
 }
 
 

@@ -1,11 +1,10 @@
 .slider {
     width: 100vw;
-    margin: 5rem auto;
+    margin: 7rem auto;
     background-color: #fff;
   }
   .opinions__slider__content {
     margin: 0 auto;
-    margin-top: 4rem;
     width: 100vw;
     height: 650px;
     text-align: center;

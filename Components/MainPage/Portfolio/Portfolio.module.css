@@ -4,6 +4,7 @@
     justify-content: center;
     flex-direction: column;
     width: 90vw;
+    color: #000;
 }
 .portfolio__wrapper{
     display:flex;
@@ -43,6 +44,7 @@
     font-size: 24px;
     padding: 20px 0 ;
     text-transform: uppercase;
+    color: #000;
 }
     @media(min-width: 769px){
         .portfolio__wrapper{

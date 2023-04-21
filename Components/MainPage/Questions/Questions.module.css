@@ -2,7 +2,7 @@
 .questions__wrapper{
     width: 100%;
     background-color: #fff;
-
+    color: #000;
 }
 .questions__width{
     display: flex;
