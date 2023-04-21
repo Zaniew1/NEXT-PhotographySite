@@ -13,9 +13,9 @@ const Portfolio:React.FC<{portfolio: PortfolioElementType[]}> = (props):JSX.Elem
 
 
     return (
-        <main>
+        <main className={classes.portfolio}>
           <Header black={true}/>
-          <section className={classes.portfolio}>
+          <section className={classes.portfolio__wrapper}>
             <CustomHeader customClass={classes.portfolio__header} text={'Portfolio'}/>
             <p className={classes.portfolio__paragraph}>Jako fotograf ślubny moją misją jest tworzenie pięknych, ponadczasowych i naturalnych fotografii, które można zachować na wieczność.</p>
             <p className={classes.portfolio__paragraph}>Z pasją chcę wyciągnąć rękę przez obiektyw, aby uchwycić wszystkie emocje tego wyjątkowego dnia. Skupiam się na wszystkim, od świetnych punktów po drobne szczegóły. Każdy element pomaga mi stworzyć wizualną historię, którą możecie Państwo przeglądać w nieskończoność. Cały dzień to historia.</p>

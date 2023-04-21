@@ -1,6 +1,9 @@
 .portfolio{
     background-color: #fff;
-    margin-bottom: 60px;
+}
+.portfolio__wrapper{
+    margin: 40px 0 ;
+    background-color: #fff;
 }
 .portfolio__header{
     padding-top: 120px;
