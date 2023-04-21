@@ -5,6 +5,8 @@
     align-items: center;
     flex-direction: column;
     background-color: #f2f0ec;
+    color:#000;
+
 }
 .about__contact__header{
     font-size: 26px;
@@ -14,12 +16,13 @@
     font-weight: 200;
     padding: 30px 30px;
     text-align: center;
+    color:#000;
+
 }
 @media(min-width: 768px){
 
     .about__contact__header{
         max-width: 600px;
-
         font-size: 36px;
     }
 }

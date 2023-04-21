@@ -1,6 +1,7 @@
 .single{
     width: 100%;
     margin: 40px auto;
+    background-color: #fff;
 }
 
 .single__image{
@@ -45,6 +46,8 @@
     font-size: 16px;
     font-weight: bold;
     font-family: "Lato", sans-serif;
+    color: #000;
+
 }
 
 @media(min-width: 1000px){

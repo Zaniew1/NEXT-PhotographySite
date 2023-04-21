@@ -1,3 +1,6 @@
+.contact{
+    background-color: #fff;
+}
 .contact__background{
     position: relative;
     width: 100vw;
@@ -13,7 +16,9 @@
     flex-direction: column;
     width: 95%;
     margin: 15px auto;
-    position: static
+    position: static;
+    background-color: #fff;
+
 }
 .contact__header{
     font-weight: 300;

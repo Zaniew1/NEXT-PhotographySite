@@ -3,6 +3,8 @@
 .about__background{
     height: 130vh;
     position: relative;
+    background-color: #fff;
+
 }
 
 .about__greet{
@@ -15,6 +17,7 @@
     text-align: center;
     text-transform: uppercase;
     margin: 0 40px;
+    color: #000;
 }
 
 @media(min-width: 768px){

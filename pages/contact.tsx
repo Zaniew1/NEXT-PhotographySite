@@ -4,7 +4,7 @@ import { Footer} from './../Components/Footer/Footer';
 import { BackgroundImage } from "../Components/UI/Images/BackgroundImage";
 import classes from './contact.module.css';
 const Contact:React.FC = ():JSX.Element => { return (
-    <main>
+    <main className={classes.contact}>
       <Header black={true}/>
       <BackgroundImage classContainer={classes.contact__background} src={'/static/images/kamila.jpg'} alt={'Zdjęcie przedstawiające zakochaną parę'} />
      <section className={classes.contact__wrapper}>

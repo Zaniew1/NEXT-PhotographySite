@@ -1,5 +1,7 @@
 .offert{
     width: 100vw;
+    background-color: #fff;
+    color: #000;
 }
 .offert__content{
     display: flex;
@@ -8,13 +10,17 @@
     flex-direction: column;
     width: 100%;
     padding: 180px 20px 50px 20px;
+    color: #000;
+
 }
 .offert__header{
     font-size: 34px;
+    color: #000;
     max-width: 700px
 }
 .offert__paragraph{
     text-align: center;
+    color: #000;
     line-height: 1.5;
     letter-spacing: 1;
     font-family: 'lato', sans-serif;
