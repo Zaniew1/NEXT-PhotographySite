@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&display=swap');
-
+.about{
+    background-color: #fff;
+}
 .about__background{
     height: 130vh;
     position: relative;

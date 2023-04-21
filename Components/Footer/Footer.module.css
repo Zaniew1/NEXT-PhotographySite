@@ -80,6 +80,8 @@
   text-transform: uppercase;
   margin: 20px 0;
   color: #000;
+  font-family: 'Cinzel', serif;
+
 }
 .footer__link {
   font-weight: 400;
