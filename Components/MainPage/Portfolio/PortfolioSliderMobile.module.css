@@ -2,6 +2,7 @@
     width: 100vw;
     margin: 0 auto 4rem auto;
     position: relative;
+    background-color: #fff;
   }
   .portfolio__slider__content {
     margin: 0 auto;
@@ -12,6 +13,8 @@
     position: relative;
     display: flex;
     overflow: hidden;
+    background-color: #fff;
+
   }
   .portfolio__element {
     display:flex;
