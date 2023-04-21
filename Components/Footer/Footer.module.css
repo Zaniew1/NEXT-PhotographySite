@@ -21,6 +21,7 @@
 }
 .footer__contact {
   width: 50%;
+  color: #000;
 }
 .footer__link {
   color: #000;
@@ -58,6 +59,7 @@
   font-weight:400;
   font-size: 26px;
   text-transform: uppercase;
+  color: #000;
 }
 .footer__check {
   display: flex;
@@ -69,7 +71,7 @@
 .footer__copyright {
   font-size: 14px;
   opacity: 0.6;
-
+  color: #ccc;
   text-align: center;
 }
 .footer__header {
@@ -77,6 +79,7 @@
   font-weight: bold;
   text-transform: uppercase;
   margin: 20px 0;
+  color: #000;
 }
 .footer__link {
   font-weight: 400;

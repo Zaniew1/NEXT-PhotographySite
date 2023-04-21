@@ -9,6 +9,14 @@
   z-index: 99;
   transition: ease 0.8s;
 }
+.header__callendar__icon__wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+}
 .header__scrolled {
   padding: 10px;
   background-color: #fff;
@@ -19,9 +27,68 @@
   margin-left: 5vw;
   margin-right: 20px;
 }
-.button__wrapper {
+.header__button__wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 50px;
+}
+.header__callendar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  border-radius: 20px;
+  color: #fff;
+  opacity: 1;
+  border: 1px #fff solid;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 10px;
+  transition: ease-in-out .2s;
+}
+.header__callendar__black{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  border-radius: 20px;
+  color: #000;
+  opacity: 1;
+  border: 1px #000 solid;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 10px;
+  transition: ease-in-out .2s;
+}
+.header__callendar:hover{
+  scale: 1.05
+}
+.header__callendar__black{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  border-radius: 20px;
+  color: #000;
+  border: 1px #000 solid;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 10px;
+  transition: ease-in-out .2s;
+  background-color: transparent;
+}
+.header__callendar:hover{
+  opacity: 0.8
+}
+.header__callendar__scrolled{
+  opacity: 1;
+  color: #000;
+  border: 1px #000 solid;
 }

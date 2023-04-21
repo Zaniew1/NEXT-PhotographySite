@@ -1,24 +1,15 @@
 import classes from "./ButtonCalendar.module.css";
 import Link from "next/link";
-import Image from 'next/image'
-import { useScrollChecker } from "../../../hooks/useScrollChecker";
 import { ButtonCallendarType } from "../../../Types/types";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCalendarDays } from '@fortawesome/free-solid-svg-icons'
 export const ButtonCalendar:React.FC<ButtonCallendarType> = (props ): JSX.Element => {
-  const pageY = useScrollChecker();
+
   return (
-    <Link className={pageY <= 1 ? `${props.black ? classes.nav__callendar__black : classes.nav__callendar}` : `${classes.nav__callendar} ${classes.nav__callendar__scrolled}`} href={props.path}>
-      <Image 
-                className={classes.background__image} 
-                src={'/static/images/callendar.png'} 
-                alt={'Ikona Kalendarza'}
-                quality={50}
-                width={20}
-                height={20}
-                style={{
-                marginRight:"10px",
-                objectFit: 'cover',
-                }} 
-            />
+    <Link className={`${props.black ? classes.nav__callendar__black : classes.nav__callendar}`} href={props.path}>
+            <div className={classes.button__callendar__icon__wrapper} >
+              <FontAwesomeIcon className={`${!props.black ? classes.callendar__icon : classes.callendar__icon__black}`}  icon={faCalendarDays} />
+            </div>
       {props.text}
     </Link>
   );

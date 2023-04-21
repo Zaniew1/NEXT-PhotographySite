@@ -1,6 +1,7 @@
 .slider {
   width: 100vw;
   height: 100vh;
+  background-color: #fff;
 
 }
 .slider__slider__content {
@@ -8,7 +9,7 @@
   height: 50vh;
   text-align: center;
   position: relative;
-  display: flex;
+  display: flex; 
   overflow: hidden;
 
 }
@@ -67,6 +68,9 @@
 
 
 @media(min-width: 768px){
+  .slider{
+    background-color: none;
+  }
   .slider__slider__content{
     height: 100vh;
   }

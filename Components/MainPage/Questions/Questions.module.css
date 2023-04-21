@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&display=swap');
 .questions__wrapper{
     width: 100%;
+    background-color: #fff;
+
 }
 .questions__width{
     display: flex;
@@ -22,6 +24,7 @@
     font-weight: 500;
     margin: 20px 0 ;
     font-size: 28px;
+    color: #000;
 }
 .questions__image__wrap{
     width: 100%;
@@ -32,6 +35,7 @@
     font-size: 13px;
     font-family: 'Lato', sans-serif;
     line-height: 1.7;
+    color: #000;
 }
 .questions__button__wrapper{
     display:flex;
