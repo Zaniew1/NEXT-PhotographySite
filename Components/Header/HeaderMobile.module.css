@@ -46,7 +46,8 @@
   background-color: #000;
 }
 .burger__active__black.burger {
-  background-color: #fff;
+  background-color: transparent;
+
 }
 .wrapper__burger__black .burger::after{
   background-color: #000;

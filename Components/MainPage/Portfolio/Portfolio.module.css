@@ -5,6 +5,8 @@
     flex-direction: column;
     width: 90vw;
     color: #000;
+    background-color: #fff;
+
 }
 .portfolio__wrapper{
     display:flex;
@@ -12,7 +14,9 @@
     align-items: center;
     flex-direction: column;
     position: relative;
+    margin: 60px 0 ;
     background-color: #fff;
+
 
 }
 .portfolio__content{

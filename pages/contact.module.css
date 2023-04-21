@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&display=swap');
 .contact{
     background-color: #fff;
 }
@@ -6,7 +7,6 @@
     width: 100vw;
     height: 50vh;
     margin-bottom: 10px;
-    /* background-image: url("/static/images/kamila1.jpg"); */
     background-position: center;
     background-size: cover;
 }
@@ -24,10 +24,13 @@
     font-weight: 300;
     font-size: 38px;
     margin: 5px 0 25px 0 ;
+    color: #000;
+    font-family: 'Cinzel', sans-serif;
 }
 .contact__description{
     font-family: 'lato', sans-serif;
     text-align: justify;
+    color: #000;
 }
 .contact__contact{
     display: flex;
