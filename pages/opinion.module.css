@@ -37,7 +37,7 @@
     transform: translate(-50%, -50%);
     max-width: 600px;
     width: 90%;
-    font-size: 18px;
+    font-size: 14px;
     color: #fff;
     z-index: 5;
 }
@@ -88,6 +88,7 @@
 @media(min-width: 1280px){
     .card__paragraph__wrapper{
         left: 25%;
+        font-size: 18px;
     }
     .card__element__footer{
         min-height: 150vh;
