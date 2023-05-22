@@ -3,7 +3,7 @@ import {getStorage} from 'firebase/storage';
 import {getFirestore} from'firebase/firestore';
 import {getAuth} from 'firebase/auth';
 const firebaseConfig = {
-  apiKey: String("AIzaSyA4bRI_AJIqel0pdZTzZWpYEUlpJtFFtBU"),
+  apiKey: String(process.env.REACT_APP_FIREBASE_KEY),
   authDomain: "react-photography-c6b2f.firebaseapp.com",
   projectId: "react-photography-c6b2f",
   storageBucket: "react-photography-c6b2f.appspot.com",
