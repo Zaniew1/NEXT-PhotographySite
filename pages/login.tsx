@@ -4,7 +4,7 @@ import { MutableRefObject } from "react";
 import { InputRef } from '../Types/types';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import  {firebaseAuth} from '../Firebase/firebase-config';
-import { useContext, useEffect, useCallback} from 'react';
+import { useContext, useEffect} from 'react';
 import { useRouter } from 'next/router';
 import {AuthContext} from '../Store/Auth-context'
 type LoginError = boolean;
@@ -26,6 +26,8 @@ const Login:React.FC = () => {
         event.preventDefault();
         const enteredEmail:InputRef = emailRef.current.value;
         const enteredPassword:InputRef = passwordRef.current.value;
+        console.log(enteredEmail);
+        console.log(enteredPassword);
         signInWithEmailAndPassword(firebaseAuth, enteredEmail, enteredPassword)
         .then((userCredentials)=>{
             const user = userCredentials.user;
@@ -45,9 +47,9 @@ const Login:React.FC = () => {
     return(
         <div className={classes.login}>
             <h2 className={classes.login__header}>Zaloguj się </h2>
-            <form className={classes.login__form} onSubmit={loginHandler}>
+            <form className={classes.login__form}  onSubmit={loginHandler}>
                 <label  className={classes.login__label}htmlFor='email' >Email</label>
-                <input  className={classes.login__input}type='email' id='email' ref={emailRef}/>
+                <input  className={classes.login__input}  type='email' id='email' ref={emailRef}/>
                 <label  className={classes.login__label}htmlFor='password'>Hasło</label>
                 <input  className={classes.login__input}type='password' id='password' ref={passwordRef}/>
                 <button className={classes.login__button} type='submit'>Zaloguj</button>

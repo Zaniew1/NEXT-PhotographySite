@@ -33,7 +33,6 @@ export const useFirestorage = (pictureFiles:File[]) => {
                         });
                     });
                 })
-        // }
     },[pictureFiles ])
     return {pictureURL, succesPictureUpload, progress, setProgress, setSuccesPictureUpload}
 }
