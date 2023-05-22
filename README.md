@@ -1,14 +1,29 @@
 # React - PhotographySite
 
 ## Spis Treści
-* [General info](#Wprowadzenie )
-* [Technologies](#technologies)
-* [Setup](#setup)
-* [Testing](#testing)
-* [Sources](#sources)
+- [React - PhotographySite](#react---photographysite)
+  - [Spis Treści](#spis-treści)
+  - [General info](#general-info)
+  - [Technologies](#technologies)
+  - [Setup](#setup)
+  - [Features](#features)
+  - [Testing](#testing)
+  - [Sources](#sources)
+  - [Getting Started](#getting-started)
 
 ## General info 
-  Ten projekt został stworzony jako strona wizytówka fotografa, zawiera wiele funkcjonalności.
+  
+This project was created as a photographer's business card website, it contains many functionalities.
+
+## Technologies
+   - React
+   - Typescript
+   - Next
+   - CSS
+   - Firebase
+## Setup 
+
+## Features
   Front features: 
    - Two types of responsive sliders;
    - Parralax effect (opinion page);
@@ -17,22 +32,11 @@
    - Server side redering (Next);
    - Adding, editing and deleting photos, with different parameters like size , orientation, description (Firebase Storage and Firebase Database);
    - Logging in to an admin page (Firebase Auth);
-   - 
-
-## Technologies
-   - React
-   - Typescript
-   - Next
-   - CSS
-   - Firebase
-## Setup
-
-## Features
-
+   - Editing price list, adding new elements
 ## Testing
    To test CRUD features please navigatge to https://react-photography-site.vercel.app/login and log in with the details below:
-   - login : admin
-   - password : admin
+   - login : admin@gmail.com 
+   - password : admin1
   
 ## Sources
   This app was created thanks to Max Schwazmuller's course "Next & React", and PedroTech channel on youtube and his firebase tutorial "CRUD Tutorial Using React + Firebase"
