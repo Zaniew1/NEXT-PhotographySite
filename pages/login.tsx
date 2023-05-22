@@ -20,14 +20,10 @@ const Login:React.FC = () => {
             router.push('/admin');
         }
     },[loggedIn, router])
-      
-    //  navigateIfNotLoggedHandler()
     const loginHandler = (event:React.FormEvent) => {
         event.preventDefault();
         const enteredEmail:InputRef = emailRef.current.value;
         const enteredPassword:InputRef = passwordRef.current.value;
-        console.log(enteredEmail);
-        console.log(enteredPassword);
         signInWithEmailAndPassword(firebaseAuth, enteredEmail, enteredPassword)
         .then((userCredentials)=>{
             const user = userCredentials.user;
