@@ -1,8 +1,8 @@
 # React - PhotographySite
 
-## Spis Treści
+## Contents
 - [React - PhotographySite](#react---photographysite)
-  - [Spis Treści](#spis-treści)
+  - [Contents](#spis-treści)
   - [General info](#general-info)
   - [Technologies](#technologies)
   - [Setup](#setup)
